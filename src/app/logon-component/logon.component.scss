@@ -6,6 +6,15 @@
     align-items: center;
 }
 
+section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .dialog {
     @include flex-column;
     justify-content: space-around;
@@ -31,7 +40,6 @@
         color: black;
         text-align: center;
     }
-
 }
 
 .sign-in-area {
@@ -39,32 +47,6 @@
     width: 500px;
     height: 222px;
     justify-content: space-between;
-
-    input {
-        all: unset;
-        width: 100%;
-        height: 60px;
-        background-color: $bg-color;
-        border-radius: 100px;
-        border: solid 1px $bg-color;
-        transition: border 0.2s ease-in-out;
-        color: black;
-        caret-color: black;
-        font-size: 18px;
-
-        &:hover {
-            border: solid 1px $text-gray;
-        }
-
-        &:focus {
-            border: solid 1px $purple-3;
-            font-weight: bold;
-
-            &::placeholder {
-                color: transparent;
-            }
-        }
-    }
 
     #mail-input {
         background-image: url('../../assets/icons/mail-icon-grey.svg');
@@ -100,7 +82,7 @@ span {
     text-align: center;
     line-height: 32px;
     border-radius: 30px;
-    transition: background-color 0.2s ease-in-out, font-weight 0.2s ease-in-out;
+    transition: background-color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
 
     &:hover {
         cursor: pointer;
@@ -131,15 +113,67 @@ span {
 }
 
 .sign-in-button-area {
-    @include flex-column;
     width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
 
-    .google-button{
+
+    .google-btn {
         all: unset;
+        @include flex-center;
         width: 100%;
         height: 60px;
+        color: $purple-1;
+        gap: 16px;
         background-color: $bg-color;
         border-radius: 100px;
+        border: solid 1px transparent;
+
+        &:hover {
+            cursor: pointer;
+            font-weight: 700;
+            border: solid 1px $purple-1;
+        }
     }
 
+    .primary-btn {
+        width: 137px;
+    }
+
+    .secondary-btn {
+        width: 153px;
+    }
+
+}
+
+.link-area {
+    gap: 32px;
+    @include flex-center;
+
+    .link-container {
+        @include flex-center;
+        height: 42px;
+        color: $purple-2;
+        border-radius: 30px;
+
+        &:hover {
+            cursor: pointer;
+            font-weight: bold;
+            border: solid 1px $light-purple;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .legal-notice {
+        width: 121px;
+    }
+
+    .privacy {
+        width: 133px;
+    }
 }
