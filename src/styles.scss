@@ -1,5 +1,5 @@
-@import './app/shared/css/variables';
-@import './app/shared/css/fonts';
+@use 'app/shared/css/variables' as *;
+@use 'app/shared/css/fonts' as *;
 
 * {
     margin: 0;
