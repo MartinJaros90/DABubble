@@ -10,4 +10,10 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {}
+export class AppComponent {
+  showSplash = true;
+
+  onAnimationComplete() {
+    this.showSplash = false;
+  }
+}
