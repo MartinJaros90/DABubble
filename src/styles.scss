@@ -31,3 +31,91 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.primary-btn {
+    all: unset;
+    height: 49px;
+    min-width: 116px;
+    @include flex-center;
+    font-weight: 700;
+    background-color: $purple-1;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $purple-2;
+    }
+
+    &:active {
+        background-color: $purple-1;
+    }
+
+    &:disabled {
+        cursor: auto;
+        background-color: $text-gray;
+    }
+}
+
+.secondary-btn {
+    all: unset;
+    height: 49px;
+    min-width: 116px;
+    border: solid 1px $purple-2;
+    @include flex-center;
+    font-weight: 700;
+    background-color: white;
+    color: $purple-1;
+    border-radius: 25px;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $purple-3;
+        color: white;
+    }
+
+    &:active {
+        background-color: $purple-1;
+    }
+
+    &:disabled {
+        color: $text-gray;
+        border: solid 1px $text-gray;
+    }
+
+    &:disabled:hover {
+        background-color: white;
+        color: $text-gray;
+        border: solid 1px $text-gray;
+        cursor: auto;
+    }
+}
+
+
+input {
+    all: unset;
+    width: 100%;
+    height: 60px;
+    background-color: $bg-color;
+    border-radius: 100px;
+    border: solid 1px transparent;
+    transition: border 0.2s ease-in-out;
+    color: black;
+    caret-color: black;
+    font-size: 18px;
+
+    &:hover {
+        border: solid 1px $text-gray;
+    }
+
+    &:focus {
+        border: solid 1px $purple-3;
+        font-weight: bold;
+
+        &::placeholder {
+            color: transparent;
+        }
+    }
+}

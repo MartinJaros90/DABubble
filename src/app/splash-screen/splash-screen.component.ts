@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./splash-screen.component.scss'],
 })
 export class SplashScreenComponent implements OnInit {
+  @Output() animationComplete = new EventEmitter<void>();
+
   showLogo = false;
   showText = false;
   startAnimation = false;
@@ -30,5 +32,9 @@ export class SplashScreenComponent implements OnInit {
     setTimeout(() => {
       this.hideBackground = true;
     }, 3000);
+
+    setTimeout(() => {
+      this.animationComplete.emit();
+    }, 4200);
   }
 }
