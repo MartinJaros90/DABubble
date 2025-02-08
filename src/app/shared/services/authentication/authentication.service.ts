@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, User } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, User } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -16,8 +16,13 @@ export class AuthenticationService {
     });
   }
 
-  async signUp(email: string, password: string) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
+  async signUp(email: string, password: string, fullName: string) {
+    const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+    if (userCredential.user) {
+      await updateProfile(userCredential.user, { displayName: fullName });
+      this.userSubject.next(userCredential.user);
+    }
+    return userCredential;
   }
 
   async signIn(email: string, password: string) {
