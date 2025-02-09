@@ -10,9 +10,18 @@ import { Component } from '@angular/core';
 export class MyProfileCardComponent {
 
   profileData = {
-    avatar: 1,
+    avatar: 4,
     name: 'Frederik Beck',
     email: 'mail@frederik-beck.com'
+  }
+
+  avatarUrl = 'assets/lukas-icons/profile-card/avatar-' + this.profileData.avatar + '.svg';
+
+
+  ngOnInit() {
+
+
+        
   }
 
 }
