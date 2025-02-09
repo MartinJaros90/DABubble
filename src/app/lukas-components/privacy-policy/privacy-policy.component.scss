@@ -1,0 +1,111 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content {
+    width: 100%;
+
+    height: 100vh;
+
+    background-color: #ECEEFE;
+    position: relative;
+    color: black;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    width: 242px;
+    height: 70px;
+
+    img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.logo-text {
+    color: black;
+    font-size: 32.42px;
+    font-weight: bold;
+}
+
+.impressum-div {
+    background-color: white;
+    width: 676px;
+    height: 469px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    position: relative;
+
+    img {
+        width: 40px;
+    }
+
+    span {
+        color: #444DF2;
+        font-size: 46px;
+        font-weight: 700;
+    }
+}
+
+.arrow-div {
+    position: absolute;
+    top: 32px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    svg {
+        transition: scale 125ms ease-in-out;
+    }
+
+    path {
+        transition: fill 125ms ease-in-out;
+    }
+
+    &:hover {
+        background-color: #ECEEFE;
+
+        svg {
+            scale: 1.1;
+        }
+
+        path {
+            fill: #444DF2;
+        }
+    }
+}
+
+.text-div-outer {
+    overflow: auto;
+    width: 100%;
+    height: 74%;
+    scrollbar-color: #ECEEFE white;
+}
+
+.text-div {
+    width: 84.8%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-line {
+    display: flex;
+    color: #444DF2;
+    font-weight: 700;
+}
+
+.topic-text {
+    padding-left: 2.3em;
+}
