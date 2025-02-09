@@ -1,4 +1,4 @@
-<section>
+<section class="sectiond">
     <form #loginForm="ngForm" class="dialog" (ngSubmit)="signIn()">
       <div class="welcome-text">
         <h2>Anmeldung</h2>
@@ -35,7 +35,7 @@
         <button type="submit" class="submit-button">
           Anmelden
         </button>
-        <a [routerLink]="['/']" routerLinkActive="router-link-active">singUp</a>
+        <a [routerLink]="['/logon/signup']" routerLinkActive="router-link-active">singUp</a>
         
       </div>
     </form>
