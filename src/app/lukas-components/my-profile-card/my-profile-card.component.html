@@ -30,10 +30,26 @@
 
     <div class="name-div">
 
-        <div><span>{{profileData.name}}</span><span>Bearbeiten</span></div>
+        <div class="name-div-a"><span>{{profileData.name}}</span><span>Bearbeiten</span></div>
 
-        <div>
+        <div class="name-div-b">
             <img src="assets/lukas-icons/profile-card/profile-card-active-i.svg" />
+        </div>
+
+        <div class="edit" *ngIf="edit">
+            <div class="edit-name-a">
+                <img src="assets/lukas-icons/profile-card/edit-profile-card-icon.svg" />
+                <span>Vollständiger Name</span>
+            </div>
+
+            <div class="edit-name-b">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Outline form field</mat-label>
+                    <input matInput placeholder="Placeholder">
+                </mat-form-field>
+
+            </div>
         </div>
 
     </div>
@@ -42,9 +58,17 @@
     <div class="email-div-outer">
         <div class="email-div">
             <img src="assets/lukas-icons/profile-card/profile-card-email.svg" />
-            
+
             <div>{{profileData.email}}</div>
         </div>
+
+        <div class="edit center" *ngIf="edit">
+            <div class="edit-buttons-div">
+
+
+            </div>
+        </div>
+
     </div>
 
 
