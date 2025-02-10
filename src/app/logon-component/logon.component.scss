@@ -10,6 +10,12 @@
         height: 769px;
         border-radius: 30px;
         background-color: white;
+        position: unset;
+        inset-inline: unset;
+        color: unset;
+        margin: auto;
+        border: unset;
+        padding: 1em;
     }
 
     .welcome-text {
@@ -69,6 +75,7 @@
         font-size: 18px;
         font-weight: 400;
         text-align: center;
+        align-self: center;
         line-height: 32px;
         border-radius: 30px;
         transition: background-color 0.1s ease-in-out, font-weight 0.1s ease-in-out;

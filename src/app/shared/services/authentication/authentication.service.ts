@@ -39,8 +39,20 @@ export class AuthenticationService {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  async signInWithGoogle() {
-    return signInWithPopup(this.auth, new GoogleAuthProvider());
+  async signInWithGoogle(): Promise<User | null> {
+    try {
+      const provider = new GoogleAuthProvider();
+      const userCredential = await signInWithPopup(this.auth, provider);
+
+      if (userCredential) {
+        await this.firestore.setUserProfile(userCredential);
+      }
+
+      return userCredential.user;
+    } catch (error) {
+      console.error('Google Sign-In Error:', error);
+      return null;
+    }
   }
 
   async logout() {
