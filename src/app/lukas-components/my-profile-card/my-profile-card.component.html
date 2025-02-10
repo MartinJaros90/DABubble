@@ -21,21 +21,24 @@
 
 
     <div class="avatar-div-outer">
-        <div class="avatar-div">
-            <img [src]="avatarUrl" />
+        <div class="avatar-div" [class.avatar-hover]="edit && !editAvatar">
+            <img [src]="avatarUrl" (click)="editAvatar = true; currentAvatar = this.profileData.avatar;"
+                [class.disabled]="(!editAvatar && !edit) || editAvatar" />
+            <div class="avatar-edit-mode" *ngIf="edit && !editAvatar"></div>
+            <div class="avatar-edit-mode-hover" *ngIf="edit && !editAvatar"></div>
         </div>
     </div>
 
 
     <div class="name-div">
 
-        <div class="name-div-a"><span>{{profileData.name}}</span><span>Bearbeiten</span></div>
+        <div class="name-div-a"><span>{{profileData.name}}</span><span (click)="edit = true">Bearbeiten</span></div>
 
         <div class="name-div-b">
             <img src="assets/lukas-icons/profile-card/profile-card-active-i.svg" />
         </div>
 
-        <div class="edit" *ngIf="edit">
+        <div class="edit" *ngIf="edit && !editAvatar">
             <div class="edit-name-a">
                 <img src="assets/lukas-icons/profile-card/edit-profile-card-icon.svg" />
                 <span>Vollständiger Name</span>
@@ -43,11 +46,23 @@
 
             <div class="edit-name-b">
 
-                <mat-form-field appearance="outline">
-                    <mat-label>Outline form field</mat-label>
-                    <input matInput placeholder="Placeholder">
-                </mat-form-field>
+                <form>
+                    <input placeholder="{{profileData.name}}" [(ngModel)]="newName" name="newName" maxlength="50">
+                </form>
 
+            </div>
+        </div>
+
+        <div class="edit" *ngIf="editAvatar">
+
+            <div class="choose-avatar-text-div">Aus der Liste wählen</div>
+
+            <div class="choose-avatar-div">
+                <div *ngFor="let index of avatars">
+                    <img (click)="avatarChooseClick(index)"
+                        [src]="'assets/lukas-icons/profile-card/avatar-' + index + '.svg'" />
+                    <div class="choose-avatar-div-hover"></div>
+                </div>
             </div>
         </div>
 
@@ -64,7 +79,8 @@
         <div class="edit center" *ngIf="edit">
             <div class="edit-buttons-div">
 
-
+                <button (click)="editCancel()">Abbrechen</button>
+                <button (click)="editSave()" style="width: 133px; margin-left: 26px;">Speichern</button>
             </div>
         </div>
 
