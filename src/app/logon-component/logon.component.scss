@@ -1,5 +1,5 @@
-
 @use "../shared/css/bootstrap.scss";
+
 @mixin logon {
 
     .dialog {
@@ -18,23 +18,25 @@
         padding: 1em;
     }
 
+
     .welcome-text {
         height: 133px;
         width: 486px;
         @include bootstrap.flex-center;
         @include bootstrap.flex-column;
         justify-content: space-between;
+        margin-bottom: 40px;
+    }
 
-        h2 {
-            font-size: 46px;
-            color: bootstrap.$purple-1;
-        }
+    h2 {
+        font-size: 46px;
+        color: bootstrap.$purple-1;
+    }
 
-        p {
-            font-size: 20px;
-            color: black;
-            text-align: center;
-        }
+    p {
+        font-size: 20px;
+        color: black;
+        text-align: center;
     }
 
     .sign-in-area {
@@ -91,6 +93,7 @@
         width: 500px;
         @include bootstrap.flex-column;
         justify-content: center;
+        align-items: center;
 
         .separator-text {
             background-color: white;
