@@ -1,0 +1,12 @@
+<section class="workspace">
+    <img src="../../assets/img/logo.png" alt="DABubble_logo">
+    <input class="searchbar" type="text" placeholder="Devspace durchsuchen">
+    <div class="profile-menu"></div>
+    @if (isDevspaceVisible) {
+        <div class="devspace"></div>
+    }
+    <div [class]="getChatClasses()"></div>
+    @if (isThreadVisible) {
+        <div class="thread"></div>
+    }
+</section>
