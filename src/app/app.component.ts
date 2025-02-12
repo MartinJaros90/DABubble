@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { WorkspaceComponent } from './workspace/workspace.component';
+import { SplashScreenComponent } from "./splash-screen/splash-screen.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WorkspaceComponent],
+  imports: [RouterOutlet, SplashScreenComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
