@@ -1,0 +1,89 @@
+$hover-color: #ebedfcff;
+
+
+.menu {
+    width: 350px;
+    height: 206px;
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+
+    >img {
+        width: 62px;
+    }
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 85%;
+    }
+
+
+    //-------------------//
+    margin-left: 500px;
+    margin-bottom: 300px;
+    //-------------------//
+}
+
+.profile,
+.log-out {
+    width: 154px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    cursor: pointer;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 102px;
+        position: relative;
+        padding-left: 40px;
+
+        svg {
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+    }
+
+    >img {
+        width: 30px;
+    }
+
+    &:hover {
+        color: #535AF1;
+        background-color: $hover-color;
+        font-weight: 700;
+
+        svg {
+            path {
+                fill: #535AF1;
+            }
+        }
+    }
+}
+
+.log-out {
+    width: 175px;
+
+    div {
+        width: 120px;
+
+        svg {
+            left: -1px;
+        }
+    }
+}

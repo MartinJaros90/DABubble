@@ -1,0 +1,51 @@
+<section class="sectiond dialog">
+	<dialog class="dialog">
+		<form #loginForm="ngForm" (ngSubmit)="signUp()">
+			<div class="welcome-text">
+        <h2>Registrierung</h2>
+        <p>NICHT FERTIG IMPROVISIERT!!!</p>
+			</div>
+			<div class="sign-in-area">
+        		<input
+        			[(ngModel)]="name"
+        			name="name"
+        			required
+        			id="name-input"
+        			type="name"
+        			placeholder="name"
+      			/>
+				<input
+					[(ngModel)]="email"
+					name="email"
+					required
+					pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+					id="mail-input"
+					type="email"
+					placeholder="example@example.com"
+				/>
+				<input
+					[(ngModel)]="password"
+					name="password"
+					required
+					id="password-input"
+					type="password"
+					placeholder="Passwort"
+				/>
+				<span>Passwort vergessen?</span>		
+				<button type="submit" class="submit-button">
+					Anmelden
+				</button>
+			</div>
+		</form>
+		<div class="separator-container">
+			<div class="separator-text">ODER</div>
+			<div class="separator-line"></div>
+		</div>
+			<div class="sign-in-button-area">
+					<button (click)="loginWithGoogle()" class="google-button"><img src="../../assets/icons/Google.svg">Anmelden mit Google</button>
+			</div>
+		<div class="sign-in-button-area">
+			<a [routerLink]="['/logon/signin']" routerLinkActive="router-link-active">signIn</a>
+		</div>
+	</dialog>
+</section>

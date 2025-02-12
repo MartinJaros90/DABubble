@@ -1,0 +1,60 @@
+@use '../shared/css/variables' as *;
+
+.splash-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, #444DF2 0%, #797EF3 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1.2s ease-in-out;
+    pointer-events: none;
+
+    &.fade-out {
+        opacity: 0;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    &.animate-to-corner {
+        transform: translate(-40vw, -40vh) scale(0.5);
+    }
+
+    img {
+        width: 200px;
+        height: auto;
+        opacity: 0;
+        transform: translateX(42px); 
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.show {
+            opacity: 1;
+            transform: translateX(0); 
+        }
+    }
+}
+
+.logo-text {
+    color: white;
+    font-size: 72px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(-20px);
+    white-space: nowrap;
+
+    &.fade-in {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
