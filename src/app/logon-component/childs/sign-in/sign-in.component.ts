@@ -13,7 +13,6 @@ export class SignInComponent {
   private authService = inject(AuthenticationService);
   email: string = '';
   password: string = '';
-  name: string = '';
 
   constructor(private router: Router) {}
 

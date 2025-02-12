@@ -29,5 +29,4 @@ export class FirestoreService {
     const userRef = doc(this.firestore, `users/${uid}`);
     return docData(userRef);
   }
-
 }

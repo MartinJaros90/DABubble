@@ -19,11 +19,13 @@ export class AuthenticationService {
     this.user$ = authState(this.auth);
   }
 
-  async signUp(email: string, password: string, displayName: string) {
+  async signUp(email: string, password: string, displayName: string, photoURL: string) {
     const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
     if (userCredential.user) {
       await updateProfile(userCredential.user, { displayName });
+      await updateProfile(userCredential.user, { photoURL });
 
+      console.log(userCredential)
       this.userSubject.next(userCredential.user);
     }
 

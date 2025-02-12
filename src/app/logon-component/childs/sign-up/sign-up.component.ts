@@ -14,6 +14,7 @@ export class SignUpComponent {
   email: string = '';
   password: string = '';
   name: string = '';
+  avatarNum: string = "";
 
 	constructor(private router: Router) {
 		
@@ -21,7 +22,7 @@ export class SignUpComponent {
 
   async signUp() {
     try {
-      await this.authService.signUp(this.email, this.password, this.name).then(success => {
+      await this.authService.signUp(this.email, this.password, this.name, this.avatarNum).then(success => {
         if (success) {
           this.reroutedUser()
         }
