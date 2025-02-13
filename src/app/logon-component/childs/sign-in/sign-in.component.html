@@ -23,7 +23,7 @@
 					type="password"
 					placeholder="Passwort"
 				/>
-				<span [routerLink]="['/password-back']">Passwort vergessen?</span>
+				<span [routerLink]="['password-back']" routerLinkActive="router-link-active">Passwort vergessen?</span>
 			</div>
 		</form>
 		<div class="separator-container">
@@ -37,7 +37,7 @@
 			<button type="submit" class="submit-button primary-btn">
 				Anmelden
 			</button>
-			<a class="secondary-btn">Gäste-Login</a>
+			<a class="secondary-btn" (click)="signInAnonymous()">Gäste-Login</a>
 		</div>
 	</dialog>
 </section>

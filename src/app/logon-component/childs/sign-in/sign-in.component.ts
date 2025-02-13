@@ -28,6 +28,11 @@ export class SignInComponent {
     }    
   }
 
+  signInAnonymous() {
+    this.authService.signInAnonymously()
+    this.reroutedUser()
+  }
+
   reroutedUser() {
     this.router.navigate(['/']).then(success => {
       if (success) {

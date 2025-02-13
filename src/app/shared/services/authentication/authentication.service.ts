@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth, authState, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, User } from '@angular/fire/auth';
+import { Auth, authState, createUserWithEmailAndPassword, GoogleAuthProvider, sendPasswordResetEmail, signInAnonymously, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, User } from '@angular/fire/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { FirestoreService } from "../firestore/firestore.service";
 
@@ -8,56 +8,74 @@ import { FirestoreService } from "../firestore/firestore.service";
 })
 export class AuthenticationService {  
 	private auth = inject(Auth);
-  private firestore = inject(FirestoreService);
-  private userSubject = new BehaviorSubject<User | null>(null);
-  user$: Observable<User | null>;
-  
-  constructor() {
-    this.auth.onAuthStateChanged(user => {
-      this.userSubject.next(user);
-    });
-    this.user$ = authState(this.auth);
-  }
+	private firestore = inject(FirestoreService);
+	private userSubject = new BehaviorSubject<User | null>(null);
+	user$: Observable<User | null>;
+	
+	constructor() {
+		this.auth.onAuthStateChanged(user => {
+			this.userSubject.next(user);
+		});
+		this.user$ = authState(this.auth);
+	}
 
-  async signUp(email: string, password: string, displayName: string, photoURL: string) {
-    const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
-    if (userCredential.user) {
-      await updateProfile(userCredential.user, { displayName });
-      await updateProfile(userCredential.user, { photoURL });
+	async signUp(email: string, password: string, displayName: string, photoURL: string) {
+		const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+		if (userCredential.user) {
+			await updateProfile(userCredential.user, { displayName });
+			await updateProfile(userCredential.user, { photoURL });
 
-      console.log(userCredential)
-      this.userSubject.next(userCredential.user);
-    }
+			console.log(userCredential)
+			this.userSubject.next(userCredential.user);
+		}
 
-    this.firestore.setUserProfile(userCredential)
-    return userCredential;
-  }
+		this.firestore.setUserProfile(userCredential)
+		return userCredential;
+	}
 
-  getCurrentUser(): Observable<User | null> {
-    return this.user$; // Return the observable user state
-  }
+	getCurrentUser(): Observable<User | null> {
+		return this.user$; // Return the observable user state
+	}
 
-  async signIn(email: string, password: string) {
-    return signInWithEmailAndPassword(this.auth, email, password);
-  }
+	async signIn(email: string, password: string) {
+		return signInWithEmailAndPassword(this.auth, email, password);
+	}
 
-  async signInWithGoogle(): Promise<User | null> {
-    try {
-      const provider = new GoogleAuthProvider();
-      const userCredential = await signInWithPopup(this.auth, provider);
+	async signInAnonymously(): Promise<void> {
+		try {
+			await signInAnonymously(this.auth);
+			console.log("Anonymous login successful!");
+		} catch (error) {
+			console.error("Error during anonymous login:", error);
+		}
+	}
 
-      if (userCredential) {
-        await this.firestore.setUserProfile(userCredential);
-      }
+	async signInWithGoogle(): Promise<User | null> {
+		try {
+			const provider = new GoogleAuthProvider();
+			const userCredential = await signInWithPopup(this.auth, provider);
 
-      return userCredential.user;
-    } catch (error) {
-      console.error('Google Sign-In Error:', error);
-      return null;
-    }
-  }
+			if (userCredential) {
+				await this.firestore.setUserProfile(userCredential);
+			}
 
-  async logout() {
-    return signOut(this.auth);
-  }
+			return userCredential.user;
+		} catch (error) {
+			console.error('Google Sign-In Error:', error);
+			return null;
+		}
+	}
+
+	async logout() {
+		return signOut(this.auth);
+	}
+
+	async resetPassword(email: string): Promise<void> {
+		try {
+		  await sendPasswordResetEmail(this.auth, email);
+		  console.log('Password reset email sent!');
+		} catch (error) {
+		  console.error('Error sending password reset email:', error);
+		}
+	}
 }
