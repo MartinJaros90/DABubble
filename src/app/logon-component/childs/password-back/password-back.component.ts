@@ -23,11 +23,6 @@ export class PasswordBackComponent {
   sendResetEmail() {
     if (this.email) {
       this.authService.resetPassword(this.email)
-        .then(() => alert('Check your email for the password reset link!'))
-        .catch(err => alert(err.message));
-    } else {
-      alert('Please enter your email address.');
     }
   }
-
 }
