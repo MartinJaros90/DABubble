@@ -71,7 +71,9 @@
     </div>
   </div>
   }
-  <div [class]="getChatClasses()"></div>
+  <div [class]="getChatClasses()">
+    <app-chat></app-chat>
+  </div>
   @if (isThreadVisible) {
   <div class="thread"></div>
   }

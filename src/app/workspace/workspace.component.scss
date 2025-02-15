@@ -23,7 +23,7 @@
         height: 70px;
         align-self: center;
         background-color: $white;
-        border-radius: 42px;
+        border-radius: 56px;
         border: none;
         padding: 17px 45px;
         grid-column: span 3 / span 3;
@@ -54,6 +54,7 @@
         position: relative;
         overflow: hidden;
         animation: slideIn 0.8s ease-out forwards;
+        padding: 16px;
 
         @keyframes slideIn {
             0% {
@@ -110,7 +111,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid $light-purple;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
             .logo-section {
@@ -124,7 +124,7 @@
                 }
 
                 span {
-                    font-size: 20px;
+                    font-size: 22px;
                     font-weight: 700;
                     color: $black;
                 }
@@ -205,6 +205,7 @@
         grid-row: span 4 / span 8;
         grid-row-start: 2;
         grid-column: 2 / 5;
+        position: relative;
 
         &.thread-hidden {
             grid-column: 2 / 6;
@@ -242,6 +243,7 @@
         gap: 8px;
         padding: 8px;
         cursor: pointer;
+        width: max-content;
 
         &:hover {
             background-color: $bg-color;
@@ -305,7 +307,7 @@
     }
 
     span {
-        font-size: 14px;
+        font-size: 16px;
         color: $black;
         white-space: nowrap;
     }
