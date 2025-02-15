@@ -1,9 +1,10 @@
+<app-logon-header></app-logon-header>
 <section class="sectiond dialog">
 	<dialog class="dialog">
 		<form #loginForm="ngForm" (ngSubmit)="signUp()">
 			<div class="welcome-text">
-        <h2>Registrierung</h2>
-        <p>NICHT FERTIG IMPROVISIERT!!!</p>
+        <h2>Konto erstellen</h2>
+        <p>Mit deinem Namen und deiner E-Mail-Adresse hast du dein neues DABubble-Konto</p>
 			</div>
 			<div class="sign-in-area">
         		<input
@@ -12,7 +13,7 @@
         			required
         			id="name-input"
         			type="name"
-        			placeholder="name"
+        			placeholder="Name und Nachname"
       			/>
 				<input
 					[(ngModel)]="email"
@@ -21,7 +22,7 @@
 					pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
 					id="mail-input"
 					type="email"
-					placeholder="example@example.com"
+					placeholder="beispielname@email.com"
 				/>
 				<input
 					[(ngModel)]="password"
@@ -31,21 +32,10 @@
 					type="password"
 					placeholder="Passwort"
 				/>
-				<span>Passwort vergessen?</span>		
-				<button type="submit" class="submit-button">
-					Anmelden
-				</button>
+				<button class="primary-btn">Weiter</button>
+				
 			</div>
 		</form>
-		<div class="separator-container">
-			<div class="separator-text">ODER</div>
-			<div class="separator-line"></div>
-		</div>
-			<div class="sign-in-button-area">
-					<button (click)="loginWithGoogle()" class="google-button"><img src="../../assets/icons/Google.svg">Anmelden mit Google</button>
-			</div>
-		<div class="sign-in-button-area">
-			<a [routerLink]="['/logon/signin']" routerLinkActive="router-link-active">signIn</a>
-		</div>
 	</dialog>
 </section>
+

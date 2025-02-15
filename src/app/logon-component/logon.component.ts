@@ -11,5 +11,4 @@ import { RouterModule } from '@angular/router';
   styleUrl: './logon.component.scss'
 })
 export class LogonComponent {
-
 }

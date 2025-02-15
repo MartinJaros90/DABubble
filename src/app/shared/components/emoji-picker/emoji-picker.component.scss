@@ -1,0 +1,82 @@
+@use '../../../../styles.scss' as *;
+@use '../../../shared/css/variables' as *;
+@use './emoji-picker-responsive.scss';
+
+.emoji-picker {
+    background-color: $white;
+    border: 1px solid $light-purple;
+    border-radius: 12px;
+    padding: 12px;
+    display: grid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 6px;
+    
+    width: min(560px, 90vw);
+    max-height: 300px;
+    overflow-y: auto;
+
+    animation: scaleIn 0.2s ease-in-out;
+    transform-origin: bottom left;
+
+    @keyframes scaleIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &.closing {
+        animation: scaleOut 0.2s ease-in-out forwards;
+    }
+
+    @keyframes scaleOut {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $light-purple;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $purple-1;
+        border-radius: 4px;
+    }
+    
+    .emoji {
+        font-size: clamp(16px, 2vw, 20px); 
+        padding: 6px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+        min-width: 32px;
+        min-height: 32px;
+
+        &:hover {
+            background-color: $light-purple;
+            transform: scale(1.1);
+        }
+    }
+}

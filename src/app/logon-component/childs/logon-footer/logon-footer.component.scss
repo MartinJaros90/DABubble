@@ -1,0 +1,22 @@
+@import "../../../shared/css/variables";
+
+footer{
+    position: absolute;
+    bottom: 32px;
+    padding-bottom: 24px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    bottom: 0;
+    z-index: 2;
+
+    a{
+        color: $purple-2;
+        font-size: 18px;
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

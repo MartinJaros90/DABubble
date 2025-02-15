@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { AuthenticationService } from '../../../shared/services/authentication/authentication.service';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { LogonHeaderComponent } from "../logon-header/logon-header.component";
+import { LogonFooterComponent } from '../logon-footer/logon-footer.component';
 
 @Component({
   selector: 'app-sign-in',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, LogonHeaderComponent, LogonFooterComponent],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss'
 })
