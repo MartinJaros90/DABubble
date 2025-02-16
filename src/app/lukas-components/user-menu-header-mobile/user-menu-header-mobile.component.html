@@ -1,8 +1,11 @@
 <div class="menu">
-    <img src="assets/lukas-icons/user-menu-header-mobile/line-icon.svg" />
 
-    <div>
-        <div class="profile" (click)="openMenu()">
+    <div class="line-div" (click)="exitClick()">
+        <img src="assets/lukas-icons/user-menu-header-mobile/line-icon.svg" />
+    </div>
+
+    <div class="content">
+        <div class="profile" (click)="profileClick()">
             <div>
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_111061_9055" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"

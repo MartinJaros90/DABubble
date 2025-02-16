@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
+//import { MatDialog } from '@angular/material/dialog';
+//import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
 
 @Component({
   selector: 'app-user-menu-header-mobile',
@@ -11,12 +11,16 @@ import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.compo
 
 export class UserMenuHeaderMobileComponent {
 
-  dialog = inject(MatDialog);
+  //dialog = inject(MatDialog);
 
 
-  openMenu() {
+  exitClick() {
 
-    this.dialog.open(MyProfileCardComponent);
+  }
+
+  profileClick() {
+
+    /* this.dialog.open(MyProfileCardComponent); */
   }
 
   logOutClick() {

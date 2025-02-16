@@ -1,11 +1,116 @@
-//----------------------------
-.btn {
-    border: 1px solid #000;
-    cursor: pointer;
-    margin-left: 50px;
-    margin-top: 50px;
-    width: fit-content;
+$usersHoverColor: #edefffff;
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-//----------------------------
+.main-div {
+    width: fit-content;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    background-color: white;
 
+
+    //-------------------------
+    margin-left: 200px;
+    margin-top: 300px;
+}
+
+.add-user-icon-div {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 100%;
+    background-color: #ECEEFE;
+    cursor: pointer;
+    position: relative;
+
+    svg {
+        transition: scale 100ms ease-in-out;
+        position: absolute;
+        top: 8px;
+        left: 9px;
+    }
+
+    &:hover {
+        svg {
+            scale: 1.1;
+        }
+
+        path {
+            fill: #525af2ff;
+        }
+    }
+}
+
+//------------------------------------------------------
+
+.users-added-icons-div {
+    /* min-width: 142px; */
+    height: 46px;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding-left: 20px;
+    cursor: pointer;
+    color: black;
+
+    &:hover {
+        background-color: #ECEEFE;
+
+        span {
+            color: #535AF1;
+        }
+    }
+
+    div {
+        /* width: 107px; */
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        .users-icons-div {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 6px solid white;
+            border-radius: 100%;
+            margin-left: -10px;
+
+            img {
+                width: 36px;
+                border-radius: 100%;
+            }
+        }
+    }
+
+    span {
+        font-size: 20px;
+        font-weight: 600;
+        margin-left: 10px;
+        margin-right: 12px;
+    }
+
+    /* .added-users-icons-x-div {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 4px;
+        top: 8px;
+        opacity: 0;
+
+        svg {
+            width: 30px;
+        }
+    } */
+}
+
+//------------------------------------------------------

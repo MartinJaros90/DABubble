@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+//import { MatDialog } from '@angular/material/dialog';
 import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
 
 @Component({
@@ -11,13 +11,14 @@ import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.compo
 
 export class UserMenuHeaderComponent {
 
-  dialog = inject(MatDialog);
+  //dialog = inject(MatDialog);
 
 
   ngOnInit() {
 
   }
 
+  /* 
   getPosition(): { x: number; y: number } {
 
     const width = document.documentElement.clientWidth;
@@ -26,11 +27,12 @@ export class UserMenuHeaderComponent {
     const y = element.offsetTop;
     return { x, y };
   }
+ */
 
-  openMenu() {
+  profileClick() {
 
-    const { x, y } = this.getPosition();
-    this.dialog.open(MyProfileCardComponent, { position: { top: `${y}px`, right: `${x}px` } });
+    /* const { x, y } = this.getPosition();
+    this.dialog.open(MyProfileCardComponent, { position: { top: `${y}px`, right: `${x}px` } }); */
   }
 
   logOutClick() {

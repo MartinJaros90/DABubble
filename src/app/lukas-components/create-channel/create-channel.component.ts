@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog';
-import { AddPeopleComponent } from '../add-people/add-people.component';
+//import { MatDialogRef } from '@angular/material/dialog';
+//import { MatDialog } from '@angular/material/dialog';
+//import { AddPeopleComponent } from '../add-people/add-people.component';
 
 @Component({
   selector: 'app-create-channel',
@@ -13,8 +13,8 @@ import { AddPeopleComponent } from '../add-people/add-people.component';
 
 export class CreateChannelComponent {
 
-  dialogRef = inject(MatDialogRef);
-  dialog = inject(MatDialog);
+  //dialogRef = inject(MatDialogRef);
+  //dialog = inject(MatDialog);
   channelName: string = '';
   channelDescription: string = '';
 
@@ -26,13 +26,14 @@ export class CreateChannelComponent {
     console.log('info - ', this.channelDescription);
 
 
-    this.dialogRef.close();
-    this.dialog.open(AddPeopleComponent, {
+    /* this.dialogRef.close();
+    this.dialogRef = this.dialog.open(AddPeopleComponent, {
       width: '710px',
       height: 'auto',
       maxWidth: 'none',
-      panelClass: 'no-overflow-dialog',
+      panelClass: ['no-overflow-dialog'],
     });
+    this.dialogRef.componentInstance.channelName = this.channelName; */
   }
 
 }

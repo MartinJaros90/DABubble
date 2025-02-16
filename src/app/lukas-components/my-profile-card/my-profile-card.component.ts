@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+//import { MatDialogRef } from '@angular/material/dialog';
 // ---------------------------------------------------------------------//
 
 
@@ -28,7 +28,7 @@ export class MyProfileCardComponent {
   newName = '';
   avatars: number[] = Array.from({ length: 7 }, (_, i) => i);
   currentAvatar = this.profileData.avatar;
-  dialogRef = inject(MatDialogRef);
+  //dialogRef = inject(MatDialogRef);
   // --------------------------------------------//
 
 
