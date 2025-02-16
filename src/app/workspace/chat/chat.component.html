@@ -29,7 +29,16 @@
     </div>
 
     <!-- Erste Nachricht -->
-    <div class="message">
+    <div
+      class="message"
+      (mouseenter)="setHoveredMessage($event, 1)"
+      (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 1"
+    >
+      <app-quick-reactions
+        [isVisible]="hoveredMessageId === 1"
+        class="quick-reactions-centered"
+      ></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
       <div class="message-content">
         <div class="message-header">
@@ -50,7 +59,16 @@
     </div>
 
     <!-- Zweite Nachricht -->
-    <div class="message">
+    <div
+      class="message"
+      (mouseenter)="setHoveredMessage($event, 2)"
+      (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 2"
+    >
+      <app-quick-reactions
+        [isVisible]="hoveredMessageId === 2"
+        class="quick-reactions-centered"
+      ></app-quick-reactions>
       <img
         class="avatar"
         src="../../../assets/img/profile2.png"
@@ -86,7 +104,16 @@
     </div>
 
     <!-- Dritte Nachricht -->
-    <div class="message">
+    <div
+      class="message"
+      (mouseenter)="setHoveredMessage($event, 3)"
+      (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 3"
+    >
+      <app-quick-reactions
+        [isVisible]="hoveredMessageId === 3"
+        class="quick-reactions-centered"
+      ></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile3.png" alt="Sofia" />
       <div class="message-content">
         <div class="message-header">
@@ -109,7 +136,16 @@
     </div>
 
     <!-- Vierte Nachricht -->
-    <div class="message">
+    <div
+      class="message"
+      (mouseenter)="setHoveredMessage($event, 4)"
+      (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 4"
+    >
+      <app-quick-reactions
+        [isVisible]="hoveredMessageId === 4"
+        class="quick-reactions-centered"
+      ></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
       <div class="message-content">
         <div class="message-header">

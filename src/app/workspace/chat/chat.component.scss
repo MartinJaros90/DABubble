@@ -133,42 +133,49 @@
     display: flex;
     gap: 16px;
     margin-bottom: 24px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    position: relative;
 
-    // Rechtsbündig (erste Nachricht)
-    &:nth-child(even) {
-      justify-content: flex-start;
-      
-      .message-content {
-        .message-text {
-          border-radius: 0 20px 20px 20px;
-          background-color: $bg-color;
-        }
-      }
+    &:hover {
+      background-color: $bg-color;
     }
 
-    // Linksbündig (zweite Nachricht)
-    &:nth-child(odd) {
+    .quick-reactions-centered {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+    }
+
+    &:nth-child(even) {
       flex-direction: row-reverse;
       
       .message-content {
         align-items: flex-end;
+        
+        .message-text {
+          border-radius: 20px 0 20px 20px;
+        }
 
         .message-header {
           flex-direction: row-reverse;
         }
 
-        .message-text {
-          border-radius: 20px 0 20px 20px;
-          background-color: $purple-3;
-          color: $white;
-        }
-
-        .message-actions {
-          text-align: right;
-        }
-
         .reactions {
           justify-content: flex-end;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .message-content {
+        align-items: flex-start;
+        
+        .message-text {
+          border-radius: 0 20px 20px 20px;
         }
       }
     }
@@ -347,8 +354,8 @@
 
     app-emoji-picker {
         position: absolute;
-        bottom: 50px;
+        bottom: calc(100% + 380px);
         left: 0;
-        z-index: 100;
+        z-index: 1000;
     }
 }

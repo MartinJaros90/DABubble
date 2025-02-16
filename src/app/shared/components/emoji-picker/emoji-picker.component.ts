@@ -11,6 +11,15 @@ import { CommonModule } from '@angular/common';
 export class EmojiPickerComponent {
   @Output() emojiSelected = new EventEmitter<string>();
   @Output() closeEmojiPicker = new EventEmitter<void>();
+  isClosing = false;
+
+  close() {
+    if (this.isClosing) return; // Verhindert mehrfaches Schließen
+    this.isClosing = true;
+    setTimeout(() => {
+      this.closeEmojiPicker.emit();
+    }, 180); // Leicht verkürzte Animations-Dauer für smootheren Übergang
+  }
 
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
@@ -19,13 +28,13 @@ export class EmojiPickerComponent {
       !clickedElement.closest('.emoji-picker') &&
       !clickedElement.closest('[alt="Emoji"]')
     ) {
-      this.closeEmojiPicker.emit();
+      this.close();
     }
   }
 
   @HostListener('document:keydown.escape')
   onEscapePress() {
-    this.closeEmojiPicker.emit();
+    this.close();
   }
 
   emojis = [

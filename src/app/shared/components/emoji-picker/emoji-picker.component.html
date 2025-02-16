@@ -1,4 +1,4 @@
-<div class="emoji-picker">
+<div class="emoji-picker" [class.closing]="isClosing">
   @for (emoji of emojis; track emoji) {
   <span class="emoji" (click)="selectEmoji(emoji)">{{ emoji }}</span>
   }
