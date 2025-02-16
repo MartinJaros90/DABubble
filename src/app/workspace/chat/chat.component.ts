@@ -47,7 +47,7 @@ export class ChatComponent {
 
   handleAddComment() {
     console.log('Add comment clicked for message:', this.hoveredMessageId);
-    // Hier können Sie die Logik für das Hinzufügen eines Kommentars implementieren
+    // Logik für das Hinzufügen eines Kommentars implementieren
   }
 
   setHoveredMessage(event: MouseEvent, id: number | null) {

@@ -1,5 +1,19 @@
 <div class="emoji-picker" [class.closing]="isClosing">
-  @for (emoji of emojis; track emoji) {
-  <span class="emoji" (click)="selectEmoji(emoji)">{{ emoji }}</span>
+  @if (recentEmojis().length > 0) {
+  <div class="recent-section">
+    <div class="section-title">Kürzlich verwendet</div>
+    <div class="emoji-grid">
+      @for (emoji of recentEmojis(); track emoji) {
+      <span class="emoji" (click)="selectEmoji(emoji)">{{ emoji }}</span>
+      }
+    </div>
+    <div class="divider"></div>
+  </div>
   }
+
+  <div class="emoji-grid">
+    @for (emoji of emojis; track emoji) {
+    <span class="emoji" (click)="selectEmoji(emoji)">{{ emoji }}</span>
+    }
+  </div>
 </div>

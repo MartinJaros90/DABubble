@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-emoji-picker',
@@ -12,6 +13,16 @@ export class EmojiPickerComponent {
   @Output() emojiSelected = new EventEmitter<string>();
   @Output() closeEmojiPicker = new EventEmitter<void>();
   isClosing = false;
+
+  private readonly RECENT_KEY = 'recent_emojis';
+  recentEmojis = signal<string[]>([]);
+
+  constructor() {
+    const saved = localStorage.getItem(this.RECENT_KEY);
+    if (saved) {
+      this.recentEmojis.set(JSON.parse(saved));
+    }
+  }
 
   close() {
     if (this.isClosing) return;
@@ -99,5 +110,14 @@ export class EmojiPickerComponent {
 
   selectEmoji(emoji: string) {
     this.emojiSelected.emit(emoji);
+    this.updateRecentEmojis(emoji);
+    this.close();
+  }
+
+  private updateRecentEmojis(emoji: string) {
+    const current = this.recentEmojis();
+    const updated = [emoji, ...current.filter((e) => e !== emoji)].slice(0, 8);
+    this.recentEmojis.set(updated);
+    localStorage.setItem(this.RECENT_KEY, JSON.stringify(updated));
   }
 }
