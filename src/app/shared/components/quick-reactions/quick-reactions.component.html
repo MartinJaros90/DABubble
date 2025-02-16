@@ -1,0 +1,13 @@
+<div class="quick-reactions" [class.show]="isVisible">
+  @for (emoji of quickEmojis; track emoji) {
+  <div class="reaction-item" (click)="onReactionClick(emoji)">
+    {{ emoji }}
+  </div>
+  }
+  <div class="reaction-item" (click)="openEmojiPicker.emit()">
+    <span class="add-emoji">➕</span>
+  </div>
+  <div class="reaction-item" (click)="addComment.emit()">
+    <span class="comment">💬</span>
+  </div>
+</div>
