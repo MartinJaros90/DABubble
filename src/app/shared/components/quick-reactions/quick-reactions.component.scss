@@ -39,6 +39,16 @@
       background-color: $light-purple;
       transform: scale(1.1);
     }
+
+    .add-emoji {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .comment {
+      font-size: 18px;
+    }
   }
 }
 

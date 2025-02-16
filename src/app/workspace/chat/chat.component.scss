@@ -359,3 +359,10 @@
         z-index: 1000;
     }
 }
+
+.centered-emoji-picker {
+  position: fixed;
+  top: calc(var(--mouse-y) + 20px);
+  left: calc(var(--mouse-x) + 20px);
+  z-index: 1001;
+}

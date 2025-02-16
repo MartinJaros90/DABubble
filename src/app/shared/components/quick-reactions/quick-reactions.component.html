@@ -4,8 +4,12 @@
     {{ emoji }}
   </div>
   }
-  <div class="reaction-item" (click)="openEmojiPicker.emit()">
-    <span class="add-emoji">➕</span>
+  <div class="reaction-item" (click)="onOpenEmojiPicker()">
+    <img
+      src="assets/icons-png/smile.png"
+      alt="Add Reaction"
+      class="add-emoji"
+    />
   </div>
   <div class="reaction-item" (click)="addComment.emit()">
     <span class="comment">💬</span>

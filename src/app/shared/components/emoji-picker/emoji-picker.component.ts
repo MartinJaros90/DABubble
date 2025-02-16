@@ -14,11 +14,11 @@ export class EmojiPickerComponent {
   isClosing = false;
 
   close() {
-    if (this.isClosing) return; // Verhindert mehrfaches Schließen
+    if (this.isClosing) return;
     this.isClosing = true;
     setTimeout(() => {
       this.closeEmojiPicker.emit();
-    }, 180); // Leicht verkürzte Animations-Dauer für smootheren Übergang
+    }, 180);
   }
 
   @HostListener('document:click', ['$event'])

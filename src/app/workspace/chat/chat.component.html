@@ -37,7 +37,8 @@
     >
       <app-quick-reactions
         [isVisible]="hoveredMessageId === 1"
-        class="quick-reactions-centered"
+        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"
       ></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
       <div class="message-content">
@@ -67,7 +68,8 @@
     >
       <app-quick-reactions
         [isVisible]="hoveredMessageId === 2"
-        class="quick-reactions-centered"
+        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"
       ></app-quick-reactions>
       <img
         class="avatar"
@@ -112,7 +114,8 @@
     >
       <app-quick-reactions
         [isVisible]="hoveredMessageId === 3"
-        class="quick-reactions-centered"
+        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"
       ></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile3.png" alt="Sofia" />
       <div class="message-content">
@@ -144,7 +147,8 @@
     >
       <app-quick-reactions
         [isVisible]="hoveredMessageId === 4"
-        class="quick-reactions-centered"
+        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"
       ></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
       <div class="message-content">
@@ -188,10 +192,12 @@
             (click)="toggleEmojiPicker()"
           />
           @if (showEmojiPicker) {
-          <app-emoji-picker
-            (emojiSelected)="handleEmojiSelected($event)"
-            (closeEmojiPicker)="showEmojiPicker = false"
-          ></app-emoji-picker>
+          <div class="centered-emoji-picker">
+            <app-emoji-picker
+              (emojiSelected)="handleEmojiSelected($event)"
+              (closeEmojiPicker)="showEmojiPicker = false"
+            ></app-emoji-picker>
+          </div>
           }
         </div>
         <img src="../../../assets/icons-png/email.png" alt="Mention" />

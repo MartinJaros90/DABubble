@@ -22,13 +22,32 @@ export class ChatComponent {
   hoveredMessageId: number | null = null;
   mousePosition = { x: 0, y: 0 };
 
-  toggleEmojiPicker() {
+  toggleEmojiPicker(fromQuickReactions = false) {
+    if (fromQuickReactions) {
+      this.hoveredMessageId = null;
+    }
     this.showEmojiPicker = !this.showEmojiPicker;
   }
 
+  handleQuickReactionEmojiPicker() {
+    console.log('Opening emoji picker from quick reactions');
+    this.toggleEmojiPicker(true);
+  }
+
   handleEmojiSelected(emoji: string) {
-    this.messageText += emoji;
+    if (this.hoveredMessageId) {
+      console.log(
+        `Adding reaction ${emoji} to message ${this.hoveredMessageId}`
+      );
+    } else {
+      this.messageText += emoji;
+    }
     this.showEmojiPicker = false;
+  }
+
+  handleAddComment() {
+    console.log('Add comment clicked for message:', this.hoveredMessageId);
+    // Hier können Sie die Logik für das Hinzufügen eines Kommentars implementieren
   }
 
   setHoveredMessage(event: MouseEvent, id: number | null) {

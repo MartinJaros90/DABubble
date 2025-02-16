@@ -14,9 +14,13 @@ export class QuickReactionsComponent {
   @Output() openEmojiPicker = new EventEmitter<void>();
   @Output() addComment = new EventEmitter<void>();
 
-  quickEmojis = ['👍', '😊'];
+  quickEmojis = ['👍', '❤️'];
 
   onReactionClick(emoji: string) {
     this.addReaction.emit(emoji);
+  }
+
+  onOpenEmojiPicker() {
+    this.openEmojiPicker.emit();
   }
 }
