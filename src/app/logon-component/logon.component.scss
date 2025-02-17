@@ -46,6 +46,18 @@
         height: 222px;
         justify-content: space-between;
 
+        #name-input {
+            background-image: url('../../assets/icons/person-filled-grey.svg');
+            background-position: 30px;
+            background-repeat: no-repeat;
+            padding-left: 80px;
+            box-sizing: border-box;
+
+            &:focus {
+                background-image: url('../../assets/icons/person-filled-black.svg');
+            }
+        }
+
         #mail-input {
             background-image: url('../../assets/icons/mail-icon-grey.svg');
             background-position: 30px;

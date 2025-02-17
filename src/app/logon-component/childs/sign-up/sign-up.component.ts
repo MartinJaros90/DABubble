@@ -17,6 +17,7 @@ export class SignUpComponent {
   password: string = '';
   name: string = '';
   avatarNum: string = "";
+  checkboxChecked: boolean = false;
 
 	constructor(private router: Router) {
 		

@@ -1,5 +1,15 @@
 @use "../../logon.component.scss";
 @use "../../../shared/css/bootstrap.scss";
+@import "../../../shared/css/variables";
+
+.dialog{
+    height: 669px !important; 
+    justify-content: flex-start !important;
+    
+    form{
+        height: 90%;
+    }
+}
 
 section {
     @include logon.logon;
@@ -10,4 +20,88 @@ section {
     width: 100vw;
     @include bootstrap.flex-center;
     justify-content: space-around;
+}
+
+.sign-in-area {
+    height: 80% !important;
+
+}
+
+.button-area {
+    align-self: flex-end;
+}
+
+.checkboxItem {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    width: fit-content;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.checkboxItem:not(:last-of-type) {
+    margin-bottom: 16px;
+}
+
+.checkbox {
+    appearance: none;
+    background-color: transparent !important;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 4px solid $purple-2;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        border: 4px solid $purple-1;
+    }
+}
+
+.checkbox:checked::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    width: 12px;
+    height: 7px;
+    border-bottom: 2px solid $purple-2;
+    border-left: 2px solid $purple-2;
+    transform: rotate(-45deg);
+}
+
+.checkbox:hover:checked::after {
+    border-bottom: 2px solid $purple-1;
+    border-left: 2px solid $purple-1;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $bg-color;
+    }
+}
+
+.link-to-data-protection{
+    color: $purple-2;
+}
+
+img {
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    position: relative;
+    top: -625px;
+    left: -40px;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
