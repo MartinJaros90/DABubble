@@ -5,7 +5,6 @@ import { DevspaceComponent } from './devspace/devspace.component';
 
 @Component({
   selector: 'app-workspace',
-  standalone: true,
   imports: [CommonModule, ChatComponent, DevspaceComponent],
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss',

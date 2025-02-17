@@ -4,7 +4,6 @@ import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-emoji-picker',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './emoji-picker.component.html',
   styleUrl: './emoji-picker.component.scss',

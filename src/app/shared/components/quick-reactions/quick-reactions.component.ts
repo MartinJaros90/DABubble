@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-quick-reactions',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './quick-reactions.component.html',
   styleUrl: './quick-reactions.component.scss',

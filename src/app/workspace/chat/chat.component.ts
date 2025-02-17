@@ -6,7 +6,6 @@ import { QuickReactionsComponent } from '../../shared/components/quick-reactions
 
 @Component({
   selector: 'app-chat',
-  standalone: true,
   imports: [
     CommonModule,
     FormsModule,
