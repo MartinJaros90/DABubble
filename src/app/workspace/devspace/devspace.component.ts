@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-devspace',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './devspace.component.html',
   styleUrl: './devspace.component.scss',
