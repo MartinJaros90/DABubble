@@ -16,10 +16,7 @@ export class PasswordBackComponent {
 
   constructor(private router: Router) { }
 
-  validateEmail() {
-    // Max war hier XD
-    // ? im html pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-  }
+
 
   sendResetEmail() {
     if (this.email) {
