@@ -157,10 +157,23 @@ $usersHoverColor: #edefffff;
         height: 50px;
         flex-shrink: 0;
         margin-left: 20px;
+        position: relative;
 
         img {
             width: 50px;
             border-radius: 100%;
+        }
+
+        .profile-icon-active-div {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            img {
+                width: 14px;
+            }
         }
     }
 }

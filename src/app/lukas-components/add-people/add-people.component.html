@@ -63,8 +63,14 @@
                     <div class="user-div" *ngFor="let user of usersSearchResults; let i = index">
 
                         <div class="user-div-inner" (click)="userClick(i)">
-                            <div class="profile-icon"><img
-                                    [src]="'assets/lukas-icons/profile-card/avatar-' + user.avatar + '.svg'" /></div>
+                            <div class="profile-icon">
+                                <img [src]="'assets/lukas-icons/profile-card/avatar-' + user.avatar + '.svg'" />
+
+                                <div class="profile-icon-active-div center">
+                                    <img src="assets/lukas-icons/create-channel/offline.svg" *ngIf="!user.active">
+                                    <img src="assets/lukas-icons/create-channel/online.svg" *ngIf="user.active">
+                                </div>
+                            </div>
                             <span>{{user.name}}</span>
                         </div>
                     </div>
