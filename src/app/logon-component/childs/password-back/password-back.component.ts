@@ -22,5 +22,10 @@ export class PasswordBackComponent {
     if (this.email) {
       this.authService.resetPassword(this.email)
     }
+    this.email = '';
+    document.getElementById('user-feedback')?.classList.add('show');
+    setTimeout(() => {
+      document.getElementById('user-feedback')?.classList.remove("show");
+    }, 3000);
   }
 }
