@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
 import { UserCredential } from '@angular/fire/auth';
 import { Observable } from 'rxjs/internal/Observable';
@@ -8,10 +8,9 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 
 export class FirestoreService {
+  private firestore = inject(Firestore)
 
-  constructor(private firestore: Firestore) {
-
-  }
+  constructor() { }
 
   async setUserProfile(userCredential: UserCredential) {
     const userRef = doc(this.firestore, `users/${userCredential.user.uid}`);

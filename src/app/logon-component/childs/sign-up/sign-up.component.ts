@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { AuthenticationService } from "../../../shared/services/authentication/authentication.service";
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LogonHeaderComponent } from "../logon-header/logon-header.component";
 import { LogonFooterComponent } from "../logon-footer/logon-footer.component";
+import { ReroutedUserService } from "../../../shared/services/reroutUser/rerouted-user.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +14,7 @@ import { LogonFooterComponent } from "../logon-footer/logon-footer.component";
 })
 export class SignUpComponent {
   private authService = inject(AuthenticationService);
+  private reroutUser = inject(ReroutedUserService);
   email: string = '';
   password: string = '';
   name: string = '';
@@ -27,7 +29,7 @@ export class SignUpComponent {
     try {
       await this.authService.signUp(this.email, this.password, this.name, this.avatarNum).then(success => {
         if (success) {
-          this.reroutedUser()
+          this.reroutUser.reroutedUser('/')
         }
 			})
     } catch (error: any) {
@@ -39,23 +41,11 @@ export class SignUpComponent {
     try {
       await this.authService.signInWithGoogle().then(success => {
         if (success) {
-          this.reroutedUser()
+          this.reroutUser.reroutedUser('/')
         }
 			})
     } catch (error: any) {
       console.error('Google Sign-In error:', error);
     }
-  }
-
-	reroutedUser() {
-    this.router.navigate(['/']).then(success => {
-      if (success) {
-        console.log('Navigation successful');
-      } else {
-        console.error('Navigation failed');
-      }
-    }).catch(err => {
-      console.error('Navigation error:', err);
-    });
   }
 }
