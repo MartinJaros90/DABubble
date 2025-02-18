@@ -30,8 +30,8 @@ export class SignInComponent {
     }    
   }
 
-  signInAnonymous() {
-    this.authService.signInAnonymously()
+  async signInAnonymous() {
+    await this.authService.signInAnonymously()
     this.reroutedUser()
   }
 
