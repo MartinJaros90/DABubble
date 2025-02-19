@@ -8,6 +8,7 @@ import { SplashScreenComponent } from "./splash-screen/splash-screen.component";
   imports: [RouterOutlet, SplashScreenComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true
 })
 export class AppComponent {
   showSplash = true;
