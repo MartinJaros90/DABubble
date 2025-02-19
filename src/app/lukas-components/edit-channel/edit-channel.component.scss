@@ -1,0 +1,233 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-channel {
+    max-width: 872px;
+    background-color: white;
+    border-radius: 0px 30px 30px 30px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+
+
+    //--------------------------------
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.create-channel-text-x-div {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    span {
+        transform: translateY(-4px);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: 4px;
+        width: calc(100% - 89px);
+
+        >svg {
+            margin-bottom: 1px;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.channel-name-text1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.channel-name-text2 {
+    width: calc(99% - 34px);
+}
+
+.x-div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    svg {
+        transition: scale 125ms ease-in-out;
+    }
+
+    path {
+        transition: fill 125ms ease-in-out;
+    }
+
+    &:hover {
+        background-color: #ECEEFE;
+
+        svg {
+            scale: 1.1;
+        }
+
+        path {
+            fill: #444DF2;
+        }
+    }
+}
+
+.channel-name-div {
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid #ADB0D9;
+    position: relative;
+
+    .channel-name-edit-div {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 700;
+        position: relative;
+        height: 28px;
+
+        .channel-name-movable {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: left 120ms ease-in-out, top 120ms ease-in-out;
+        }
+
+        span {
+            font-weight: 600;
+            color: #535AF1;
+            cursor: pointer;
+            width: 100px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: right 120ms ease-in-out, top 120ms ease-in-out;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .channel-name {
+        margin-left: 20px;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .input-div {
+        position: absolute;
+        height: 62px;
+        bottom: 6px;
+        width: 100%;
+
+        img {
+            position: absolute;
+            top: 18px;
+            left: 19px;
+        }
+    }
+
+    input {
+        width: calc(100% - 77px);
+        height: 60px;
+        padding: 0px 20px 0px 57px;
+    }
+}
+
+input {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 30px;
+    background-color: white;
+    border: 1px solid #ADB0D9;
+    padding: 0px 20px 0px 57px;
+    caret-color: black;
+    cursor: pointer;
+
+    &::placeholder {
+        color: #686868;
+    }
+
+    &:focus {
+        border: 1px solid #444DF2;
+    }
+
+    &:hover {
+        border: 1px solid #444DF2;
+    }
+}
+
+input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+}
+
+.movable-text-position-l {
+    top: -20px !important;
+    left: -20px !important;
+}
+
+.movable-text-position-r {
+    top: -20px !important;
+    right: -20px !important;
+}
+
+.movable-text-position-l-b {
+    top: 7px !important;
+    left: -20px !important;
+}
+
+.button-div {
+    display: flex;
+    justify-content: end;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+}
+
+button {
+    width: 204px;
+    height: 49px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    color: white;
+    background-color: #444DF2;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
