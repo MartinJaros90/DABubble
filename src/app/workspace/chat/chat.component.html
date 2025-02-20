@@ -6,6 +6,8 @@
       <span class="channel-name">Entwicklerteam</span>
       <img src="../../../assets/icons-png/arrow-drop-down.png" alt="Dropdown" />
     </div>
+
+    <!-- 
     <div class="member-count">
       <div class="member-avatars">
         <img src="../../../assets/img/profile1.png" alt="Member" />
@@ -18,7 +20,10 @@
         alt="Add Member"
         class="add-member"
       />
-    </div>
+    </div> -->
+
+    <app-add-people-area-middle></app-add-people-area-middle>
+
   </div>
 
   <!-- Nachrichten-Bereich -->
@@ -29,17 +34,10 @@
     </div>
 
     <!-- Erste Nachricht -->
-    <div
-      class="message"
-      (mouseenter)="setHoveredMessage($event, 1)"
-      (mouseleave)="setHoveredMessage($event, null)"
-      [class.hovered]="hoveredMessageId === 1"
-    >
-      <app-quick-reactions
-        [isVisible]="hoveredMessageId === 1"
-        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-        (addComment)="handleAddComment()"
-      ></app-quick-reactions>
+    <div class="message" (mouseenter)="setHoveredMessage($event, 1)" (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 1">
+      <app-quick-reactions [isVisible]="hoveredMessageId === 1" (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
       <div class="message-content">
         <div class="message-header">
@@ -60,22 +58,11 @@
     </div>
 
     <!-- Zweite Nachricht -->
-    <div
-      class="message"
-      (mouseenter)="setHoveredMessage($event, 2)"
-      (mouseleave)="setHoveredMessage($event, null)"
-      [class.hovered]="hoveredMessageId === 2"
-    >
-      <app-quick-reactions
-        [isVisible]="hoveredMessageId === 2"
-        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-        (addComment)="handleAddComment()"
-      ></app-quick-reactions>
-      <img
-        class="avatar"
-        src="../../../assets/img/profile2.png"
-        alt="Frederik"
-      />
+    <div class="message" (mouseenter)="setHoveredMessage($event, 2)" (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 2">
+      <app-quick-reactions [isVisible]="hoveredMessageId === 2" (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"></app-quick-reactions>
+      <img class="avatar" src="../../../assets/img/profile2.png" alt="Frederik" />
       <div class="message-content">
         <div class="message-header">
           <span class="username">Frederik Beck</span>
@@ -96,27 +83,16 @@
             <img src="../../../assets/icons-png/check.png" alt="Check" />
             <span>1</span>
           </div>
-          <img
-            src="../../../assets/icons-png/add-reaction.png"
-            alt="Add Reaction"
-            class="add-reaction"
-          />
+          <img src="../../../assets/icons-png/add-reaction.png" alt="Add Reaction" class="add-reaction" />
         </div>
       </div>
     </div>
 
     <!-- Dritte Nachricht -->
-    <div
-      class="message"
-      (mouseenter)="setHoveredMessage($event, 3)"
-      (mouseleave)="setHoveredMessage($event, null)"
-      [class.hovered]="hoveredMessageId === 3"
-    >
-      <app-quick-reactions
-        [isVisible]="hoveredMessageId === 3"
-        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-        (addComment)="handleAddComment()"
-      ></app-quick-reactions>
+    <div class="message" (mouseenter)="setHoveredMessage($event, 3)" (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 3">
+      <app-quick-reactions [isVisible]="hoveredMessageId === 3" (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile3.png" alt="Sofia" />
       <div class="message-content">
         <div class="message-header">
@@ -129,27 +105,16 @@
             <img src="../../../assets/icons-png/party.png" alt="Thumbs Up" />
             <span>2</span>
           </div>
-          <img
-            src="../../../assets/icons-png/add-reaction.png"
-            alt="Add Reaction"
-            class="add-reaction"
-          />
+          <img src="../../../assets/icons-png/add-reaction.png" alt="Add Reaction" class="add-reaction" />
         </div>
       </div>
     </div>
 
     <!-- Vierte Nachricht -->
-    <div
-      class="message"
-      (mouseenter)="setHoveredMessage($event, 4)"
-      (mouseleave)="setHoveredMessage($event, null)"
-      [class.hovered]="hoveredMessageId === 4"
-    >
-      <app-quick-reactions
-        [isVisible]="hoveredMessageId === 4"
-        (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-        (addComment)="handleAddComment()"
-      ></app-quick-reactions>
+    <div class="message" (mouseenter)="setHoveredMessage($event, 4)" (mouseleave)="setHoveredMessage($event, null)"
+      [class.hovered]="hoveredMessageId === 4">
+      <app-quick-reactions [isVisible]="hoveredMessageId === 4" (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+        (addComment)="handleAddComment()"></app-quick-reactions>
       <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
       <div class="message-content">
         <div class="message-header">
@@ -171,11 +136,7 @@
             <img src="../../../assets/icons-png/check.png" alt="Heart" />
             <span>2</span>
           </div>
-          <img
-            src="../../../assets/icons-png/add-reaction.png"
-            alt="Add Reaction"
-            class="add-reaction"
-          />
+          <img src="../../../assets/icons-png/add-reaction.png" alt="Add Reaction" class="add-reaction" />
         </div>
       </div>
     </div>
@@ -186,33 +147,19 @@
     <div class="input-container">
       <div class="input-actions-left">
         <div class="emoji-container">
-          <img
-            src="../../../assets/icons-png/smile.png"
-            alt="Emoji"
-            (click)="toggleEmojiPicker()"
-          />
+          <img src="../../../assets/icons-png/smile.png" alt="Emoji" (click)="toggleEmojiPicker()" />
           @if (showEmojiPicker) {
           <div class="centered-emoji-picker">
-            <app-emoji-picker
-              (emojiSelected)="handleEmojiSelected($event)"
-              (closeEmojiPicker)="showEmojiPicker = false"
-            ></app-emoji-picker>
+            <app-emoji-picker (emojiSelected)="handleEmojiSelected($event)"
+              (closeEmojiPicker)="showEmojiPicker = false"></app-emoji-picker>
           </div>
           }
         </div>
         <img src="../../../assets/icons-png/email.png" alt="Mention" />
       </div>
-      <input
-        type="text"
-        placeholder="Nachricht an #Entwicklerteam"
-        [(ngModel)]="messageText"
-      />
+      <input type="text" placeholder="Nachricht an #Entwicklerteam" [(ngModel)]="messageText" />
       <div class="input-actions-right">
-        <img
-          src="../../../assets/icons-png/send.png"
-          alt="Send"
-          class="send-icon"
-        />
+        <img src="../../../assets/icons-png/send.png" alt="Send" class="send-icon" />
       </div>
     </div>
   </div>

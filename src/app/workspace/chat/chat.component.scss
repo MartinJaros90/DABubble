@@ -16,7 +16,7 @@
   align-items: center;
   padding: 20px;
   background-color: $white;
-  position: relative;
+  /* position: relative; */
   z-index: 2;
   
   box-shadow: 
@@ -262,12 +262,12 @@
 
 .message-input {
   padding: 20px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   width: 100%;
   background-color: $white;
-  z-index: 10;
+  /* z-index: 10; */
   border-radius: 0 0 30px 30px;
 
   .input-container {

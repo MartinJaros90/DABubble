@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmojiPickerComponent } from '../../shared/components/emoji-picker/emoji-picker.component';
 import { QuickReactionsComponent } from '../../shared/components/quick-reactions/quick-reactions.component';
+import { AddPeopleAreaMiddleComponent } from '../../lukas-components/add-people-area-middle/add-people-area-middle.component';
 
 @Component({
   selector: 'app-chat',
@@ -11,9 +12,10 @@ import { QuickReactionsComponent } from '../../shared/components/quick-reactions
     FormsModule,
     EmojiPickerComponent,
     QuickReactionsComponent,
-  ],
+    AddPeopleAreaMiddleComponent
+],
   templateUrl: './chat.component.html',
-  styleUrl: './chat.component.scss',
+  styleUrls: ['./chat.component.scss', './chat.component.more.scss']
 })
 export class ChatComponent {
   showEmojiPicker = false;
