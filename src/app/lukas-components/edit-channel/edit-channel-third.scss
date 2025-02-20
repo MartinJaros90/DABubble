@@ -55,12 +55,18 @@ $mobileMargin: 16px;
             background-color: #ECEEFE;
             border: none !important;
 
-            svg path {
-                transition: fill 125ms ease-in-out;
+            svg {
+                transition: scale 125ms ease-in-out;
+
+                path {
+                    transition: fill 125ms ease-in-out;
+                }
             }
 
             &:hover {
                 svg {
+                    scale: 1.1;
+
                     path {
                         fill: #535AF1;
                     }
@@ -101,12 +107,18 @@ $mobileMargin: 16px;
         background-color: #ECEEFE;
         border: none !important;
 
-        svg path {
-            transition: fill 125ms ease-in-out;
+        svg {
+            transition: scale 125ms ease-in-out;
+
+            path {
+                transition: fill 125ms ease-in-out;
+            }
         }
 
         &:hover {
             svg {
+                scale: 1.1;
+
                 path {
                     fill: #535AF1;
                 }
@@ -175,5 +187,28 @@ $mobileMargin: 16px;
 .line-on-edit-mobile {
     margin-left: unset !important;
     width: 100% !important;
-    /* transform: translateX(-20px) !important; */
+}
+
+@media (max-width: 440px) {
+
+    .icon-add-users-div>div {
+        width: 264px;
+    }
+}
+
+@media (max-width: 365px) {
+
+    .icon-add-users-div>div {
+        width: 219px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .add-user-icon-div2 {
+        margin-right: 4px !important;
+    }
+
+    .icon-add-users-div {
+        font-size: 16px;
+    }
 }

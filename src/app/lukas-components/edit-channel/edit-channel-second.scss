@@ -1,4 +1,5 @@
 $mobileMargin: 16px;
+$usersHoverColor: #edefffff;
 
 
 .description-div {
@@ -124,7 +125,138 @@ $mobileMargin: 16px;
     }
 }
 
+//--------------------------------------------------------------------------------------------
+
 .members {
-    height: 364px;
+    border: 1px solid #ADB0D9;
     margin-bottom: 20px;
+    border-radius: 20px;
+    margin-left: $mobileMargin;
+    margin-right: $mobileMargin;
+}
+
+.add-people-text-x-div {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 23px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.dropdown-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    width: 100%;
+    height: 202px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #686868 white;
+
+    .user-div {
+        height: 58px;
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        span {
+            overflow: hidden;
+            margin-left: 14px;
+            margin-right: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .user-div-inner {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        height: 58px;
+        border-radius: 35px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $usersHoverColor;
+        }
+    }
+
+    .profile-icon {
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+        margin-left: 12px;
+        position: relative;
+
+        img {
+            width: 50px;
+            border-radius: 100%;
+        }
+
+        .profile-icon-active-div {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            img {
+                width: 14px;
+            }
+        }
+    }
+}
+
+.icon-add-users-div {
+    height: 56px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    display: flex;
+    justify-content: start;
+
+    >div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        cursor: pointer;
+        border-radius: 35px;
+        margin-left: 20px;
+        width: 282px;
+
+        &:hover {
+            background-color: $usersHoverColor;
+
+            svg {
+                scale: 1.1;
+            }
+
+            path {
+                fill: #525af2ff;
+            }
+        }
+    }
+
+    .add-user-icon-div2 {
+        width: 32px;
+        height: 32px;
+        margin-right: 15px;
+        margin-left: unset;
+        pointer-events: none;
+
+        svg {
+            top: 4px;
+            left: 6px;
+        }
+    }
 }

@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 
 export class EditChannelComponent {
 
-  channelName = 'Entwicklerteam Entwicklerteam Entwicklerteam Entwicklerteam Entwicklerteam Entwicklerteam Entwicklerteam Entwicklerteam';
+  channelName = 'Entwicklerteam';
   channelDescription = `
   Dieser Channel ist für alles rund um #dfsdf vorgesehen. 
   Hier kannst du zusammen mit deinem Team Meetings abhalten, Dokumente teilen und Entscheidungen treffen.
@@ -33,6 +33,15 @@ export class EditChannelComponent {
   mediaQuery: MediaQueryList;
   isMobile: boolean;
   mediaQueryListener: (event: MediaQueryListEvent) => void;
+
+  channelUsers = [
+    { name: 'Steffen Hoffmann', avatar: 4, active: false },
+    { name: 'Elias Neumann', avatar: 2, active: true },
+    { name: 'Noah Braun', avatar: 6, active: false },
+    { name: 'Sofia Müller', avatar: 5, active: true }
+  ];
+  isMeForMyprofileCard = false;
+  showProfileCard = false;
 
 
   constructor() {
@@ -117,6 +126,18 @@ export class EditChannelComponent {
     console.log('channel description saved', this.newChannelDescription);
   }
 
+  userClick(i: number) {
+
+    console.log('index - ', i);
+
+    if (true) {                          // abfrage, ob es ich bin ------------------------------
+      this.isMeForMyprofileCard = true;
+    } else {
+      this.isMeForMyprofileCard = false;
+    }
+    this.showProfileCard = true;
+  }
+
   leaveChannelClick() {
 
 
@@ -124,3 +145,6 @@ export class EditChannelComponent {
   }
 
 }
+
+
+
