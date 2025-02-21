@@ -1,51 +1,49 @@
 @use '../../../styles.scss' as *;
 @use '../../../app/shared/css/variables' as *;
 
+@mixin slide-animation {
+  --slide-duration: 0.3s;
+  --slide-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+  transform-origin: left center;
+}
+
 .devspace {
     width: 370px;
     height: 100%;
     @include flex-column;
+    @include slide-animation;
     background-color: $white;
     border-radius: 30px;
     border: none;
     position: relative;
     overflow: hidden;
-    animation: slideIn 0.8s ease-out forwards;
-    padding: 16px;
+    
+    animation: slideIn var(--slide-duration) var(--slide-timing);
 
     @keyframes slideIn {
-        0% {
-            transform: translateX(-100%);
+        from {
+            transform: translateX(-100%) scaleX(0.95);
             opacity: 0;
         }
-        50% {
-            transform: translateX(10%);
-            opacity: 0.5;
-        }
-        75% {
-            transform: translateX(-5%);
-            opacity: 0.75;
-        }
-        100% {
-            transform: translateX(0);
+        to {
+            transform: translateX(0) scaleX(1);
             opacity: 1;
         }
     }
 
     &.hidden {
-        animation: slideOut 0.6s ease-in forwards;
+        animation: slideOut var(--slide-duration) var(--slide-timing);
     }
 
     @keyframes slideOut {
-        0% {
-            transform: translateX(0);
+        from {
+            transform: translateX(0) scaleX(1);
             opacity: 1;
-            width: 370px;
         }
-        100% {
-            transform: translateX(-100%);
+        to {
+            transform: translateX(-100%) scaleX(0.95);
             opacity: 0;
-            width: 0;
         }
     }
 
@@ -135,6 +133,13 @@
                 }
             }
         }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .devspace {
+        animation: none;
+        transform: none;
     }
 }
 
