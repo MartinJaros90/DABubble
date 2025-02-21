@@ -1,9 +1,12 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { DialogsService } from '../../lukas-components/dialogs-service/dialogs.service';
+import { CreateChannelComponent } from '../../lukas-components/create-channel/create-channel.component';
 
 @Component({
   selector: 'app-devspace',
-  imports: [CommonModule],
+  imports: [CommonModule, CreateChannelComponent, CommonModule],
   templateUrl: './devspace.component.html',
   styleUrl: './devspace.component.scss',
 })
@@ -12,7 +15,10 @@ export class DevspaceComponent {
 
   isChannelsOpen = true;
   isDirectMessagesOpen = true;
-  showAddChannel = false;
+  //showAddChannel = false;
+
+  dialogsService = inject(DialogsService);
+
 
   toggleChannels() {
     this.isChannelsOpen = !this.isChannelsOpen;
@@ -23,7 +29,10 @@ export class DevspaceComponent {
   }
 
   toggleAddChannel() {
-    this.showAddChannel = !this.showAddChannel;
+
+    //this.showAddChannel = !this.showAddChannel;
+
+    this.dialogsService.showAddChannel = true;
   }
 
   openChannelDialog(event: Event) {

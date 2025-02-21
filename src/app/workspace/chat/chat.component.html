@@ -1,10 +1,16 @@
 <div class="chat-container">
   <!-- Header mit Channel-Name und Teilnehmer -->
   <div class="chat-header">
-    <div class="channel-info">
+
+    <div class="channel-info" (click)="dialogsService.showEditChannel = true">
       <span class="hashtag">#</span>
       <span class="channel-name">Entwicklerteam</span>
       <img src="../../../assets/icons-png/arrow-drop-down.png" alt="Dropdown" />
+
+      <app-edit-channel (click)="dialogsService.stopProp($event)" *ngIf="dialogsService.showEditChannel">
+      </app-edit-channel>
+    </div>
+    <div class="app-edit-channel-overlay" *ngIf="dialogsService.showEditChannel" (click)="openEditChannelClick()">
     </div>
 
     <!-- 

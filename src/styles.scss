@@ -1,6 +1,9 @@
 @use 'app/shared/css/variables' as *;
 @use 'app/shared/css/fonts' as *;
 
+$hover-color: #ebedfcff;    //  for background
+
+
 * {
     margin: 0;
     padding: 0;

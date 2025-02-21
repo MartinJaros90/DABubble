@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmojiPickerComponent } from '../../shared/components/emoji-picker/emoji-picker.component';
 import { QuickReactionsComponent } from '../../shared/components/quick-reactions/quick-reactions.component';
 import { AddPeopleAreaMiddleComponent } from '../../lukas-components/add-people-area-middle/add-people-area-middle.component';
+import { EditChannelComponent } from '../../lukas-components/edit-channel/edit-channel.component';
+import { DialogsService } from '../../lukas-components/dialogs-service/dialogs.service';
 
 @Component({
   selector: 'app-chat',
@@ -12,16 +14,23 @@ import { AddPeopleAreaMiddleComponent } from '../../lukas-components/add-people-
     FormsModule,
     EmojiPickerComponent,
     QuickReactionsComponent,
-    AddPeopleAreaMiddleComponent
-],
+    AddPeopleAreaMiddleComponent,
+    EditChannelComponent,
+    CommonModule
+  ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss', './chat.component.more.scss']
 })
+
 export class ChatComponent {
+
   showEmojiPicker = false;
   messageText = '';
   hoveredMessageId: number | null = null;
   mousePosition = { x: 0, y: 0 };
+
+  dialogsService = inject(DialogsService);
+
 
   toggleEmojiPicker(fromQuickReactions = false) {
     if (fromQuickReactions) {
@@ -56,5 +65,10 @@ export class ChatComponent {
     if (id !== null) {
       this.mousePosition = { x: event.clientX, y: event.clientY };
     }
+  }
+
+  openEditChannelClick() {
+
+    this.dialogsService.showEditChannel = false;
   }
 }
