@@ -16,21 +16,19 @@ import { DialogsService } from '../../lukas-components/dialogs-service/dialogs.s
     QuickReactionsComponent,
     AddPeopleAreaMiddleComponent,
     EditChannelComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss', './chat.component.more.scss']
+  styleUrls: ['./chat.component.scss', './chat.component.more.scss'],
 })
-
 export class ChatComponent {
-
   showEmojiPicker = false;
   messageText = '';
   hoveredMessageId: number | null = null;
   mousePosition = { x: 0, y: 0 };
+  isClosing = false;
 
   dialogsService = inject(DialogsService);
-
 
   toggleEmojiPicker(fromQuickReactions = false) {
     if (fromQuickReactions) {
@@ -68,7 +66,10 @@ export class ChatComponent {
   }
 
   openEditChannelClick() {
-
-    this.dialogsService.showEditChannel = false;
+    this.isClosing = true;
+    setTimeout(() => {
+      this.dialogsService.showEditChannel = false;
+      this.isClosing = false;
+    }, 300);
   }
 }

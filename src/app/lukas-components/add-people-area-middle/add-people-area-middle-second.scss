@@ -9,7 +9,8 @@ $mobileMargin: 16px;
     position: absolute;
     right: 0px;
     bottom: -16px;
-    transform: translateY(100%);
+    transform: translateY(100%) scale(0.95);
+    opacity: 0;
     width: calc(100vw - ($mobileMargin * 2));
     z-index: 11;
     color: black;
@@ -17,6 +18,7 @@ $mobileMargin: 16px;
     flex-direction: column;
     align-items: center;
     margin-left: $mobileMargin;
+    animation: dialogFadeIn 0.3s ease forwards;
 }
 
 .add-people-text-x-div2 {
@@ -373,3 +375,89 @@ input:-webkit-autofill {
 }
 
 //--------------------------------------------------
+
+@keyframes dialogFadeIn {
+    from {
+        transform: translateY(100%) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(100%) scale(1);
+        opacity: 1;
+    }
+}
+
+.add-people-dialog-div.closing {
+    animation: dialogFadeOut 0.3s ease forwards;
+}
+
+@keyframes dialogFadeOut {
+    from {
+        transform: translateY(100%) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%) scale(0.95);
+        opacity: 0;
+    }
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0);
+    animation: overlayFadeIn 0.3s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+}
+
+.overlay.closing {
+    animation: overlayFadeOut 0.3s ease forwards;
+}
+
+@keyframes overlayFadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+// Animation für Users Dropdown Menu
+.users-dropdown-menu-div {
+    transform: scale(0.95);
+    opacity: 0;
+    animation: dropdownFadeIn 0.3s ease forwards;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.users-dropdown-menu-div.closing {
+    animation: dropdownFadeOut 0.3s ease forwards;
+}
+
+@keyframes dropdownFadeOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}

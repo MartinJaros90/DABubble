@@ -16,9 +16,9 @@ export class DevspaceComponent {
   isChannelsOpen = true;
   isDirectMessagesOpen = true;
   //showAddChannel = false;
+  isClosing = false;
 
   dialogsService = inject(DialogsService);
-
 
   toggleChannels() {
     this.isChannelsOpen = !this.isChannelsOpen;
@@ -29,7 +29,6 @@ export class DevspaceComponent {
   }
 
   toggleAddChannel() {
-
     //this.showAddChannel = !this.showAddChannel;
 
     this.dialogsService.showAddChannel = true;
@@ -38,5 +37,13 @@ export class DevspaceComponent {
   openChannelDialog(event: Event) {
     event.stopPropagation();
     this.addChannel.emit(event);
+  }
+
+  closeDialog() {
+    this.isClosing = true;
+    setTimeout(() => {
+      this.dialogsService.showAddChannel = false;
+      this.isClosing = false;
+    }, 300);
   }
 }

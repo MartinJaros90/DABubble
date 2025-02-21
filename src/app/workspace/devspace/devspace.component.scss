@@ -189,9 +189,61 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0);
+    animation: fadeIn 0.3s ease forwards;
 
     app-create-channel {
         z-index: 21;
+        transform: scale(0.95);
+        opacity: 0;
+        animation: scaleIn 0.3s ease forwards;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.app-create-channel-overlay.closing {
+    animation: fadeOut 0.3s ease forwards;
+
+    app-create-channel {
+        animation: scaleOut 0.3s ease forwards;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
     }
 }

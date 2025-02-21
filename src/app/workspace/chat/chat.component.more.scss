@@ -4,10 +4,63 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0);
     z-index: 20;
+    animation: overlayFadeIn 0.3s ease forwards;
 }
 
 app-edit-channel {
     z-index: 21;
+    transform: scale(0.95);  
+    opacity: 0;              
+    animation: dialogFadeIn 0.3s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+}
+
+@keyframes dialogFadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Ausblend-Animationen
+.app-edit-channel-overlay.closing {
+    animation: overlayFadeOut 0.3s ease forwards;
+}
+
+app-edit-channel.closing {
+    animation: dialogFadeOut 0.3s ease forwards;
+}
+
+@keyframes overlayFadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes dialogFadeOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
 }
