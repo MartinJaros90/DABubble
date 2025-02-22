@@ -1,8 +1,7 @@
 <div
   class="overlay"
   *ngIf="showUsersDropdownMenu || showAddPeople"
-  [class.closing]="isClosing"
-  (click)="showUsersDropdownMenu = false; closeAddPeopleDialog()"
+  (click)="showUsersDropdownMenu = false; showAddPeople = false"
 ></div>
 
 <div class="main-div">
@@ -57,11 +56,7 @@
 
   <!-- ----------------------------------------------------------------------------------------------- -->
 
-  <div
-    class="users-dropdown-menu-div"
-    *ngIf="showUsersDropdownMenu"
-    [class.closing]="isDropdownClosing"
-  >
+  <div class="users-dropdown-menu-div" *ngIf="showUsersDropdownMenu">
     <div class="add-people-text-x-div">
       <span
         >Mitglieder
@@ -70,7 +65,7 @@
         >
       </span>
 
-      <div class="x-div" (click)="closeUsersDropdown()">
+      <div class="x-div" (click)="showUsersDropdownMenu = false">
         <svg
           width="40"
           height="40"

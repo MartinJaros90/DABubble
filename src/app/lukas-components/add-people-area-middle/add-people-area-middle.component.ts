@@ -44,9 +44,6 @@ export class AddPeopleAreaMiddleComponent {
 
   addedUsers: { name: string; avatar: number; active: boolean }[] = [];
 
-  isClosing = false;
-  isDropdownClosing = false;
-
   openAddPeopleDialog() {
     if (
       window.matchMedia('(max-width: 600px)').matches &&
@@ -107,7 +104,6 @@ export class AddPeopleAreaMiddleComponent {
   }
 
   addPeopleBodyDialogClick() {
-    this.closeAddPeopleDialog();
     this.dropdownMenu = false;
     this.showAddedUsers = false;
     this.opacityForScrollDiv = 0;
@@ -136,21 +132,5 @@ export class AddPeopleAreaMiddleComponent {
 
   stopProp(event: Event) {
     event.stopPropagation();
-  }
-
-  closeAddPeopleDialog() {
-    this.isClosing = true;
-    setTimeout(() => {
-      this.showAddPeople = false;
-      this.isClosing = false;
-    }, 300);
-  }
-
-  closeUsersDropdown() {
-    this.isDropdownClosing = true;
-    setTimeout(() => {
-      this.showUsersDropdownMenu = false;
-      this.isDropdownClosing = false;
-    }, 300);
   }
 }
