@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { UserMenuHeaderComponent } from '../../lukas-components/user-menu-header/user-menu-header.component';
-import { UserMenuHeaderMobileComponent } from '../../lukas-components/user-menu-header-mobile/user-menu-header-mobile.component';
-import { MyProfileCardComponent } from '../../lukas-components/my-profile-card/my-profile-card.component';
+import { Component, inject } from '@angular/core';
+import { UserMenuHeaderComponent } from '../user-menu-header/user-menu-header.component';
+import { UserMenuHeaderMobileComponent } from '../user-menu-header-mobile/user-menu-header-mobile.component';
+import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
+import { DialogsService } from '../dialogs-service/dialogs.service';
 
 @Component({
   selector: 'app-user-menu-header-workspace',
@@ -13,13 +14,12 @@ import { MyProfileCardComponent } from '../../lukas-components/my-profile-card/m
 
 export class UserMenuHeaderWorkspaceComponent {
 
+  dialogsService = inject(DialogsService);
+
   data = {
     name: 'Frederik Beck',
     avatar: 3,
     online: true
   }
-
-  showMenu = false;
-  showMenuMobile = false;
 
 }

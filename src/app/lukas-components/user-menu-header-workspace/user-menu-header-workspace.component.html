@@ -1,0 +1,30 @@
+<div class="workspace-user-menu"
+    (click)="dialogsService.showMenuForUserMenuHeaderWorkspace = true; dialogsService.showMenuMobileForUserMenuHeaderWorkspace = true">
+
+    <span>{{data.name}}</span>
+    <div class="user-icon">
+        <img [src]="'assets/lukas-icons/profile-card/avatar-' + data.avatar + '.svg'" />
+
+        <div class="profile-icon-active-div center">
+            <img src="assets/lukas-icons/create-channel/offline.svg" *ngIf="!data.online">
+            <img src="assets/lukas-icons/create-channel/online.svg" *ngIf="data.online">
+        </div>
+    </div>
+    <div class="arrow center">
+        <img src="assets/lukas-icons/user-menu-header-mobile/user-menu-header-workspace-arrow.svg" />
+    </div>
+
+
+    <app-user-menu-header *ngIf="dialogsService.showMenuForUserMenuHeaderWorkspace"></app-user-menu-header>
+</div>
+
+<div class="app-user-menu-header-overlay" *ngIf="dialogsService.showMenuForUserMenuHeaderWorkspace"
+    (click)="dialogsService.showMenuForUserMenuHeaderWorkspace= false; dialogsService.showMenuMobileForUserMenuHeaderWorkspace = false">
+</div>
+<app-user-menu-header-mobile
+    *ngIf="dialogsService.showMenuMobileForUserMenuHeaderWorkspace"></app-user-menu-header-mobile>
+
+<div class="app-my-profile-card-overlay center" *ngIf="dialogsService.showMyProfileCardForUserMenuHeaderWorkspace"
+    (click)="dialogsService.showMyProfileCardForUserMenuHeaderWorkspace = false">
+    <app-my-profile-card (click)="dialogsService.stopProp($event)"></app-my-profile-card>
+</div>

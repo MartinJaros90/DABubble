@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-//import { MatDialog } from '@angular/material/dialog';
-//import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
+import { DialogsService } from '../dialogs-service/dialogs.service';
 
 @Component({
   selector: 'app-user-menu-header-mobile',
@@ -11,16 +10,18 @@ import { Component, inject } from '@angular/core';
 
 export class UserMenuHeaderMobileComponent {
 
-  //dialog = inject(MatDialog);
+  dialogsService = inject(DialogsService);
 
 
   exitClick() {
 
+    this.dialogsService.showMenuForUserMenuHeaderWorkspace = false;
+    this.dialogsService.showMenuMobileForUserMenuHeaderWorkspace = false;
   }
 
   profileClick() {
 
-    /* this.dialog.open(MyProfileCardComponent); */
+    this.dialogsService.showMyProfileCardForUserMenuHeaderWorkspace = true;
   }
 
   logOutClick() {

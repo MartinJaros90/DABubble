@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-//import { MatDialogRef } from '@angular/material/dialog';
+import { DialogsService } from '../dialogs-service/dialogs.service';
 // ---------------------------------------------------------------------//
 
 
@@ -21,14 +21,13 @@ export class MyProfileCardComponent {
     email: 'mail@frederik-beck.com'
   }
   // --------------------------------------------//
-
+  dialogsService = inject(DialogsService);
   avatarUrl = 'assets/lukas-icons/profile-card/avatar-' + this.profileData.avatar + '.svg';
   edit = false;
   editAvatar = false;
   newName = '';
   avatars: number[] = Array.from({ length: 7 }, (_, i) => i);
   currentAvatar = this.profileData.avatar;
-  //dialogRef = inject(MatDialogRef);
   // --------------------------------------------//
 
 

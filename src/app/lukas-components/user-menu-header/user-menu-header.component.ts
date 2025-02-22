@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-//import { MatDialog } from '@angular/material/dialog';
-import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
+import { DialogsService } from '../dialogs-service/dialogs.service';
+
 
 @Component({
   selector: 'app-user-menu-header',
@@ -11,28 +11,16 @@ import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.compo
 
 export class UserMenuHeaderComponent {
 
-  //dialog = inject(MatDialog);
+  dialogsService = inject(DialogsService);
 
 
   ngOnInit() {
 
   }
 
-  /* 
-  getPosition(): { x: number; y: number } {
-
-    const width = document.documentElement.clientWidth;
-    const element = document.querySelector('.menu') as HTMLElement;
-    const x = width - (element.offsetLeft + element.offsetWidth);
-    const y = element.offsetTop;
-    return { x, y };
-  }
- */
-
   profileClick() {
 
-    /* const { x, y } = this.getPosition();
-    this.dialog.open(MyProfileCardComponent, { position: { top: `${y}px`, right: `${x}px` } }); */
+    this.dialogsService.showMyProfileCardForUserMenuHeaderWorkspace = true;    
   }
 
   logOutClick() {

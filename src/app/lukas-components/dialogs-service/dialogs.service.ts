@@ -8,6 +8,11 @@ export class DialogsService {
 
   showEditChannel = false;
   showAddChannel = false;
+  //----------------------------------------------------
+  showMyProfileCardForUserMenuHeaderWorkspace = false;
+  showMenuForUserMenuHeaderWorkspace = false;
+  showMenuMobileForUserMenuHeaderWorkspace = false;
+  //----------------------------------------------------
 
 
   constructor() { }
