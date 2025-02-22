@@ -1,0 +1,23 @@
+<div class="workspace-user-menu" (click)="showMenu = true; showMenuMobile = true">
+
+    <span>{{data.name}}</span>
+    <div class="user-icon">
+        <img [src]="'assets/lukas-icons/profile-card/avatar-' + data.avatar + '.svg'" />
+
+        <div class="profile-icon-active-div center">
+            <img src="assets/lukas-icons/create-channel/offline.svg" *ngIf="!data.online">
+            <img src="assets/lukas-icons/create-channel/online.svg" *ngIf="data.online">
+        </div>
+    </div>
+    <div class="arrow center">
+        <img src="assets/lukas-icons/user-menu-header-mobile/user-menu-header-workspace-arrow.svg" />
+    </div>
+
+
+    <app-user-menu-header *ngIf="showMenu"></app-user-menu-header>
+</div>
+
+<div class="app-user-menu-header-overlay" *ngIf="showMenu" (click)="showMenu = false; showMenuMobile = false"></div>
+<app-user-menu-header-mobile *ngIf="showMenuMobile"></app-user-menu-header-mobile>
+
+<app-my-profile-card></app-my-profile-card>

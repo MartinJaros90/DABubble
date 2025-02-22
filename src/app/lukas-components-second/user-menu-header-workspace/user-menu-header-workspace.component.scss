@@ -1,0 +1,93 @@
+.workspace-user-menu {
+    width: 348px;
+    height: 70px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+    cursor: pointer;
+    position: relative;
+
+    span {
+        max-height: calc(1.5em * 2);
+        line-height: 1.5em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-icon {
+        width: 70px;
+        height: 70px;
+        margin-left: 20px;
+        margin-right: 20px;
+        position: relative;
+
+        >img {
+            width: 70px;
+            border-radius: 100%;
+        }
+
+        .profile-icon-active-div {
+            position: absolute;
+            right: -2px;
+            bottom: -2px;
+            width: 25px;
+            height: 25px;
+
+            img {
+                width: 17px;
+            }
+        }
+    }
+
+    .arrow {
+        width: 27px;
+        height: 27px;
+
+        img {
+            width: 30px;
+            transform: translateY(1px);
+        }
+    }
+
+    app-user-menu-header {
+        z-index: 21;
+    }
+}
+
+.app-user-menu-header-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.25);
+    z-index: 20;
+}
+
+app-user-menu-header-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    app-user-menu-header {
+        display: none;
+    }
+
+    app-user-menu-header-mobile {
+        display: unset;
+    }
+}
+
+app-my-profile-card {
+    display: none;
+}

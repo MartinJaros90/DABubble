@@ -1,7 +1,11 @@
 <section class="workspace">
   <img src="../../assets/img/logo.png" alt="DABubble_logo" />
   <input class="searchbar" type="text" placeholder="Devspace durchsuchen" />
-  <div class="profile-menu"></div>
+
+  <div class="profile-menu">
+    <app-user-menu-header-workspace></app-user-menu-header-workspace>
+  </div>
+
   @if (isDevspaceVisible) {
   <app-devspace (addChannel)="openChannelDialog($event)"></app-devspace>
   }

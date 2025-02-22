@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat/chat.component';
 import { DevspaceComponent } from './devspace/devspace.component';
+import { UserMenuHeaderWorkspaceComponent } from '../lukas-components-second/user-menu-header-workspace/user-menu-header-workspace.component';
 
 @Component({
   selector: 'app-workspace',
-  imports: [CommonModule, ChatComponent, DevspaceComponent],
+  imports: [CommonModule, ChatComponent, DevspaceComponent, UserMenuHeaderWorkspaceComponent],
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss',
 })
