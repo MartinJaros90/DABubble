@@ -13,6 +13,8 @@ export class DialogsService {
   showMenuForUserMenuHeaderWorkspace = false;
   showMenuMobileForUserMenuHeaderWorkspace = false;
   //----------------------------------------------------
+  showAddPeopleDialogForCreateChannel = false;
+  //----------------------------------------------------
 
 
   constructor() { }

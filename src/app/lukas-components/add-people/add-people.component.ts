@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 //import { MatDialogRef } from '@angular/material/dialog';
+import { DialogsService } from '../dialogs-service/dialogs.service';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Component, inject } from '@angular/core';
 
 export class AddPeopleComponent {
 
+  dialogsService = inject(DialogsService);
   //dialogRef = inject(MatDialogRef);
   choice1 = false;
   choice2 = false;
@@ -37,8 +39,7 @@ export class AddPeopleComponent {
 
   exitXClick() {
 
-
-    console.log('exit');
+    this.dialogsService.showAddPeopleDialogForCreateChannel = false;
   }
 
   buttonClick() {

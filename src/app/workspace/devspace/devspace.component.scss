@@ -2,10 +2,10 @@
 @use '../../../app/shared/css/variables' as *;
 
 @mixin slide-animation {
-  --slide-duration: 0.3s;
-  --slide-timing: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-  transform-origin: left center;
+    --slide-duration: 0.3s;
+    --slide-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    transform-origin: left center;
 }
 
 .devspace {
@@ -18,7 +18,7 @@
     border: none;
     position: relative;
     overflow: hidden;
-    
+
     animation: slideIn var(--slide-duration) var(--slide-timing);
 
     @keyframes slideIn {
@@ -26,6 +26,7 @@
             transform: translateX(-100%) scaleX(0.95);
             opacity: 0;
         }
+
         to {
             transform: translateX(0) scaleX(1);
             opacity: 1;
@@ -41,6 +42,7 @@
             transform: translateX(0) scaleX(1);
             opacity: 1;
         }
+
         to {
             transform: translateX(-100%) scaleX(0.95);
             opacity: 0;
@@ -101,6 +103,7 @@
                 cursor: pointer;
 
                 &:hover {
+
                     img,
                     span {
                         filter: invert(24%) sepia(97%) saturate(1699%) hue-rotate(235deg) brightness(89%) contrast(93%);
@@ -194,9 +197,9 @@
 
     app-create-channel {
         z-index: 21;
-        transform: scale(0.95);
+        /* transform: scale(0.95); 
         opacity: 0;
-        animation: scaleIn 0.3s ease forwards;
+        animation: scaleIn 0.3s ease forwards; */
     }
 }
 
@@ -204,6 +207,7 @@
     from {
         background-color: rgba(0, 0, 0, 0);
     }
+
     to {
         background-color: rgba(0, 0, 0, 0.25);
     }
@@ -214,6 +218,7 @@
         transform: scale(0.95);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -232,6 +237,7 @@
     from {
         background-color: rgba(0, 0, 0, 0.25);
     }
+
     to {
         background-color: rgba(0, 0, 0, 0);
     }
@@ -242,6 +248,7 @@
         transform: scale(1);
         opacity: 1;
     }
+
     to {
         transform: scale(0.95);
         opacity: 0;

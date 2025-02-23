@@ -7,7 +7,7 @@
             <span>Channel erstellen</span>
 
             <div class="x-div">
-            <!-- <div class="x-div" (click)="dialogRef.close();"> -->
+
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_422_2036" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="24"
                         height="24">
@@ -52,4 +52,9 @@
             <button [class.disabled]="channelName == ''" [disabled]="channelName == ''">Erstellen</button>
         </div>
     </div>
+</div>
+
+<div class="app-add-people-overlay center" *ngIf="dialogsService.showAddPeopleDialogForCreateChannel"
+    (click)="dialogsService.showAddPeopleDialogForCreateChannel= false">
+    <app-add-people (click)="dialogsService.stopProp($event)"></app-add-people>
 </div>
