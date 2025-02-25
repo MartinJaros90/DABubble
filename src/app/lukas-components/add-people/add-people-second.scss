@@ -1,5 +1,4 @@
-$usersHoverColor: #edefffff;
-
+@use "../../shared/css/bootstrap.scss";
 
 //-------------------------------------------------------
 
@@ -148,7 +147,7 @@ $usersHoverColor: #edefffff;
         cursor: pointer;
 
         &:hover {
-            background-color: $usersHoverColor;
+            background-color: bootstrap.$usersHoverColor;
         }
     }
 

@@ -1,4 +1,4 @@
-@import "../../../shared/css/variables";
+@use "../../../shared/css/bootstrap.scss";
 
 header {
     position: absolute;
@@ -16,7 +16,8 @@ header {
     }
 
     .link {
-        color: $purple-2;
+        
+        color: bootstrap.$purple-2;
         font-size: 18px;
         &:hover {
             text-decoration: none;

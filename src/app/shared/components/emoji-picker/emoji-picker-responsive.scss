@@ -1,9 +1,8 @@
-@use '../../../../styles.scss' as *;
-@use '../../../shared/css/variables' as *;
+@use '../../../shared/css/bootstrap.scss';
 
 // Responsive Grid
 .emoji-picker {
-    @media (max-width: $breakpoint-lg) { 
+    @media (max-width: bootstrap.$breakpoint-lg) { 
         width: min(480px, 85vw);
         grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
         padding: 10px;
@@ -17,7 +16,7 @@
         }
     }
 
-    @media (max-width: $breakpoint-md) { 
+    @media (max-width: bootstrap.$breakpoint-md) { 
         width: min(400px, 85vw);
         grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
         padding: 8px;
@@ -31,7 +30,7 @@
         }
     }
 
-    @media (max-width: $breakpoint-sm) { 
+    @media (max-width: bootstrap.$breakpoint-sm) { 
         width: min(300px, 80vw);
         grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
         padding: 6px;
@@ -51,7 +50,7 @@
             padding: 8px;
             
             &:active {
-                background-color: $light-purple;
+                background-color: bootstrap.$light-purple;
                 transform: scale(1.1);
             }
         }

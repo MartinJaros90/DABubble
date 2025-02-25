@@ -1,5 +1,4 @@
-$mobileMargin: 16px;
-
+@use "../../shared/css/bootstrap.scss";
 
 .my-profile-card {
     max-width: 500px;
@@ -10,10 +9,10 @@ $mobileMargin: 16px;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 30px 30px 30px 30px;
-    width: calc(100vw - ($mobileMargin * 2));
+    width: calc(100vw - (bootstrap.$mobileMargin * 2));
     color: black;
-    margin-left: $mobileMargin;
-    margin-right: $mobileMargin;
+    margin-left: bootstrap.$mobileMargin;
+    margin-right: bootstrap.$mobileMargin;
     height: 85vh;
 }
 

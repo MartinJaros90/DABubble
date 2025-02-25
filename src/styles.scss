@@ -1,8 +1,5 @@
-@use 'app/shared/css/variables' as *;
-@use 'app/shared/css/fonts' as *;
-
-$hover-color: #ebedfcff;    //  for background
-
+@use 'app/shared/css/bootstrap.scss';
+@use 'app/shared/css/fonts';
 
 * {
     margin: 0;
@@ -25,8 +22,8 @@ html {
 body {
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
-    color: $text-gray;
-    background-color: $bg-color;
+    color: bootstrap.$text-gray;
+    background-color: bootstrap.$bg-color;
 }
 
 
@@ -39,25 +36,25 @@ a {
     all: unset;
     height: 49px;
     min-width: 116px;
-    @include flex-center;
+    @include bootstrap.flex-center;
     font-weight: 700;
-    background-color: $purple-1;
+    background-color: bootstrap.$purple-1;
     color: white;
     border-radius: 25px;
     transition: background-color 0.1s ease-in-out;
 
     &:hover {
         cursor: pointer;
-        background-color: $purple-2;
+        background-color: bootstrap.$purple-2;
     }
 
     &:active {
-        background-color: $purple-1;
+        background-color: bootstrap.$purple-1;
     }
 
     &:disabled {
         cursor: auto;
-        background-color: $text-gray;
+        background-color: bootstrap.$text-gray;
     }
 }
 
@@ -65,33 +62,33 @@ a {
     all: unset;
     height: 49px;
     min-width: 116px;
-    border: solid 1px $purple-2;
-    @include flex-center;
+    border: solid 1px bootstrap.$purple-2;
+    @include bootstrap.flex-center;
     font-weight: 700;
     background-color: white;
-    color: $purple-1;
+    color: bootstrap.$purple-1;
     border-radius: 25px;
     transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 
     &:hover {
         cursor: pointer;
-        background-color: $purple-3;
+        background-color: bootstrap.$purple-3;
         color: white;
     }
 
     &:active {
-        background-color: $purple-1;
+        background-color: bootstrap.$purple-1;
     }
 
     &:disabled {
-        color: $text-gray;
-        border: solid 1px $text-gray;
+        color: bootstrap.$text-gray;
+        border: solid 1px bootstrap.$text-gray;
     }
 
     &:disabled:hover {
         background-color: white;
-        color: $text-gray;
-        border: solid 1px $text-gray;
+        color: bootstrap.$text-gray;
+        border: solid 1px bootstrap.$text-gray;
         cursor: auto;
     }
 }
@@ -101,7 +98,7 @@ input {
     all: unset;
     width: 100%;
     height: 60px;
-    background-color: $bg-color;
+    background-color: bootstrap.$bg-color;
     border-radius: 100px;
     border: solid 1px transparent;
     transition: border 0.2s ease-in-out;
@@ -110,11 +107,11 @@ input {
     font-size: 18px;
 
     &:hover {
-        border: solid 1px $text-gray;
+        border: solid 1px bootstrap.$text-gray;
     }
 
     &:focus {
-        border: solid 1px $purple-3;
+        border: solid 1px bootstrap.$purple-3;
         font-weight: bold;
 
         &::placeholder {
@@ -125,11 +122,11 @@ input {
 
 .user-feedback {
     height: 149px;
-    background-color: $purple-1;
+    background-color: bootstrap.$purple-1;
     padding: 50px;
     color: white;
     font-size: 36px;
-    @include flex-center;
+    @include bootstrap.flex-center;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;

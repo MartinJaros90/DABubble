@@ -1,5 +1,4 @@
-$mobileMargin: 16px;
-
+@use "../../shared/css/bootstrap.scss";
 
 @media (max-width: 600px) {
 
@@ -16,8 +15,8 @@ $mobileMargin: 16px;
     .channel-name-div,
     .description-div,
     .button-div {
-        margin-left: $mobileMargin;
-        margin-right: $mobileMargin;
+        margin-left: bootstrap.$mobileMargin;
+        margin-right: bootstrap.$mobileMargin;
     }
 
     .button-div {
