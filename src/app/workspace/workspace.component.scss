@@ -71,20 +71,26 @@
         }
     }
 
-    >.thread {
-        width: 380px;
-        height: 100%;
-        @include flex-column;
-        background-color: $white;
-        border-radius: 30px;
-        border: none;
-        grid-row: span 4 / span 8;
-        grid-column: 5;
-        grid-row-start: 2;
-        transition: all 0.3s ease;
-    }
+    // >.thread {
+    //     width: 380px;
+    //     height: 100%;
+    //     @include flex-column;
+    //     background-color: $white;
+    //     border-radius: 30px;
+    //     border: none;
+    //     grid-row: span 4 / span 8;
+    //     grid-column: 5;
+    //     grid-row-start: 2;
+    //     transition: all 0.3s ease;
+    // }
+
 }
 
+app-thread {
+    grid-row: span 4 / span 8;
+        grid-column: 5;
+        grid-row-start: 2;
+}
 .workspace-menu-toggle {
     position: fixed;
     left: 0;
