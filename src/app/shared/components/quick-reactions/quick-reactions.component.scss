@@ -1,10 +1,9 @@
-@use '../../../../styles.scss' as *;
-@use '../../../shared/css/variables' as *;
+@use '../../../shared/css/bootstrap.scss';
 
 .quick-reactions {
   position: absolute;
   transform: translateY(-100%);
-  background-color: $white;
+  background-color: bootstrap.$white;
   border-radius: 20px;
   padding: 8px;
   display: flex;
@@ -36,7 +35,7 @@
     font-size: 18px;
     
     &:hover {
-      background-color: $light-purple;
+      background-color: bootstrap.$light-purple;
       transform: scale(1.1);
     }
 

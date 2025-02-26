@@ -1,6 +1,4 @@
-$usersHoverColor: #edefffff;
-$mobileMargin: 16px;
-
+@use "../../shared/css/bootstrap.scss";
 
 .add-people-dialog-div {
     max-width: 514px;
@@ -10,13 +8,13 @@ $mobileMargin: 16px;
     right: 0px;
     bottom: -16px;
     transform: translateY(100%);
-    width: calc(100vw - ($mobileMargin * 2));
+    width: calc(100vw - (bootstrap.$mobileMargin * 2));
     z-index: 11;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: $mobileMargin;
+    margin-left: bootstrap.$mobileMargin;
 }
 
 .add-people-text-x-div2 {
@@ -195,7 +193,7 @@ input:-webkit-autofill {
         cursor: pointer;
 
         &:hover {
-            background-color: $usersHoverColor;
+            background-color: bootstrap.$usersHoverColor;
         }
     }
 
@@ -296,7 +294,7 @@ input:-webkit-autofill {
     }
 
     .main-div {
-        right: $mobileMargin;
+        right: bootstrap.$mobileMargin;
     }
 
     .add-user-icon-div2 {

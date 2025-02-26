@@ -1,4 +1,4 @@
-@import "../../../shared/css/variables";
+@use "../../../shared/css/bootstrap.scss";
 
 footer{
     position: absolute;
@@ -12,7 +12,7 @@ footer{
     z-index: 2;
 
     a{
-        color: $purple-2;
+        color: bootstrap.$purple-2;
         font-size: 18px;
         &:hover {
             text-decoration: none;

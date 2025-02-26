@@ -1,6 +1,4 @@
-$mobileMargin: 16px;
-$usersHoverColor: #edefffff;
-
+@use "../../shared/css/bootstrap.scss";
 
 .description-div {
     margin-left: 40px;
@@ -131,8 +129,8 @@ $usersHoverColor: #edefffff;
     border: 1px solid #ADB0D9;
     margin-bottom: 20px;
     border-radius: 20px;
-    margin-left: $mobileMargin;
-    margin-right: $mobileMargin;
+    margin-left: bootstrap.$mobileMargin;
+    margin-right: bootstrap.$mobileMargin;
 }
 
 .add-people-text-x-div {
@@ -184,7 +182,7 @@ $usersHoverColor: #edefffff;
         cursor: pointer;
 
         &:hover {
-            background-color: $usersHoverColor;
+            background-color: bootstrap.$usersHoverColor;
         }
     }
 
@@ -235,7 +233,7 @@ $usersHoverColor: #edefffff;
         width: 282px;
 
         &:hover {
-            background-color: $usersHoverColor;
+            background-color: bootstrap.$usersHoverColor;
 
             svg {
                 scale: 1.1;

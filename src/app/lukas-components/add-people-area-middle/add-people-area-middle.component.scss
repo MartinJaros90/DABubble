@@ -1,6 +1,4 @@
-$usersHoverColor: #edefffff;
-$mobileMargin: 16px;
-
+@use "../../shared/css/bootstrap.scss";
 
 .center {
     display: flex;
@@ -121,13 +119,13 @@ $mobileMargin: 16px;
     right: 51px;
     bottom: -16px;
     transform: translateY(100%);
-    width: calc(100vw - ($mobileMargin * 2));
+    width: calc(100vw - (bootstrap.$mobileMargin * 2));
     z-index: 11;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: $mobileMargin;
+    margin-left: bootstrap.$mobileMargin;
 }
 
 .add-people-text-x-div {
@@ -209,7 +207,7 @@ $mobileMargin: 16px;
         cursor: pointer;
 
         &:hover {
-            background-color: $usersHoverColor;
+            background-color: bootstrap.$usersHoverColor;
         }
     }
 
@@ -257,7 +255,7 @@ $mobileMargin: 16px;
         cursor: pointer;
 
         &:hover {
-            background-color: $usersHoverColor;
+            background-color: bootstrap.$usersHoverColor;
             border-radius: 35px;
 
             svg {

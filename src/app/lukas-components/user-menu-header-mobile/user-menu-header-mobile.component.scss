@@ -1,5 +1,4 @@
-$hover-color: #ebedfcff;
-
+@use "../../shared/css/bootstrap.scss";
 
 .menu {
     position: absolute;
@@ -69,7 +68,7 @@ $hover-color: #ebedfcff;
 
     &:hover {
         color: #535AF1;
-        background-color: $hover-color;
+        background-color: bootstrap.$hover-color;
         font-weight: 700;
 
         svg {
