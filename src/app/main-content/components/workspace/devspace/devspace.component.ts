@@ -1,12 +1,12 @@
 import { Component, Output, EventEmitter, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; 
 
-import { DialogsService } from '../../lukas-components/dialogs-service/dialogs.service';
-import { CreateChannelComponent } from '../../lukas-components/create-channel/create-channel.component';
+import { DialogsService } from '../../../../lukas-components/dialogs-service/dialogs.service';
+import { CreateChannelComponent } from '../../../../lukas-components/create-channel/create-channel.component';
 
 @Component({
   selector: 'app-devspace',
-  imports: [CommonModule, CreateChannelComponent, CommonModule],
+  imports: [CommonModule, CreateChannelComponent],
   templateUrl: './devspace.component.html',
   styleUrl: './devspace.component.scss',
 })

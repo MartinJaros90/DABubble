@@ -1,4 +1,4 @@
-@use "../shared/css/bootstrap.scss";
+@use "../../../shared/css/bootstrap.scss";
 
 
 @mixin logon {
@@ -47,38 +47,38 @@
         justify-content: space-between;
 
         #name-input {
-            background-image: url('../../assets/icons/person-filled-grey.svg');
+            background-image: url('../../../../assets/icons/person-filled-grey.svg');
             background-position: 30px;
             background-repeat: no-repeat;
             padding-left: 80px;
             box-sizing: border-box;
 
             &:focus {
-                background-image: url('../../assets/icons/person-filled-black.svg');
+                background-image: url('../../../../assets/icons/person-filled-black.svg');
             }
         }
 
         #mail-input {
-            background-image: url('../../assets/icons/mail-icon-grey.svg');
+            background-image: url('./../../../assets/icons/mail-icon-grey.svg');
             background-position: 30px;
             background-repeat: no-repeat;
             padding-left: 80px;
             box-sizing: border-box;
 
             &:focus {
-                background-image: url('../../assets/icons/mail-icon-black.svg');
+                background-image: url('../../../../assets/icons/mail-icon-black.svg');
             }
         }
 
         #password-input {
-            background-image: url('../../assets/icons/lock-icon-grey.svg');
+            background-image: url('../../../../assets/icons/lock-icon-grey.svg');
             background-position: 30px;
             background-repeat: no-repeat;
             padding-left: 80px;
             box-sizing: border-box;
 
             &:focus {
-                background-image: url('../../assets/icons/lock-icon-black.svg');
+                background-image: url('../../../../assets/icons/lock-icon-black.svg');
             }
         }
     }

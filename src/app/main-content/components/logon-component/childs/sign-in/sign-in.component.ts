@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { AuthenticationService } from '../../../shared/services/authentication/authentication.service';
+import { AuthenticationService } from "../../../../../shared/services/authentication/authentication.service";
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LogonHeaderComponent } from "../logon-header/logon-header.component";
 import { LogonFooterComponent } from '../logon-footer/logon-footer.component';
-import { ReroutedUserService } from "../../../shared/services/reroutUser/rerouted-user.service";
+import { ReroutedUserService } from "../../../../../shared/services/reroutUser/rerouted-user.service";
 
 @Component({
   selector: 'app-sign-in',
