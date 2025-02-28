@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatComponent } from './chat/chat.component';
-import { DevspaceComponent } from './devspace/devspace.component';
-import { UserMenuHeaderWorkspaceComponent } from '../../../lukas-components/user-menu-header-workspace/user-menu-header-workspace.component';
+import { ChatComponent } from './childs/chat/chat.component';
+import { DevspaceComponent } from './childs/devspace/devspace.component';
+import { UserMenuHeaderWorkspaceComponent } from "../../../shared/components/user-menu-header-workspace/user-menu-header-workspace.component";
+
 
 @Component({
   selector: 'app-workspace',
