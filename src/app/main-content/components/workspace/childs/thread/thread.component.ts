@@ -11,7 +11,8 @@ import { DialogsService } from '../../../../../shared/services/dialogs-service/d
   selector: 'app-thread',
   imports: [CommonModule, FormsModule, EmojiPickerComponent, QuickReactionsComponent, AddPeopleAreaMiddleComponent, EditChannelComponent],
   templateUrl: './thread.component.html',
-  styleUrl: './thread.component.scss'
+  styleUrl: './thread.component.scss',
+  standalone: true
 })
 export class ThreadComponent {
   @Output() closeThread = new EventEmitter<void>();

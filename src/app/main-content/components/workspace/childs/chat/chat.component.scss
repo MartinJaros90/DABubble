@@ -259,7 +259,7 @@
         .replies {
           font-size: 18px;
           font-weight: 400;
-          color: $purple-3;
+          color: bootstrap.$purple-3;
           cursor: pointer;
         }
         .last-reply {
@@ -267,7 +267,7 @@
           height: 20px;
           font-size: 14px;
           font-weight: 400;
-          color: $text-gray;
+          color: bootstrap.$text-gray;
         }
       }
 

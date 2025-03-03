@@ -10,6 +10,7 @@ import { ThreadComponent } from '../workspace/childs/thread/thread.component';
   imports: [CommonModule, ChatComponent, DevspaceComponent, UserMenuHeaderWorkspaceComponent, ThreadComponent],
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss',
+  standalone: true
 })
 export class WorkspaceComponent {
   isThreadVisible = true;
