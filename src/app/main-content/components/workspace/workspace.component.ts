@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatComponent } from './chat/chat.component';
-import { DevspaceComponent } from './devspace/devspace.component';
-import { UserMenuHeaderWorkspaceComponent } from '../lukas-components/user-menu-header-workspace/user-menu-header-workspace.component';
-import { ThreadComponent } from './thread/thread.component';
+import { ChatComponent } from '../workspace/childs/chat/chat.component';
+import { DevspaceComponent } from '../workspace/childs/devspace/devspace.component';
+import { UserMenuHeaderWorkspaceComponent } from '../../../../app/shared/components/user-menu-header-workspace/user-menu-header-workspace.component';
+import { ThreadComponent } from '../workspace/childs/thread/thread.component';
 
 @Component({
   selector: 'app-workspace',
