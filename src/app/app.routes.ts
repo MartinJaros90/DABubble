@@ -1,20 +1,33 @@
 import { Routes } from '@angular/router';
-import { AuthGuard, redirectUnauthorizedTo } from "@angular/fire/auth-guard";
-import { LogonComponent } from './logon-component/logon.component';
-import { WorkspaceComponent } from './workspace/workspace.component';
-import { SignUpComponent } from "./logon-component/childs/sign-up/sign-up.component";
-import { SignInComponent } from './logon-component/childs/sign-in/sign-in.component';
+import { AuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from "@angular/fire/auth-guard";
+import { LogonComponent } from './main-content/components/logon-component/logon.component';
+import { SignUpComponent } from "./main-content/components/logon-component/childs/sign-up/sign-up.component";
+import { SignInComponent } from './main-content/components/logon-component/childs/sign-in/sign-in.component';
 import { MainContentComponent } from './main-content/main-content.component';
-import { MyProfileCardComponent } from './lukas-components/my-profile-card/my-profile-card.component';
-import { PasswordBackComponent } from './logon-component/childs/password-back/password-back.component';
+import { PasswordBackComponent } from './main-content/components/logon-component/childs/password-back/password-back.component';
+import { WorkspaceComponent } from './main-content/components/workspace/workspace.component';
+import { pipe } from 'rxjs';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['logon']);
+const redirectLoggedInToWorkspace = () => redirectLoggedInTo(['workspace']);
 // basic auth guard wenn ihr eine neuen router link macht bitte die auth guard config anpassen oder schreibt mir @max
 export const routes: Routes = [
-    { path: '', component: WorkspaceComponent, canActivate: [AuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+    { 
+        path: '', 
+        component: WorkspaceComponent, 
+        canActivate: [AuthGuard], 
+        data: { authGuardPipe: redirectUnauthorizedToLogin },
+        children: [
+            {
+                path: 'workspace',
+                component: WorkspaceComponent
+            }
+        ],
+    },
     {
         path: 'logon',
         component: LogonComponent,
+        data: { authGuardPipe: redirectLoggedInToWorkspace },
         children: [
             {
                 path: '',
