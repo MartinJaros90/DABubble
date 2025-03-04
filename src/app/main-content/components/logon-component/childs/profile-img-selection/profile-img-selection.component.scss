@@ -1,0 +1,59 @@
+@use "../../logon.component.scss";
+@use "../../../../../shared/css/bootstrap.scss";
+
+section {
+    @include logon.logon;
+    gap: 32px;
+}
+
+.welcome-text{
+    height: 40px !important;
+}
+
+.sectiond {
+    height: 100vh;
+    width: 100vw;
+    @include bootstrap.flex-center;
+    justify-content: space-around;
+}
+
+#big-pic {
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+}
+
+.small-avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+}
+
+.small-pics-area {
+    @include bootstrap.flex-center;
+    gap: 16px;
+    img {
+        &:hover {
+            cursor: pointer;
+            border: solid 5px bootstrap.$light-purple;
+        }
+    }
+}
+
+h3 {
+    color: black;
+    font-size: 32px;
+}
+
+.current-user-container {
+    @include bootstrap.flex-center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.btn-area {
+    width: 500px !important;
+    display: flex !important;
+    justify-content: flex-end;
+    margin-top: 150px;
+}
