@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UserMenuHeaderComponent } from '../../../shared/components/user-menu-header/user-menu-header.component';
 import { UserMenuHeaderMobileComponent } from '../user-menu-header-mobile/user-menu-header-mobile.component';
 import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
 import { DialogsService } from '../../../shared/services/dialogs-service/dialogs.service';
-
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { User } from '@angular/fire/auth';
 @Component({
   selector: 'app-user-menu-header-workspace',
   imports: [CommonModule, UserMenuHeaderComponent, UserMenuHeaderMobileComponent, MyProfileCardComponent],
@@ -12,14 +13,24 @@ import { DialogsService } from '../../../shared/services/dialogs-service/dialogs
   styleUrl: './user-menu-header-workspace.component.scss'
 })
 
-export class UserMenuHeaderWorkspaceComponent {
+export class UserMenuHeaderWorkspaceComponent implements OnInit {
 
-  dialogsService = inject(DialogsService);
-
+  public dialogsService = inject(DialogsService);
+  private auth = inject(AuthenticationService);  
+  
+  user$: User | undefined
+  
   data = {
-    name: 'Frederik Beck',
+    name: "",
     avatar: 3,
     online: true
   }
 
+  ngOnInit() {
+    this.auth.user$.subscribe(user => {
+      if (user?.displayName) {
+        this.data.name = user.displayName;
+      }
+    });
+  }
 }

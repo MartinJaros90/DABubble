@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./edit-channel.component.scss', './edit-channel-second.scss', './edit-channel-third.scss']
 })
 
-export class EditChannelComponent {
+export class EditChannelComponent implements OnInit, OnDestroy {
 
   channelName = 'Entwicklerteam';
   channelDescription = `

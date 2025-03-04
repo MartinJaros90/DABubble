@@ -15,8 +15,8 @@ import { ReroutedUserService } from "../../../../../shared/services/reroutUser/r
 export class SignInComponent {
   private authService = inject(AuthenticationService);
   private reroutUser = inject(ReroutedUserService);
-  email: string = '';
-  password: string = '';
+  email = '';
+  password = '';
 
   constructor() {}
 

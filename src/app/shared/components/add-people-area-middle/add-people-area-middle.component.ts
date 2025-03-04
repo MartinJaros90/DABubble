@@ -23,7 +23,7 @@ export class AddPeopleAreaMiddleComponent {
   dropdownMenu = false;
   showAddedUsers = false;
 
-  lastScrollPosition: number = 0;
+  lastScrollPosition = 0;
   opacityForScrollDiv = 0;
 
   blockButtonAddSelectedPeopleToUsersInChannel = true;

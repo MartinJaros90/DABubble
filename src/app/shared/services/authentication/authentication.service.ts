@@ -11,6 +11,7 @@ export class AuthenticationService {
 	private firestore = inject(FirestoreService);
 	private userSubject = new BehaviorSubject<User | null>(null);
 	user$: Observable<User | null>;
+	authState: any;
 	
 	constructor() {
 		this.auth.onAuthStateChanged(user => {
@@ -34,7 +35,7 @@ export class AuthenticationService {
 	}
 
 	getCurrentUser(): Observable<User | null> {
-		return this.user$; // Return the observable user state
+		return this.user$;
 	}
 
 	async signIn(email: string, password: string) {
@@ -45,7 +46,7 @@ export class AuthenticationService {
 		try {
 			await signInAnonymously(this.auth);
 			console.log("Anonymous login successful!");
-		} catch (error) {
+		} catch (error: unknown) {
 			console.error("Error during anonymous login:", error);
 		}
 	}
@@ -60,21 +61,25 @@ export class AuthenticationService {
 			}
 
 			return userCredential.user;
-		} catch (error) {
+		} catch (error: unknown) {
 			console.error('Google Sign-In Error:', error);
 			return null;
 		}
 	}
 
 	async logout() {
-		return signOut(this.auth);
+		try {
+			return signOut(this.auth)
+		} catch (error: unknown) {
+			console.error('Error sending password reset email:', error);
+		}
 	}
 
 	async resetPassword(email: string): Promise<void> {
 		try {
 		  await sendPasswordResetEmail(this.auth, email);
 		  console.log('Password reset email sent!');
-		} catch (error) {
+		} catch (error: unknown) {
 		  console.error('Error sending password reset email:', error);
 		}
 	}

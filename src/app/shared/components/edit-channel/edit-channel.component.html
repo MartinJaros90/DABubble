@@ -209,8 +209,8 @@
 
 
     <div class="button-div">
-        <button (click)="leaveChannelClick()" [class.disabled]="channelName == ''"
-            [disabled]="channelName == ''">Channel verlassen</button>
+        <button (click)="leaveChannelClick()" [class.disabled]="channelName === ''"
+            [disabled]="channelName === ''">Channel verlassen</button>
     </div>
 
 </div>

@@ -15,11 +15,11 @@ import { ReroutedUserService } from "../../../../../shared/services/reroutUser/r
 export class SignUpComponent {
   private authService = inject(AuthenticationService);
   private reroutUser = inject(ReroutedUserService);
-  email: string = '';
-  password: string = '';
-  name: string = '';
-  avatarNum: string = "";
-  checkboxChecked: boolean = false;
+  email = '';
+  password = '';
+  name = '';
+  avatarNum = "";
+  checkboxChecked = false;
 
 	constructor(private router: Router) {
 		
@@ -47,5 +47,9 @@ export class SignUpComponent {
     } catch (error: any) {
       console.error('Google Sign-In error:', error);
     }
+  }
+
+  sendUserToAvatarSelector() {
+    this.reroutUser.reroutedUser('logon/profile-selection')
   }
 }

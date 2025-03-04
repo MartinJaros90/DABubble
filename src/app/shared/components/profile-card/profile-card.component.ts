@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 // ---------------------------------------------------------------------//
@@ -12,7 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './profile-card.component.scss'
 })
 
-export class ProfileCardComponent {
+export class ProfileCardComponent implements OnInit, OnDestroy {
 
   // --------------------------------------------//
   profileData = {

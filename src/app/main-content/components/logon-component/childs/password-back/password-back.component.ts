@@ -12,7 +12,7 @@ import { LogonHeaderComponent } from "../logon-header/logon-header.component";
 })
 export class PasswordBackComponent {
   private authService = inject(AuthenticationService);
-  email: string = '';
+  email = '';
 
   constructor(private router: Router) { }
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 //import { MatDialogRef } from '@angular/material/dialog';
 import { DialogsService } from '../../../../../shared/services/dialogs-service/dialogs.service';
 
@@ -11,7 +11,7 @@ import { DialogsService } from '../../../../../shared/services/dialogs-service/d
   styleUrls: ['./add-people.component.scss', './add-people-second.scss']
 })
 
-export class AddPeopleComponent {
+export class AddPeopleComponent implements OnInit {
 
   dialogsService = inject(DialogsService);
   //dialogRef = inject(MatDialogRef);

@@ -14,8 +14,8 @@ import { DialogsService } from '../../../shared/services/dialogs-service/dialogs
 export class CreateChannelComponent {
 
   dialogsService = inject(DialogsService);
-  channelName: string = '';
-  channelDescription: string = '';
+  channelName = '';
+  channelDescription = '';
 
   
   createChannelClick() {

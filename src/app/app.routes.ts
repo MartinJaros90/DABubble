@@ -6,6 +6,7 @@ import { SignInComponent } from './main-content/components/logon-component/child
 import { MainContentComponent } from './main-content/main-content.component';
 import { PasswordBackComponent } from './main-content/components/logon-component/childs/password-back/password-back.component';
 import { WorkspaceComponent } from './main-content/components/workspace/workspace.component';
+import { ProfileImgSelectionComponent } from "./main-content/components/logon-component/childs/profile-img-selection/profile-img-selection.component";
 import { pipe } from 'rxjs';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['logon']);
@@ -40,6 +41,10 @@ export const routes: Routes = [
             {
                 path: 'password-back',
                 component: PasswordBackComponent
+            },
+            {
+                path: 'profile-selection',
+                component: ProfileImgSelectionComponent
             }
         ],
     },
