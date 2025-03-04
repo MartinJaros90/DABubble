@@ -10,59 +10,80 @@
 }
 
 .chat-header {
+  height: 86px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: bootstrap.$white;
-  /* position: relative; */
   z-index: 2;
 
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.02),
-    0 4px 8px rgba(0, 0, 0, 0.04),
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.04),
     0 8px 16px rgba(0, 0, 0, 0.06);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg,
-        rgba(bootstrap.$light-purple, 0) 0%,
-        rgba(bootstrap.$light-purple, 1) 15%,
-        rgba(bootstrap.$light-purple, 1) 85%,
-        rgba(bootstrap.$light-purple, 0) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(bootstrap.$light-purple, 0) 0%,
+      rgba(bootstrap.$light-purple, 1) 15%,
+      rgba(bootstrap.$light-purple, 1) 85%,
+      rgba(bootstrap.$light-purple, 0) 100%
+    );
+  }
+
+  .close-thread {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: ease-in-out 0.25s;
+    &:hover {
+      background-color: bootstrap.$hover-color;
+      img {
+        width: 16px;
+        height: 16px;
+        content: url("../../../../../../assets/icons-png/close-purple.png");
+      }
+    }
+    img {
+      width: 14px;
+      height: 14px;
+    }
   }
 
   .channel-info {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
     cursor: pointer;
     position: relative;
     border-radius: 20px;
 
-    &:hover {
-      background-color: bootstrap.$hover-color;
-    }
-
-    .hashtag {
-      font-size: 24px;
-      color: bootstrap.$purple-1;
-    }
-
-    .channel-name {
+    .thread-headline {
       font-size: 24px;
       font-weight: 700;
       color: bootstrap.$black;
     }
 
-    img {
-      width: 24px;
-      height: 24px;
+    .hashtag {
+      font-size: 14px;
+      color: bootstrap.$purple-2;
+    }
+
+    .channel-name {
+      font-size: 14px;
+      font-weight: 400;
+      color: bootstrap.$purple-2;
     }
   }
 
@@ -125,7 +146,7 @@
     border: 4px solid transparent;
     background-clip: padding-box;
     min-height: 40px;
-    
+
     &:hover {
       background: rgba(bootstrap.$purple-2, 0.6);
     }
@@ -141,7 +162,7 @@
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 50%;
@@ -251,7 +272,7 @@
       }
 
       .message-actions {
-        width: 260px;
+        width: 100%;
         height: 25px;
         display: flex;
         justify-content: space-between;
@@ -261,13 +282,6 @@
           font-weight: 400;
           color: bootstrap.$purple-3;
           cursor: pointer;
-        }
-        .last-reply {
-          width: 136px;
-          height: 20px;
-          font-size: 14px;
-          font-weight: 400;
-          color: bootstrap.$text-gray;
         }
       }
 
@@ -398,7 +412,8 @@
 
         &:hover {
           scale: 1.1;
-          filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(1699%) hue-rotate(235deg) brightness(89%) contrast(93%);
+          filter: brightness(0) saturate(100%) invert(24%) sepia(97%)
+            saturate(1699%) hue-rotate(235deg) brightness(89%) contrast(93%);
         }
       }
     }

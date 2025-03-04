@@ -1,1 +1,27 @@
-<p>profile-img-selection works!</p>
+<app-logon-header></app-logon-header>
+<section class="sectiond dialog">
+    <dialog class="dialog">
+        <form (ngSubmit)="choosePic()">
+            <div class="welcome-text">
+                <h2>Wähle deinen Avatar</h2>
+            </div>
+
+            <div class="sign-in-area">
+                <div class="current-user-container">
+                    <img id="big-pic" src="{{ currentUser.path }}">
+                    <h3>{{ currentUser.name }}</h3>
+                </div>
+                <p>Aus der Liste wählen</p>
+                <div class="small-pics-area">
+                    <div *ngFor="let avatar of avatars">
+                        <img (click)="changePic(avatar)" class="small-avatar" src="{{ avatar }}">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-area">
+                <button class="primary-btn">Weiter</button>
+            </div>
+        </form>
+    </dialog>
+</section>
+<app-logon-footer></app-logon-footer>

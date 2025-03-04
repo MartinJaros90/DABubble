@@ -43,9 +43,9 @@ export const routes: Routes = [
                 component: PasswordBackComponent
             },
             {
-                path: 'profile-selection',
+                path: 'profile-img',
                 component: ProfileImgSelectionComponent
-            }
+            },
         ],
     },
 ];

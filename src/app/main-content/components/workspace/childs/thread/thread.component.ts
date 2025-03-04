@@ -1,28 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmojiPickerComponent } from '../../../../../shared/components/emoji-picker/emoji-picker.component';
 import { QuickReactionsComponent } from '../../../../../shared/components/quick-reactions/quick-reactions.component';
-import { AddPeopleAreaMiddleComponent } from '../../../../../shared/components/add-people-area-middle/add-people-area-middle.component';
-import { EditChannelComponent } from '../../../../../shared/components/edit-channel/edit-channel.component';
+import { EditChannelComponent } from '../../../../../../app/shared/components/edit-channel/edit-channel.component';
 import { DialogsService } from '../../../../../shared/services/dialogs-service/dialogs.service';
 
 @Component({
-  selector: 'app-chat',
-  imports: [
-    CommonModule,
-    FormsModule,
-    EmojiPickerComponent,
-    QuickReactionsComponent,
-    AddPeopleAreaMiddleComponent,
-    EditChannelComponent,
-    CommonModule,
-  ],
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss', './chat.component.more.scss'],
+  standalone: true,
+  selector: 'app-thread',
+  imports: [CommonModule, FormsModule, EmojiPickerComponent, QuickReactionsComponent, EditChannelComponent],
+  templateUrl: './thread.component.html',
+  styleUrl: './thread.component.scss',
 })
-export class ChatComponent {
-  showEmojiPicker = false;
+export class ThreadComponent {
+  @Output() closeThread = new EventEmitter<void>();
+  isThreadClosing = false;
+showEmojiPicker = false;
   messageText = '';
   hoveredMessageId: number | null = null;
   mousePosition = { x: 0, y: 0 };
@@ -70,6 +64,14 @@ export class ChatComponent {
     setTimeout(() => {
       this.dialogsService.showEditChannel = false;
       this.isClosing = false;
+    }, 300);
+  }
+
+  closeThreadView() {
+    this.isThreadClosing = true;
+    setTimeout(() => {
+      this.closeThread.emit();
+      this.isThreadClosing = false;
     }, 300);
   }
 }
