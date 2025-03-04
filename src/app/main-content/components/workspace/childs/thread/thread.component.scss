@@ -1,7 +1,7 @@
 @use '../../../../../shared/css/bootstrap.scss';
 
 .chat-container {
-  width: 370px;
+  width: 100%;
   height: 100%;
   @include bootstrap.flex-column;
   background-color: bootstrap.$white;
@@ -16,7 +16,6 @@
   align-items: center;
   padding: 20px;
   background-color: bootstrap.$white;
-  /* position: relative; */
   z-index: 2;
 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.04),

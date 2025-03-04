@@ -3,16 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmojiPickerComponent } from '../../../../../shared/components/emoji-picker/emoji-picker.component';
 import { QuickReactionsComponent } from '../../../../../shared/components/quick-reactions/quick-reactions.component';
-import { AddPeopleAreaMiddleComponent } from '../../../../../../app/shared/components/add-people-area-middle/add-people-area-middle.component';
 import { EditChannelComponent } from '../../../../../../app/shared/components/edit-channel/edit-channel.component';
 import { DialogsService } from '../../../../../shared/services/dialogs-service/dialogs.service';
 
 @Component({
+  standalone: true,
   selector: 'app-thread',
-  imports: [CommonModule, FormsModule, EmojiPickerComponent, QuickReactionsComponent, AddPeopleAreaMiddleComponent, EditChannelComponent],
+  imports: [CommonModule, FormsModule, EmojiPickerComponent, QuickReactionsComponent, EditChannelComponent],
   templateUrl: './thread.component.html',
   styleUrl: './thread.component.scss',
-  standalone: true
 })
 export class ThreadComponent {
   @Output() closeThread = new EventEmitter<void>();
