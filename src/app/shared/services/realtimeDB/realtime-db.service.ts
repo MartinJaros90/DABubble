@@ -1,42 +1,56 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, NgZone, OnDestroy } from '@angular/core';
 import { Auth, authState } from '@angular/fire/auth';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 import { Database, ref, onDisconnect, update } from '@angular/fire/database';
 import { switchMap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 @Injectable({
 	providedIn: 'root'
 })
 
-export class RealtimeDbService {
-	private auth = inject(Auth)
-	private firestore = inject(Firestore)
-	private database = inject(Database)
-	
+export class RealtimeDbService implements OnDestroy {
 
-	// Track user presence in Realtime Database
+  private auth = inject(Auth);
+  private database = inject(Database);
+  private ngZone = inject(NgZone);
+  private authSubscription: Subscription | null = null;
 
   trackUserPresence(): void {
-    authState(this.auth).pipe(
-      switchMap(user => {
-        if (user) {
-          const userStatusRef = ref(this.database, `users/${user.uid}`);
+    this.authSubscription = authState(this.auth).subscribe(user => {
+      if (user) {
+        console.log("User is authenticated:", user.uid);
 
-          // Update "online" status in Realtime Database
-          update(userStatusRef, { online: true }).then(() => {
-            // Handle disconnection
-            onDisconnect(ref(this.database, `users/${user.uid}/online`)).set(false);
-            onDisconnect(ref(this.database, `users/${user.uid}/lastSeen`)).set(Date.now());
+        const userStatusRef = ref(this.database, `users/${user.uid}/status`);
 
-            // Also update Firestore last seen time
-            const userDocRef = doc(this.firestore, `users/${user.uid}`);
-            updateDoc(userDocRef, { lastSeen: Date.now() });
-          });
+        // Update "online" status
+        update(userStatusRef, { online: true, lastSeen: Date.now() })
+          .then(() => console.log("Online status updated"))
+          .catch(error => console.error("Error updating online status:", error));
 
-          return of(true);
-        }
-        return of(null);
-      })
-    ).subscribe();
+        // Handle user disconnection properly
+        this.ngZone.runOutsideAngular(() => {
+          onDisconnect(userStatusRef).update({ online: false, lastSeen: Date.now() })
+            .catch(error => console.error("onDisconnect error:", error));
+        });
+      } else {
+        console.warn("User is not authenticated.");
+      }
+    });
+  }
+
+  async setUserOfflineOnLogout(): Promise<void> {
+    const user = this.auth.currentUser;
+    if (user) {
+      const userStatusRef = ref(this.database, `users/${user.uid}/status`);
+      await update(userStatusRef, { online: false, lastSeen: Date.now() });
+    }
+  }
+
+  stopTracking(): void {
+    this.authSubscription?.unsubscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.stopTracking()
   }
 }
