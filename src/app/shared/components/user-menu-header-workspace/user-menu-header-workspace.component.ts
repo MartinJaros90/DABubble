@@ -5,7 +5,8 @@ import { UserMenuHeaderMobileComponent } from '../user-menu-header-mobile/user-m
 import { MyProfileCardComponent } from '../my-profile-card/my-profile-card.component';
 import { DialogsService } from '../../../shared/services/dialogs-service/dialogs.service';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
-import { User } from '@angular/fire/auth';
+import { getAuth, User } from '@angular/fire/auth';
+import { DocumentData, Firestore, collection, collectionData, collectionGroup, doc, getDoc } from '@angular/fire/firestore';
 @Component({
   selector: 'app-user-menu-header-workspace',
   imports: [CommonModule, UserMenuHeaderComponent, UserMenuHeaderMobileComponent, MyProfileCardComponent],
@@ -17,6 +18,7 @@ export class UserMenuHeaderWorkspaceComponent implements OnInit {
 
   public dialogsService = inject(DialogsService);
   private auth = inject(AuthenticationService);  
+  private firestore = inject(Firestore); 
   
   user$: User | undefined
   
@@ -26,11 +28,24 @@ export class UserMenuHeaderWorkspaceComponent implements OnInit {
     online: true
   }
 
+  tempData!: DocumentData;
+
   ngOnInit() {
+    this.setUserPhotoURL()
     this.auth.user$.subscribe(user => {
       if (user?.displayName) {
         this.data.name = user.displayName;
       }
     });
+  }
+
+  async setUserPhotoURL() {
+    let ref = getAuth().currentUser?.uid
+    const userProfileCollection = doc(this.firestore, `users/${ref}`)
+    const docSnap = await getDoc(userProfileCollection);
+    if (docSnap.exists()) {
+      this.tempData = docSnap.data()  
+      this.data.avatar = this.tempData['photoURL']
+    }  
   }
 }

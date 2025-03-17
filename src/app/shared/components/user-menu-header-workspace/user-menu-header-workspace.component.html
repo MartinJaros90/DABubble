@@ -3,7 +3,7 @@
 
     <span>{{data.name}}</span>
     <div class="user-icon">
-        <img [src]="'assets/lukas-icons/profile-card/avatar-' + data.avatar + '.svg'" />
+        <img [src]="data.avatar" />
 
         <div class="profile-icon-active-div center">
             <img src="assets/lukas-icons/create-channel/offline.svg" *ngIf="!data.online">

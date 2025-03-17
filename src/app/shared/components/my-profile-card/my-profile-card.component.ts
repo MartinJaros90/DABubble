@@ -3,6 +3,8 @@ import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DialogsService } from '../../../shared/services/dialogs-service/dialogs.service';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { getAuth } from '@angular/fire/auth';
+import { doc, DocumentData, Firestore, getDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-my-profile-card',
@@ -21,6 +23,7 @@ export class MyProfileCardComponent implements OnInit {
 
   public dialogsService = inject(DialogsService);
   private auth = inject(AuthenticationService);  
+  private firestore = inject(Firestore);
 
 
   avatarUrl = 'assets/lukas-icons/profile-card/avatar-' + this.profileData.avatar + '.svg';
@@ -29,6 +32,8 @@ export class MyProfileCardComponent implements OnInit {
   newName = '';
   avatars: number[] = Array.from({ length: 7 }, (_, i) => i);
   currentAvatar = this.profileData.avatar;
+  tempData!: DocumentData;
+  
 
   ngOnInit() {
     this.auth.user$.subscribe(user => {
@@ -59,6 +64,16 @@ export class MyProfileCardComponent implements OnInit {
   saveFirebase() {
 
   }
+
+    async setUserPhotoURL() {
+      let ref = getAuth().currentUser?.uid
+      const userProfileCollection = doc(this.firestore, `users/${ref}`)
+      const docSnap = await getDoc(userProfileCollection);
+      if (docSnap.exists()) {
+        this.tempData = docSnap.data()  
+        this.profileData.avatar = this.tempData['photoURL']
+      }  
+    }
   
 }
 

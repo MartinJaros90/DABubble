@@ -50,6 +50,6 @@ export class SignUpComponent {
   }
 
   sendUserToAvatarSelector() {
-    this.reroutUser.reroutedUser('logon/profile-selection')
+    this.reroutUser.reroutedUser('logon/profile-img')
   }
 }
