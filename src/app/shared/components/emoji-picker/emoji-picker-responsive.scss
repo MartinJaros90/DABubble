@@ -2,9 +2,9 @@
 
 // Responsive Grid
 .emoji-picker {
-    @media (max-width: bootstrap.$breakpoint-lg) { 
+    @media (max-width: bootstrap.$breakpoint-lg) {
         width: min(480px, 85vw);
-        
+
         .emoji-grid {
             grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
             padding: 10px;
@@ -19,9 +19,9 @@
         }
     }
 
-    @media (max-width: bootstrap.$breakpoint-md) { 
+    @media (max-width: bootstrap.$breakpoint-md) {
         width: min(400px, 85vw);
-        
+
         .emoji-grid {
             grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
             padding: 8px;
@@ -36,9 +36,9 @@
         }
     }
 
-    @media (max-width: bootstrap.$breakpoint-sm) { 
+    @media (max-width: bootstrap.$breakpoint-sm) {
         width: min(300px, 80vw);
-        
+
         .emoji-grid {
             grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
             padding: 6px;
@@ -62,7 +62,7 @@
     @media (hover: none) {
         .emoji {
             padding: 8px;
-            
+
             &:active {
                 background-color: bootstrap.$light-purple;
                 transform: scale(1.1);
@@ -88,61 +88,62 @@
 }
 
 .emoji-picker-wrapper {
-  @media (max-width: bootstrap.$breakpoint-lg) { 
-    .emoji-mart {
-      width: 240px !important;
-      
-      .emoji-mart-anchors {
-        padding: 0 4px !important;
-      }
-    }
-  }
+    @media (max-width: bootstrap.$breakpoint-lg) {
+        .emoji-mart {
+            width: 240px !important;
 
-  @media (max-width: bootstrap.$breakpoint-md) { 
-    .emoji-mart {
-      width: 220px !important;
-      
-      .emoji-mart-anchors {
-        padding: 0 3px !important;
-      }
-      
-      .emoji-mart-anchor {
-        padding: 4px 2px !important;
-      }
+            .emoji-mart-anchors {
+                padding: 0 4px !important;
+            }
+        }
     }
-  }
 
-  @media (max-width: bootstrap.$breakpoint-sm) { 
-    .emoji-mart {
-      width: 200px !important;
-      
-      .emoji-mart-anchors {
-        padding: 0 2px !important;
-      }
-      
-      .emoji-mart-anchor {
-        padding: 4px 1px !important;
-      }      
-      .emoji-mart-anchors img {
-        width: 16px !important;
-        height: 16px !important;
-      }
+    @media (max-width: bootstrap.$breakpoint-md) {
+        .emoji-mart {
+            width: 220px !important;
+
+            .emoji-mart-anchors {
+                padding: 0 3px !important;
+            }
+
+            .emoji-mart-anchor {
+                padding: 4px 2px !important;
+            }
+        }
     }
-  }
+
+    @media (max-width: bootstrap.$breakpoint-sm) {
+        .emoji-mart {
+            width: 200px !important;
+
+            .emoji-mart-anchors {
+                padding: 0 2px !important;
+            }
+
+            .emoji-mart-anchor {
+                padding: 4px 1px !important;
+            }
+
+            .emoji-mart-anchors img {
+                width: 16px !important;
+                height: 16px !important;
+            }
+        }
+    }
 }
 
 .message-input-container {
-  .emoji-picker-wrapper {
-    position: absolute;
-    bottom: 45px;
-    left: 0;
-  }
+    .emoji-picker-wrapper {
+        position: absolute;
+        bottom: 45px;
+        left: 0;
+    }
 }
 
 .message-actions {
-  .emoji-picker-wrapper {
-    position: absolute;
-    top: calc(100% + 5px);
-    left: 0;
-  }
+    .emoji-picker-wrapper {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+    }
 }

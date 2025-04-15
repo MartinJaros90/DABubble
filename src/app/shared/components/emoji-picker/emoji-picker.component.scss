@@ -9,11 +9,11 @@
     transition: all 0.15s ease-out;
     transform-origin: center center;
     will-change: transform, opacity;
-    
+
     &.entering {
         animation: fadeIn 0.2s ease-out forwards;
     }
-    
+
     &.closing {
         opacity: 0;
         transform: scale(0.95);
@@ -64,14 +64,14 @@
     padding: 6px 8px;
     border-bottom: 1px solid #eeeeee;
     background-color: #fafafa;
-    
+
     .emoji-search {
         flex: 1;
         padding: 0;
         border-bottom: none;
         background-color: transparent;
     }
-    
+
     .close-btn {
         background: none;
         border: none;
@@ -85,7 +85,7 @@
         justify-content: center;
         margin-left: 5px;
         color: #777;
-        
+
         &:hover {
             background-color: #f0f0f0;
             color: #333;
@@ -97,7 +97,7 @@
     padding: 6px 8px;
     border-bottom: 1px solid #eeeeee;
     background-color: #fafafa;
-    
+
     input {
         width: 94%;
         padding: 5px 8px;
@@ -105,13 +105,13 @@
         border: 1px solid #e0e0e0;
         font-size: 12px;
         height: 20px;
-        
+
         &:focus {
             outline: none;
             border-color: bootstrap.$purple-1;
             box-shadow: 0 0 0 2px rgba(bootstrap.$purple-1, 0.15);
         }
-        
+
         &::placeholder {
             color: #aaaaaa;
         }
@@ -125,7 +125,7 @@
     padding: 5px;
     border-bottom: 1px solid #eeeeee;
     background-color: #f8f8f8;
-    
+
     .emoji-category-btn {
         background: none;
         border: none;
@@ -134,11 +134,11 @@
         cursor: pointer;
         border-radius: 6px;
         transition: all 0.15s ease;
-        
+
         &:hover {
             background-color: #f0f0f0;
         }
-        
+
         &.active {
             background-color: rgba(bootstrap.$purple-1, 0.1);
             box-shadow: 0 -2px 0 bootstrap.$purple-1 inset;
@@ -148,20 +148,20 @@
 
 .recent-section {
     padding: 5px 8px;
-    
+
     .section-title {
         font-size: 12px;
         color: #999;
         margin-bottom: 5px;
         font-weight: 600;
     }
-    
+
     .recent-emoji-grid {
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         gap: 3px;
         margin-bottom: 8px;
-        
+
         .emoji {
             background: none;
             border: none;
@@ -173,12 +173,12 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.1s ease;
-            
+
             &:hover {
                 background-color: #f5f5f5;
                 transform: scale(1.1);
             }
-            
+
             &:active {
                 transform: scale(0.95);
             }
@@ -196,26 +196,26 @@
     height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
-    
+
     &::-webkit-scrollbar {
         width: 6px;
         height: 0;
     }
-    
+
     &::-webkit-scrollbar-track {
         background: #f1f1f1;
         border-radius: 3px;
     }
-    
+
     &::-webkit-scrollbar-thumb {
         background: #d0d0d0;
         border-radius: 3px;
     }
-    
+
     &::-webkit-scrollbar-thumb:hover {
         background: #b0b0b0;
     }
-    
+
     .emoji {
         background: none;
         border: none;
@@ -230,12 +230,12 @@
         min-width: 0;
         min-height: 0;
         width: 100%;
-        
+
         &:hover {
             background-color: #f5f5f5;
             transform: scale(1.1);
         }
-        
+
         &:active {
             transform: scale(0.95);
         }
@@ -246,19 +246,19 @@
 .selected-emojis-section {
     padding: 5px 8px;
     border-bottom: 1px solid #eeeeee;
-    
+
     .section-title {
         font-size: 12px;
         color: #999;
         margin-bottom: 5px;
         font-weight: 600;
     }
-    
+
     .selected-emoji-list {
         display: flex;
         flex-wrap: wrap;
         gap: 3px;
-        
+
         .selected-emoji {
             font-size: 18px;
             padding: 2px;
@@ -272,12 +272,12 @@
         width: 320px;
         max-height: 320px;
     }
-    
+
     .emoji-grid {
         grid-template-columns: repeat(7, 1fr);
         height: 200px;
     }
-    
+
     .emoji-categories .emoji-category-btn {
         font-size: 14px;
         padding: 3px;

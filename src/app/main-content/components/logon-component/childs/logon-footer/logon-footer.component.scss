@@ -1,6 +1,6 @@
 @use "../../../../../shared/css/bootstrap.scss";
 
-footer{
+footer {
     position: absolute;
     bottom: 32px;
     padding-bottom: 24px;
@@ -11,9 +11,10 @@ footer{
     bottom: 0;
     z-index: 2;
 
-    a{
+    a {
         color: bootstrap.$purple-2;
         font-size: 18px;
+
         &:hover {
             text-decoration: none;
             cursor: pointer;

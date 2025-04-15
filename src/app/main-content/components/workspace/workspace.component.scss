@@ -1,159 +1,158 @@
 @use "../../../../app/shared/css/bootstrap.scss";
 
 .workspace {
-  max-width: 1920px;
-  height: calc(100vh - 114px);
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: bootstrap.$bg-color;
-  padding: 20px 20px 20px;
-
-  app-devspace {
-    max-width: 370px;
-    height: 760px;
-  }
-
-  > .chat {
-    width: 100%;
-    height: 760px;
-    background-color: bootstrap.$white;
-    border-radius: 30px;
-    border: none;
-  }
-
-  app-thread {
-    max-width: 490px;
-    height: 760px;
-    @include bootstrap.flex-column;
-    background-color: bootstrap.$white;
-    border-radius: 30px;
-    border: none;
-  }
-
-  // Responsive Breakpoints
-  @media (max-width: 1400px) {
-    gap: 15px;
-
-    > .searchbar {
-      width: auto;
-      font-size: 20px;
-      padding: 15px 40px;
-      background-position: right 30px center;
-    }
-
-    > .thread {
-      width: 320px;
-    }
-  }
-
-  @media (max-width: 1200px) {
-
-    > img {
-      width: 180px;
-      height: auto;
-    }
-
-    > .searchbar {
-      font-size: 18px;
-      padding: 12px 35px;
-    }
-
-    > .thread {
-      width: 100%;
-      height: auto;
-    }
-
-  }
-
-  @media (max-width: 768px) {
-    gap: 10px;
-    padding: 10px;
-
-    > img {
-      width: 160px;
-      height: auto;
-    }
-
-    > .searchbar {
-      width: 100%;
-      font-size: 16px;
-      padding: 10px 30px;
-      background-position: right 20px center;
-      background-size: 20px;
-    }
+    max-width: 1920px;
+    height: calc(100vh - 114px);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: bootstrap.$bg-color;
+    padding: 20px 20px 20px;
 
     app-devspace {
-      display: block;
-      height: auto;
-      max-height: 300px;
-      overflow-y: auto;
+        max-width: 370px;
+        height: 760px;
     }
 
     > .chat {
-      height: auto;
-      min-height: 300px;
+        width: 100%;
+        height: 760px;
+        background-color: bootstrap.$white;
+        border-radius: 30px;
+        border: none;
     }
 
-    > .thread {
-      height: auto;
-      min-height: 250px;
+    app-thread {
+        max-width: 490px;
+        height: 760px;
+        @include bootstrap.flex-column;
+        background-color: bootstrap.$white;
+        border-radius: 30px;
+        border: none;
     }
-  }
+
+    // Responsive Breakpoints
+    @media (max-width: 1400px) {
+        gap: 15px;
+
+        > .searchbar {
+            width: auto;
+            font-size: 20px;
+            padding: 15px 40px;
+            background-position: right 30px center;
+        }
+
+        > .thread {
+            width: 320px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+
+        > img {
+            width: 180px;
+            height: auto;
+        }
+
+        > .searchbar {
+            font-size: 18px;
+            padding: 12px 35px;
+        }
+
+        > .thread {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        gap: 10px;
+        padding: 10px;
+
+        > img {
+            width: 160px;
+            height: auto;
+        }
+
+        > .searchbar {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px 30px;
+            background-position: right 20px center;
+            background-size: 20px;
+        }
+
+        app-devspace {
+            display: block;
+            height: auto;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        > .chat {
+            height: auto;
+            min-height: 300px;
+        }
+
+        > .thread {
+            height: auto;
+            min-height: 250px;
+        }
+    }
 }
 
 .workspace-menu-toggle {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: bootstrap.$white;
-  padding: 8px;
-  border-radius: 0 8px 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  writing-mode: vertical-lr;
-  transform: rotate(360deg) translateY(50%);
-  z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: bootstrap.$white;
+    padding: 8px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    writing-mode: vertical-lr;
+    transform: rotate(360deg) translateY(50%);
+    z-index: 100;
 
-  &:hover {
-    background-color: bootstrap.$bg-color;
+    &:hover {
+        background-color: bootstrap.$bg-color;
+
+        img {
+            filter: invert(24%) sepia(97%) saturate(1699%) hue-rotate(235deg) brightness(89%) contrast(93%);
+        }
+
+        span {
+            color: bootstrap.$purple-1;
+        }
+    }
 
     img {
-      filter: invert(24%) sepia(97%) saturate(1699%) hue-rotate(235deg)
-        brightness(89%) contrast(93%);
+        width: 20px;
+        height: 20px;
+        transform: rotate(180deg);
     }
 
     span {
-      color: bootstrap.$purple-1;
+        font-size: 16px;
+        color: bootstrap.$black;
+        white-space: nowrap;
     }
-  }
 
-  img {
-    width: 20px;
-    height: 20px;
-    transform: rotate(180deg);
-  }
+    @media (max-width: 768px) {
+        bottom: 20px;
+        top: auto;
+        left: 20px;
+        transform: none;
+        writing-mode: horizontal-tb;
 
-  span {
-    font-size: 16px;
-    color: bootstrap.$black;
-    white-space: nowrap;
-  }
-
-  @media (max-width: 768px) {
-    bottom: 20px;
-    top: auto;
-    left: 20px;
-    transform: none;
-    writing-mode: horizontal-tb;
-
-    img {
-      transform: none;
+        img {
+            transform: none;
+        }
     }
-  }
 }

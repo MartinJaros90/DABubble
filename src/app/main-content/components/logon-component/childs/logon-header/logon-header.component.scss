@@ -10,22 +10,23 @@ header {
     z-index: 2;
     gap: 32px;
 
-    img{
+    img {
         width: 242.11px;
         height: 70px;
     }
 
     .link {
-        
+
         color: bootstrap.$purple-2;
         font-size: 18px;
+
         &:hover {
             text-decoration: none;
             cursor: pointer;
         }
     }
 
-    .new-here{
+    .new-here {
         color: black;
         margin-bottom: 24px;
         font-size: 18px;

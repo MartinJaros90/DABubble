@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProfileImgSelectionComponent } from './profile-img-selection.component';
+import {ProfileImgSelectionComponent} from './profile-img-selection.component';
 
 describe('ProfileImgSelectionComponent', () => {
-  let component: ProfileImgSelectionComponent;
-  let fixture: ComponentFixture<ProfileImgSelectionComponent>;
+    let component: ProfileImgSelectionComponent;
+    let fixture: ComponentFixture<ProfileImgSelectionComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ProfileImgSelectionComponent]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [ProfileImgSelectionComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(ProfileImgSelectionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(ProfileImgSelectionComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

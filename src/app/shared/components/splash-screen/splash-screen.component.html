@@ -1,9 +1,9 @@
-<div class="splash-container" [ngClass]="{ 'fade-out': hideBackground }">
-  <div
-    class="logo-container"
-    [ngClass]="{ 'animate-to-corner': startAnimation }"
-  >
-    <img [ngClass]="{ show: showLogo }" src="assets/img/logo1.png" alt="Logo" />
-    <span class="logo-text" [ngClass]="{ 'fade-in': showText }">DABubble</span>
-  </div>
+<div [ngClass]="{ 'fade-out': hideBackground }" class="splash-container">
+    <div
+        [ngClass]="{ 'animate-to-corner': startAnimation }"
+        class="logo-container"
+    >
+        <img [ngClass]="{ show: showLogo }" alt="Logo" src="assets/img/logo1.png"/>
+        <span [ngClass]="{ 'fade-in': showText }" class="logo-text">DABubble</span>
+    </div>
 </div>

@@ -1,77 +1,77 @@
 <div
-  class="emoji-picker-wrapper"
-  [style.left.px]="pickerPosition.x"
-  [style.top.px]="pickerPosition.y"
+    [style.left.px]="pickerPosition.x"
+    [style.top.px]="pickerPosition.y"
+    class="emoji-picker-wrapper"
 >
-  <div class="emoji-picker" [class.closing]="isClosing">
-    <!-- Header mit Suchfeld und Schließen-Button -->
-    <div class="emoji-header">
-      <div class="emoji-search">
-        <input
-          type="text"
-          [(ngModel)]="searchQuery"
-          (input)="filterEmojis()"
-          placeholder="Emoji suchen..."
-        />
-      </div>
+    <div [class.closing]="isClosing" class="emoji-picker">
+        <!-- Header mit Suchfeld und Schließen-Button -->
+        <div class="emoji-header">
+            <div class="emoji-search">
+                <input
+                    (input)="filterEmojis()"
+                    [(ngModel)]="searchQuery"
+                    placeholder="Emoji suchen..."
+                    type="text"
+                />
+            </div>
 
-      <button
-        *ngIf="multiSelect"
-        class="close-btn"
-        (click)="close()"
-        title="Schließen"
-      >
-        ✕
-      </button>
-    </div>
+            <button
+                (click)="close()"
+                *ngIf="multiSelect"
+                class="close-btn"
+                title="Schließen"
+            >
+                ✕
+            </button>
+        </div>
 
-    <!-- Emoji-Kategorien -->
-    <div class="emoji-categories">
-      @for (category of categories; track category.name) {
-      <button
-        class="emoji-category-btn"
-        [class.active]="selectedCategory === category.name"
-        (click)="selectCategory(category.name)"
-        [title]="category.label"
-      >
-        {{ category.icon }}
-      </button>
-      }
-    </div>
+        <!-- Emoji-Kategorien -->
+        <div class="emoji-categories">
+            @for (category of categories; track category.name) {
+                <button
+                    class="emoji-category-btn"
+                    [class.active]="selectedCategory === category.name"
+                    (click)="selectCategory(category.name)"
+                    [title]="category.label"
+                >
+                    {{ category.icon }}
+                </button>
+            }
+        </div>
 
-    <!-- Ausgewählte Emojis im Multi-Select-Modus -->
-    <div
-      *ngIf="multiSelect && selectedEmojis.length > 0"
-      class="selected-emojis-section"
-    >
-      <div class="section-title">Ausgewählt</div>
-      <div class="selected-emoji-list">
-        @for (emoji of selectedEmojis; track emoji) {
-        <span class="selected-emoji">{{ emoji }}</span>
+        <!-- Ausgewählte Emojis im Multi-Select-Modus -->
+        <div
+            *ngIf="multiSelect && selectedEmojis.length > 0"
+            class="selected-emojis-section"
+        >
+            <div class="section-title">Ausgewählt</div>
+            <div class="selected-emoji-list">
+                @for (emoji of selectedEmojis; track emoji) {
+                    <span class="selected-emoji">{{ emoji }}</span>
+                }
+            </div>
+        </div>
+
+        <!-- Kürzlich verwendet section -->
+        @if (selectedCategory === 'recent' && recentEmojis.length > 0) {
+            <div class="recent-section">
+                <div class="section-title">Kürzlich verwendet</div>
+                <div class="recent-emoji-grid">
+                    @for (emoji of recentEmojis; track $index) {
+                        <span class="emoji" (click)="addEmoji(emoji, $event)">{{ emoji }}</span>
+                    }
+                </div>
+            </div>
         }
-      </div>
-    </div>
 
-    <!-- Kürzlich verwendet section -->
-    @if (selectedCategory === 'recent' && recentEmojis.length > 0) {
-    <div class="recent-section">
-      <div class="section-title">Kürzlich verwendet</div>
-      <div class="recent-emoji-grid">
-        @for (emoji of recentEmojis; track $index) {
-        <span class="emoji" (click)="addEmoji(emoji, $event)">{{ emoji }}</span>
+        <!-- Emoji Grid -->
+        @if (selectedCategory !== 'recent' || recentEmojis.length === 0 ||
+        searchQuery) {
+            <div class="emoji-grid">
+                @for (emoji of filteredEmojis; track $index) {
+                    <span class="emoji" (click)="addEmoji(emoji, $event)">{{ emoji }}</span>
+                }
+            </div>
         }
-      </div>
     </div>
-    }
-
-    <!-- Emoji Grid -->
-    @if (selectedCategory !== 'recent' || recentEmojis.length === 0 ||
-    searchQuery) {
-    <div class="emoji-grid">
-      @for (emoji of filteredEmojis; track $index) {
-      <span class="emoji" (click)="addEmoji(emoji, $event)">{{ emoji }}</span>
-      }
-    </div>
-    }
-  </div>
 </div>

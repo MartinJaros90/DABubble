@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ImpressumComponent } from './impressum.component';
+import {ImprintComponent} from './imprint.component';
 
-describe('ImpressumComponent', () => {
-  let component: ImpressumComponent;
-  let fixture: ComponentFixture<ImpressumComponent>;
+describe('ImprintComponent', () => {
+    let component: ImprintComponent;
+    let fixture: ComponentFixture<ImprintComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ImpressumComponent]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [ImprintComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(ImpressumComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(ImprintComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

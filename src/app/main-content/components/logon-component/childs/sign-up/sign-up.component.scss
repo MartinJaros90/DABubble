@@ -1,11 +1,11 @@
 @use "../../logon.component.scss";
 @use "../../../../../shared/css/bootstrap.scss";
 
-.dialog{
-    height: 669px !important; 
+.dialog {
+    height: 669px !important;
     justify-content: flex-start !important;
-    
-    form{
+
+    form {
         height: 90%;
     }
 }
@@ -87,7 +87,7 @@ section {
     }
 }
 
-.link-to-data-protection{
+.link-to-data-protection {
     color: bootstrap.$purple-2;
 }
 

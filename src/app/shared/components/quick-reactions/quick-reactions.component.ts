@@ -1,25 +1,25 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
-  selector: 'app-quick-reactions',
-  imports: [CommonModule],
-  templateUrl: './quick-reactions.component.html',
-  styleUrl: './quick-reactions.component.scss',
+    selector: 'app-quick-reactions',
+    imports: [CommonModule],
+    templateUrl: './quick-reactions.component.html',
+    styleUrl: './quick-reactions.component.scss',
 })
 export class QuickReactionsComponent {
-  @Input() isVisible = false;
-  @Output() addReaction = new EventEmitter<string>();
-  @Output() openEmojiPicker = new EventEmitter<void>();
-  @Output() addComment = new EventEmitter<void>();
+    @Input() isVisible = false;
+    @Output() addReaction = new EventEmitter<string>();
+    @Output() openEmojiPicker = new EventEmitter<void>();
+    @Output() addComment = new EventEmitter<void>();
 
-  quickEmojis = ['👍', '❤️'];
+    quickEmojis = ['👍', '❤️'];
 
-  onReactionClick(emoji: string) {
-    this.addReaction.emit(emoji);
-  }
+    onReactionClick(emoji: string) {
+        this.addReaction.emit(emoji);
+    }
 
-  onOpenEmojiPicker() {
-    this.openEmojiPicker.emit();
-  }
+    onOpenEmojiPicker() {
+        this.openEmojiPicker.emit();
+    }
 }

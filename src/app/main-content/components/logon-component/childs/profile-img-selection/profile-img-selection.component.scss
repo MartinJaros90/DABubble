@@ -6,7 +6,7 @@ section {
     gap: 32px;
 }
 
-.welcome-text{
+.welcome-text {
     height: 40px !important;
 }
 
@@ -32,6 +32,7 @@ section {
 .small-pics-area {
     @include bootstrap.flex-center;
     gap: 16px;
+
     img {
         &:hover {
             cursor: pointer;

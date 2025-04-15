@@ -1,26 +1,28 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 
 export class DialogsService {
 
-  showEditChannel = false;
-  showAddChannel = false;
-  //----------------------------------------------------
-  showMyProfileCardForUserMenuHeaderWorkspace = false;
-  showMenuForUserMenuHeaderWorkspace = false;
-  showMenuMobileForUserMenuHeaderWorkspace = false;
-  //----------------------------------------------------
-  showAddPeopleDialogForCreateChannel = false;
-  //----------------------------------------------------
+    showEditChannel = false;
+    showAddChannel = false;
+    //----------------------------------------------------
+    showMyProfileCardForUserMenuHeaderWorkspace = false;
+    showMenuForUserMenuHeaderWorkspace = false;
+    showMenuMobileForUserMenuHeaderWorkspace = false;
+    //----------------------------------------------------
+    showAddPeopleDialogForCreateChannel = false;
+
+    //----------------------------------------------------
 
 
-  constructor() { }
+    constructor() {
+    }
 
-  stopProp(event: Event) {
+    stopProp(event: Event) {
 
-    event.stopPropagation();
-  }
+        event.stopPropagation();
+    }
 }

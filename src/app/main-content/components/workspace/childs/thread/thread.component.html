@@ -1,221 +1,221 @@
-<div class="chat-container" [class.closing]="isThreadClosing">
+<div [class.closing]="isThreadClosing" class="chat-container">
     <!-- Header mit Channel-Name und Teilnehmer -->
     <div class="chat-header">
-      <div class="channel-info" (click)="dialogsService.showEditChannel = true">
-        <span class="thread-headline">Thread</span>
-        <span class="hashtag">#</span>
-        <span class="channel-name">Entwicklerteam</span>
-  
-        <app-edit-channel
-          (click)="dialogsService.stopProp($event)"
-          *ngIf="dialogsService.showEditChannel"
-          [class.closing]="isClosing"
-        >
-        </app-edit-channel>
+        <div (click)="dialogsService.showEditChannel = true" class="channel-info">
+            <span class="thread-headline">Thread</span>
+            <span class="hashtag">#</span>
+            <span class="channel-name">Entwicklerteam</span>
+
+            <app-edit-channel
+                (click)="dialogsService.stopProp($event)"
+                *ngIf="dialogsService.showEditChannel"
+                [class.closing]="isClosing"
+            >
+            </app-edit-channel>
+        </div>
+        <div (click)="closeThreadView()" class="close-thread">
+            <img src="../../../assets/icons-png/close.png">
+        </div>
+        <div
+            (click)="openEditChannelClick()"
+            *ngIf="dialogsService.showEditChannel"
+            [class.closing]="isClosing"
+            class="app-edit-channel-overlay"
+        ></div>
     </div>
-    <div class="close-thread" (click)="closeThreadView()">
-    <img src="../../../assets/icons-png/close.png">
-</div>
-      <div
-        class="app-edit-channel-overlay"
-        *ngIf="dialogsService.showEditChannel"
-        [class.closing]="isClosing"
-        (click)="openEditChannelClick()"
-      ></div>
-    </div>
-  
+
     <!-- Nachrichten-Bereich -->
     <div class="messages-container">
-      <!-- Datum-Trenner -->
-      <div class="date-divider">
-        <span>Dienstag, 14 Januar</span>
-      </div>
-  
-      <!-- Erste Nachricht -->
-      <div
-        class="message"
-        (mouseenter)="setHoveredMessage($event, 1)"
-        (mouseleave)="setHoveredMessage($event, null)"
-        [class.hovered]="hoveredMessageId === 1"
-      >
-        <app-quick-reactions
-          [isVisible]="hoveredMessageId === 1"
-          (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-          (addComment)="handleAddComment()"
-        ></app-quick-reactions>
-        <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
-        <div class="message-content">
-          <div class="message-header">
-            <span class="username">Noah Braun</span>
-            <span class="time">14:25 Uhr</span>
-          </div>
-          <p class="message-text">Welche Version ist aktuell von Angular?</p>
-          <div class="message-actions">
-            <span class="replies">2 Antworten</span>
-          </div>
+        <!-- Datum-Trenner -->
+        <div class="date-divider">
+            <span>Dienstag, 14 Januar</span>
         </div>
-      </div>
-  
-      <!-- Datum-Trenner "Heute" -->
-      <div class="date-divider">
-        <span>Heute</span>
-      </div>
-  
-      <!-- Zweite Nachricht -->
-      <div
-        class="message"
-        (mouseenter)="setHoveredMessage($event, 2)"
-        (mouseleave)="setHoveredMessage($event, null)"
-        [class.hovered]="hoveredMessageId === 2"
-      >
-        <app-quick-reactions
-          [isVisible]="hoveredMessageId === 2"
-          (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-          (addComment)="handleAddComment()"
-        ></app-quick-reactions>
-        <img
-          class="avatar"
-          src="../../../assets/img/profile2.png"
-          alt="Frederik"
-        />
-        <div class="message-content">
-          <div class="message-header">
-            <span class="username">Frederik Beck</span>
-            <span class="time">15:06 Uhr</span>
-          </div>
-          <p class="message-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            blandit odio efficitur lectus vestibulum, quis accumsan ante
-            vulputate. Quisque tristique iaculis erat, eu faucibus lacus iaculis
-            ac.
-          </p>
-          <div class="reactions">
-            <div class="reaction">
-              <img src="../../../assets/icons-png/party.png" alt="Party" />
-              <span>1</span>
+
+        <!-- Erste Nachricht -->
+        <div
+            (mouseenter)="setHoveredMessage($event, 1)"
+            (mouseleave)="setHoveredMessage($event, null)"
+            [class.hovered]="hoveredMessageId === 1"
+            class="message"
+        >
+            <app-quick-reactions
+                (addComment)="handleAddComment()"
+                (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+                [isVisible]="hoveredMessageId === 1"
+            ></app-quick-reactions>
+            <img alt="Noah" class="avatar" src="../../../assets/img/profile1.png"/>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">Noah Braun</span>
+                    <span class="time">14:25 Uhr</span>
+                </div>
+                <p class="message-text">Welche Version ist aktuell von Angular?</p>
+                <div class="message-actions">
+                    <span class="replies">2 Antworten</span>
+                </div>
             </div>
-            <div class="reaction">
-              <img src="../../../assets/icons-png/check.png" alt="Check" />
-              <span>1</span>
-            </div>
+        </div>
+
+        <!-- Datum-Trenner "Heute" -->
+        <div class="date-divider">
+            <span>Heute</span>
+        </div>
+
+        <!-- Zweite Nachricht -->
+        <div
+            (mouseenter)="setHoveredMessage($event, 2)"
+            (mouseleave)="setHoveredMessage($event, null)"
+            [class.hovered]="hoveredMessageId === 2"
+            class="message"
+        >
+            <app-quick-reactions
+                (addComment)="handleAddComment()"
+                (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+                [isVisible]="hoveredMessageId === 2"
+            ></app-quick-reactions>
             <img
-              src="../../../assets/icons-png/add-reaction.png"
-              alt="Add Reaction"
-              class="add-reaction"
+                alt="Frederik"
+                class="avatar"
+                src="../../../assets/img/profile2.png"
             />
-          </div>
-        </div>
-      </div>
-  
-      <!-- Dritte Nachricht -->
-      <div
-        class="message"
-        (mouseenter)="setHoveredMessage($event, 3)"
-        (mouseleave)="setHoveredMessage($event, null)"
-        [class.hovered]="hoveredMessageId === 3"
-      >
-        <app-quick-reactions
-          [isVisible]="hoveredMessageId === 3"
-          (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-          (addComment)="handleAddComment()"
-        ></app-quick-reactions>
-        <img class="avatar" src="../../../assets/img/profile3.png" alt="Sofia" />
-        <div class="message-content">
-          <div class="message-header">
-            <span class="username">Sofia Müller</span>
-            <span class="time">15:15 Uhr</span>
-          </div>
-          <p class="message-text">Die aktuelle Version ist Angular 17.</p>
-          <div class="reactions">
-            <div class="reaction">
-              <img src="../../../assets/icons-png/party.png" alt="Thumbs Up" />
-              <span>2</span>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">Frederik Beck</span>
+                    <span class="time">15:06 Uhr</span>
+                </div>
+                <p class="message-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    blandit odio efficitur lectus vestibulum, quis accumsan ante
+                    vulputate. Quisque tristique iaculis erat, eu faucibus lacus iaculis
+                    ac.
+                </p>
+                <div class="reactions">
+                    <div class="reaction">
+                        <img alt="Party" src="../../../assets/icons-png/party.png"/>
+                        <span>1</span>
+                    </div>
+                    <div class="reaction">
+                        <img alt="Check" src="../../../assets/icons-png/check.png"/>
+                        <span>1</span>
+                    </div>
+                    <img
+                        alt="Add Reaction"
+                        class="add-reaction"
+                        src="../../../assets/icons-png/add-reaction.png"
+                    />
+                </div>
             </div>
-            <img
-              src="../../../assets/icons-png/add-reaction.png"
-              alt="Add Reaction"
-              class="add-reaction"
-            />
-          </div>
         </div>
-      </div>
-  
-      <!-- Vierte Nachricht -->
-      <div
-        class="message"
-        (mouseenter)="setHoveredMessage($event, 4)"
-        (mouseleave)="setHoveredMessage($event, null)"
-        [class.hovered]="hoveredMessageId === 4"
-      >
-        <app-quick-reactions
-          [isVisible]="hoveredMessageId === 4"
-          (openEmojiPicker)="handleQuickReactionEmojiPicker()"
-          (addComment)="handleAddComment()"
-        ></app-quick-reactions>
-        <img class="avatar" src="../../../assets/img/profile1.png" alt="Noah" />
-        <div class="message-content">
-          <div class="message-header">
-            <span class="username">Noah Braun</span>
-            <span class="time">15:30 Uhr</span>
-          </div>
-          <p class="message-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            blandit odio efficitur lectus vestibulum, quis accumsan ante
-            vulputate. Quisque tristique iaculis erat, eu faucibus lacus iaculis
-            ac.
-          </p>
-          <div class="reactions">
-            <div class="reaction">
-              <img src="../../../assets/icons-png/party.png" alt="Fire" />
-              <span>3</span>
+
+        <!-- Dritte Nachricht -->
+        <div
+            (mouseenter)="setHoveredMessage($event, 3)"
+            (mouseleave)="setHoveredMessage($event, null)"
+            [class.hovered]="hoveredMessageId === 3"
+            class="message"
+        >
+            <app-quick-reactions
+                (addComment)="handleAddComment()"
+                (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+                [isVisible]="hoveredMessageId === 3"
+            ></app-quick-reactions>
+            <img alt="Sofia" class="avatar" src="../../../assets/img/profile3.png"/>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">Sofia Müller</span>
+                    <span class="time">15:15 Uhr</span>
+                </div>
+                <p class="message-text">Die aktuelle Version ist Angular 17.</p>
+                <div class="reactions">
+                    <div class="reaction">
+                        <img alt="Thumbs Up" src="../../../assets/icons-png/party.png"/>
+                        <span>2</span>
+                    </div>
+                    <img
+                        alt="Add Reaction"
+                        class="add-reaction"
+                        src="../../../assets/icons-png/add-reaction.png"
+                    />
+                </div>
             </div>
-            <div class="reaction">
-              <img src="../../../assets/icons-png/check.png" alt="Heart" />
-              <span>2</span>
-            </div>
-            <img
-              src="../../../assets/icons-png/add-reaction.png"
-              alt="Add Reaction"
-              class="add-reaction"
-            />
-          </div>
         </div>
-      </div>
+
+        <!-- Vierte Nachricht -->
+        <div
+            (mouseenter)="setHoveredMessage($event, 4)"
+            (mouseleave)="setHoveredMessage($event, null)"
+            [class.hovered]="hoveredMessageId === 4"
+            class="message"
+        >
+            <app-quick-reactions
+                (addComment)="handleAddComment()"
+                (openEmojiPicker)="handleQuickReactionEmojiPicker()"
+                [isVisible]="hoveredMessageId === 4"
+            ></app-quick-reactions>
+            <img alt="Noah" class="avatar" src="../../../assets/img/profile1.png"/>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">Noah Braun</span>
+                    <span class="time">15:30 Uhr</span>
+                </div>
+                <p class="message-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    blandit odio efficitur lectus vestibulum, quis accumsan ante
+                    vulputate. Quisque tristique iaculis erat, eu faucibus lacus iaculis
+                    ac.
+                </p>
+                <div class="reactions">
+                    <div class="reaction">
+                        <img alt="Fire" src="../../../assets/icons-png/party.png"/>
+                        <span>3</span>
+                    </div>
+                    <div class="reaction">
+                        <img alt="Heart" src="../../../assets/icons-png/check.png"/>
+                        <span>2</span>
+                    </div>
+                    <img
+                        alt="Add Reaction"
+                        class="add-reaction"
+                        src="../../../assets/icons-png/add-reaction.png"
+                    />
+                </div>
+            </div>
+        </div>
     </div>
-  
+
     <!-- Nachrichten-Input -->
     <div class="message-input">
-      <div class="input-container">
-        <div class="input-actions-left">
-          <div class="emoji-container">
-            <img
-              src="../../../assets/icons-png/smile.png"
-              alt="Emoji"
-              (click)="toggleEmojiPicker()"
-            />
-            @if (showEmojiPicker) {
-            <div class="centered-emoji-picker">
-              <app-emoji-picker
-                (emojiSelected)="handleEmojiSelected($event)"
-                (closeEmojiPicker)="showEmojiPicker = false"
-              ></app-emoji-picker>
+        <div class="input-container">
+            <div class="input-actions-left">
+                <div class="emoji-container">
+                    <img
+                        (click)="toggleEmojiPicker()"
+                        alt="Emoji"
+                        src="../../../assets/icons-png/smile.png"
+                    />
+                    @if (showEmojiPicker) {
+                        <div class="centered-emoji-picker">
+                            <app-emoji-picker
+                                (emojiSelected)="handleEmojiSelected($event)"
+                                (closeEmojiPicker)="showEmojiPicker = false"
+                            ></app-emoji-picker>
+                        </div>
+                    }
+                </div>
+                <img alt="Mention" src="../../../assets/icons-png/email.png"/>
             </div>
-            }
-          </div>
-          <img src="../../../assets/icons-png/email.png" alt="Mention" />
+            <input
+                [(ngModel)]="messageText"
+                placeholder="Antworten..."
+                type="text"
+            />
+            <div class="input-actions-right">
+                <img
+                    alt="Send"
+                    class="send-icon"
+                    src="../../../assets/icons-png/send.png"
+                />
+            </div>
         </div>
-        <input
-          type="text"
-          placeholder="Antworten..."
-          [(ngModel)]="messageText"
-        />
-        <div class="input-actions-right">
-          <img
-            src="../../../assets/icons-png/send.png"
-            alt="Send"
-            class="send-icon"
-          />
-        </div>
-      </div>
     </div>
-  </div>
+</div>

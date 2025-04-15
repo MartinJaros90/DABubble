@@ -1,59 +1,61 @@
 <app-logon-header></app-logon-header>
 <section class="sectiond dialog">
-	<dialog class="dialog">
-		<form #loginForm="ngForm" (ngSubmit)="signIn()">
-			<div class="welcome-text">
-				<h2>Anmeldung</h2>
-				<p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest.</p>
-			</div>
-			
-			<div class="sign-in-area">
-				<input
-					[(ngModel)]="loginFormModel.email"
-					#email="ngModel"
-					required
-					pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-					id="mail-input"
-					name="email"
-					type="email"
-					placeholder="example@example.com"
-					autocomplete="off"
-				/>
-				@if (email.pristine && email.invalid && email.touched) {
-					<h6 class="">*Diese E-Mail-Adresse ist leider ungültig.</h6>
-				  }
-				<input
-					[(ngModel)]="loginFormModel.password"
-					#password="ngModel"
-					name="password"
-					required
-					id="password-input"
-					type="password"
-					placeholder="Passwort"
-				/>
-				@if (password.pristine && password.invalid && password.touched) {
-					<p class="error">Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.</p>
-				  }
-				<span [routerLink]="['password-back']" routerLinkActive="router-link-active">Passwort vergessen?</span>
-			</div>
-		
-			<div class="separator-container">
-				<div class="separator-text">ODER</div>
-				<div class="separator-line"></div>
-			</div>
+    <dialog class="dialog">
+        <form #loginForm="ngForm" (ngSubmit)="signIn()">
+            <div class="welcome-text">
+                <h2>Anmeldung</h2>
+                <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest.</p>
+            </div>
 
-			<div class="sign-in-button-area">
-				<button (click)="loginWithGoogle()" class="google-button"><img src="../../assets/icons/Google.svg">Anmelden mit Google</button>
-			</div>
-			
-			<div class="sign-in-button-area">
-				<button type="submit" class="submit-button primary-btn">
-					Anmelden
-				</button>
-				<a class="secondary-btn" (click)="signInAnonymous()">Gäste-Login</a>
-			</div>
-			
-		</form>
-	</dialog>
+            <div class="sign-in-area">
+                <input
+                    #email="ngModel"
+                    [(ngModel)]="loginFormModel.email"
+                    autocomplete="off"
+                    id="mail-input"
+                    name="email"
+                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                    placeholder="example@example.com"
+                    required
+                    type="email"
+                />
+                @if (email.pristine && email.invalid && email.touched) {
+                    <h6 class="">*Diese E-Mail-Adresse ist leider ungültig.</h6>
+                }
+                <input
+                    #password="ngModel"
+                    [(ngModel)]="loginFormModel.password"
+                    id="password-input"
+                    name="password"
+                    placeholder="Passwort"
+                    required
+                    type="password"
+                />
+                @if (password.pristine && password.invalid && password.touched) {
+                    <p class="error">Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.</p>
+                }
+                <span [routerLink]="['password-back']" routerLinkActive="router-link-active">Passwort vergessen?</span>
+            </div>
+
+            <div class="separator-container">
+                <div class="separator-text">ODER</div>
+                <div class="separator-line"></div>
+            </div>
+
+            <div class="sign-in-button-area">
+                <button (click)="loginWithGoogle()" class="google-button"><img src="../../assets/icons/Google.svg">Anmelden
+                    mit Google
+                </button>
+            </div>
+
+            <div class="sign-in-button-area">
+                <button class="submit-button primary-btn" type="submit">
+                    Anmelden
+                </button>
+                <a (click)="signInAnonymous()" class="secondary-btn">Gäste-Login</a>
+            </div>
+
+        </form>
+    </dialog>
 </section>
 <app-logon-footer></app-logon-footer>

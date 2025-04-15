@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EditChannelComponent } from './edit-channel.component';
+import {EditChannelComponent} from './edit-channel.component';
 
 describe('EditChannelComponent', () => {
-  let component: EditChannelComponent;
-  let fixture: ComponentFixture<EditChannelComponent>;
+    let component: EditChannelComponent;
+    let fixture: ComponentFixture<EditChannelComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [EditChannelComponent]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [EditChannelComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(EditChannelComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(EditChannelComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

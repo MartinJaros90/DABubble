@@ -1,31 +1,31 @@
-import { Component, inject } from '@angular/core';
-import { DialogsService } from '../../services/dialogs-service/dialogs.service';
+import {Component, inject} from '@angular/core';
+import {DialogsService} from '../../services/dialogs-service/dialogs.service';
 
 @Component({
-  selector: 'app-user-menu-header-mobile',
-  imports: [],
-  templateUrl: './user-menu-header-mobile.component.html',
-  styleUrl: './user-menu-header-mobile.component.scss'
+    selector: 'app-user-menu-header-mobile',
+    imports: [],
+    templateUrl: './user-menu-header-mobile.component.html',
+    styleUrl: './user-menu-header-mobile.component.scss'
 })
 
 export class UserMenuHeaderMobileComponent {
 
-  dialogsService = inject(DialogsService);
+    dialogsService = inject(DialogsService);
 
 
-  exitClick() {
+    exitClick() {
 
-    this.dialogsService.showMenuForUserMenuHeaderWorkspace = false;
-    this.dialogsService.showMenuMobileForUserMenuHeaderWorkspace = false;
-  }
+        this.dialogsService.showMenuForUserMenuHeaderWorkspace = false;
+        this.dialogsService.showMenuMobileForUserMenuHeaderWorkspace = false;
+    }
 
-  profileClick() {
+    profileClick() {
 
-    this.dialogsService.showMyProfileCardForUserMenuHeaderWorkspace = true;
-  }
+        this.dialogsService.showMyProfileCardForUserMenuHeaderWorkspace = true;
+    }
 
-  logOutClick() {
+    logOutClick() {
 
 
-  }
+    }
 }

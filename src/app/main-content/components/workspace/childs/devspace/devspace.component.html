@@ -1,56 +1,56 @@
 <div class="devspace">
-  <div class="devspace-header">
-    <div class="logo-section">
-      <img src="../../assets/icons-png/workspace-logo.png" alt="Workspace Logo" />
-      <span>Devspace</span>
+    <div class="devspace-header">
+        <div class="logo-section">
+            <img alt="Workspace Logo" src="../../assets/icons-png/workspace-logo.png"/>
+            <span>Devspace</span>
+        </div>
+        <img alt="Edit" class="edit-icon" src="../../assets/icons-png/edit-square.png"/>
     </div>
-    <img src="../../assets/icons-png/edit-square.png" alt="Edit" class="edit-icon" />
-  </div>
 
-  <div class="menu-section">
-    <div class="menu-item">
-      <div class="menu-title" (click)="toggleChannels()">
-        <img [src]="
+    <div class="menu-section">
+        <div class="menu-item">
+            <div (click)="toggleChannels()" class="menu-title">
+                <img [src]="
             isChannelsOpen
               ? '../../assets/icons-png/arrow-drop-down.png'
               : '../../assets/icons-png/arrow-right.png'
-          " alt="Arrow" />
-        <img src="../../assets/icons-png/workspaces.png" alt="Channels" />
-        <span>Channels</span>
-      </div>
-      <img src="../../assets/icons-png/add.png" alt="Add" class="add-icon"
-        (click)="openChannelDialog($event); toggleAddChannel()" />
-    </div>
-    @if (isChannelsOpen) {
-    <div class="channels-content">
-      <div class="add-channel-item" (click)="toggleAddChannel()">
-        <img src="../../assets/icons-png/add-circle.png" alt="Add Channel" />
-        <span>Channel hinzufügen</span>
-      </div>
-    </div>
-    }
+          " alt="Arrow"/>
+                <img alt="Channels" src="../../assets/icons-png/workspaces.png"/>
+                <span>Channels</span>
+            </div>
+            <img (click)="openChannelDialog($event); toggleAddChannel()" alt="Add" class="add-icon"
+                 src="../../assets/icons-png/add.png"/>
+        </div>
+        @if (isChannelsOpen) {
+            <div class="channels-content">
+                <div class="add-channel-item" (click)="toggleAddChannel()">
+                    <img src="../../assets/icons-png/add-circle.png" alt="Add Channel"/>
+                    <span>Channel hinzufügen</span>
+                </div>
+            </div>
+        }
 
-    <div class="menu-item" (click)="toggleDirectMessages()">
-      <div class="menu-title">
-        <img [src]="
+        <div (click)="toggleDirectMessages()" class="menu-item">
+            <div class="menu-title">
+                <img [src]="
             isDirectMessagesOpen
               ? '../../assets/icons-png/arrow-drop-down.png'
               : '../../assets/icons-png/arrow-right.png'
-          " alt="Arrow" />
-        <img src="../../assets/icons-png/account-circle.png" alt="Messages" />
-        <span>Direktnachrichten</span>
-      </div>
+          " alt="Arrow"/>
+                <img alt="Messages" src="../../assets/icons-png/account-circle.png"/>
+                <span>Direktnachrichten</span>
+            </div>
+        </div>
+        @if (isDirectMessagesOpen) {
+            <div class="messages-content">
+                <!-- Direktnachrichten-Content wird später hinzugefügt -->
+            </div>
+        }
     </div>
-    @if (isDirectMessagesOpen) {
-    <div class="messages-content">
-      <!-- Direktnachrichten-Content wird später hinzugefügt -->
-    </div>
-    }
-  </div>
 </div>
 
-<div class="app-create-channel-overlay" *ngIf="dialogsService.showAddChannel" [class.closing]="isClosing"
-  (click)="closeDialog()">
-  <app-create-channel (click)="dialogsService.stopProp($event)">
-  </app-create-channel>
+<div (click)="closeDialog()" *ngIf="dialogsService.showAddChannel" [class.closing]="isClosing"
+     class="app-create-channel-overlay">
+    <app-create-channel (click)="dialogsService.stopProp($event)">
+    </app-create-channel>
 </div>

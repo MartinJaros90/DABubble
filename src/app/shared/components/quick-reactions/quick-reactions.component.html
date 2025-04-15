@@ -1,17 +1,17 @@
-<div class="quick-reactions" [class.show]="isVisible">
-  @for (emoji of quickEmojis; track emoji) {
-  <div class="reaction-item" (click)="onReactionClick(emoji)">
-    {{ emoji }}
-  </div>
-  }
-  <div class="reaction-item" (click)="onOpenEmojiPicker()">
-    <img
-      src="assets/icons-png/smile.png"
-      alt="Add Reaction"
-      class="add-emoji"
-    />
-  </div>
-  <div class="reaction-item" (click)="addComment.emit()">
-    <span class="comment">💬</span>
-  </div>
+<div [class.show]="isVisible" class="quick-reactions">
+    @for (emoji of quickEmojis; track emoji) {
+        <div class="reaction-item" (click)="onReactionClick(emoji)">
+            {{ emoji }}
+        </div>
+    }
+    <div (click)="onOpenEmojiPicker()" class="reaction-item">
+        <img
+            alt="Add Reaction"
+            class="add-emoji"
+            src="assets/icons-png/smile.png"
+        />
+    </div>
+    <div (click)="addComment.emit()" class="reaction-item">
+        <span class="comment">💬</span>
+    </div>
 </div>

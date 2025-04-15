@@ -1,16 +1,16 @@
-<app-header></app-header>  
+<app-header></app-header>
 <section class="workspace">
     @if (isDevspaceVisible) {
-    <app-devspace (addChannel)="openChannelDialog($event)"></app-devspace>
+        <app-devspace (addChannel)="openChannelDialog($event)"></app-devspace>
     }
     <div [class]="getChatClasses()">
-      <app-chat></app-chat>
+        <app-chat></app-chat>
     </div>
     @if (isThreadVisible) {
-      <app-thread *ngIf="isThreadVisible" (closeThread)="isThreadVisible = false"></app-thread>
+        <app-thread *ngIf="isThreadVisible" (closeThread)="isThreadVisible = false"></app-thread>
     }
-    <div class="workspace-menu-toggle" (click)="toggleDevspace()">
-      <img src="../../assets/icons-png/hidden.png" alt="Toggle Menu" />
-      <span>{{ getWorkspaceMenuText() }}</span>
+    <div (click)="toggleDevspace()" class="workspace-menu-toggle">
+        <img alt="Toggle Menu" src="../../assets/icons-png/hidden.png"/>
+        <span>{{ getWorkspaceMenuText() }}</span>
     </div>
-  </section>
+</section>
