@@ -1,55 +1,40 @@
 import { Component, inject } from '@angular/core';
 import { AuthenticationService } from "../../../../../shared/services/authentication/authentication.service";
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { LogonHeaderComponent } from "../logon-header/logon-header.component";
 import { LogonFooterComponent } from "../logon-footer/logon-footer.component";
 import { ReroutedUserService } from "../../../../../shared/services/reroutUser/rerouted-user.service";
 
 @Component({
-  selector: 'app-sign-up',
-  imports: [FormsModule, RouterLink, LogonHeaderComponent, LogonFooterComponent],
-  templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss'
+	selector: 'app-sign-up',
+	imports: [FormsModule, RouterLink, LogonHeaderComponent, LogonFooterComponent],
+	templateUrl: './sign-up.component.html',
+	styleUrl: './sign-up.component.scss'
 })
 export class SignUpComponent {
-  private authService = inject(AuthenticationService);
-  private reroutUser = inject(ReroutedUserService);
-  email = '';
-  password = '';
-  name = '';
-  avatarNum = "";
-  checkboxChecked = false;
+	private authService = inject(AuthenticationService);
+	private reroutUser = inject(ReroutedUserService);
+	email = '';
+	password = '';
+	displayName = '';
+	checkboxChecked = false;
 
-	constructor(private router: Router) {
-		
+	constructor() {
+
 	}
 
-  async signUp() {
-    try {
-      await this.authService.signUp(this.email, this.password, this.name, this.avatarNum).then(success => {
-        if (success) {
-          this.reroutUser.reroutedUser('/')
-        }
-			})
-    } catch (error: any) {
-      console.error('SignUp error:', error);
-    }
-  }
+	async signUp() {
+		await this.authService.signUpWithEmail(this.email, this.password, this.displayName);
+		this.reroutUser.reroutedUser("/")
+	}
 
-  async loginWithGoogle() {
-    try {
-      await this.authService.signInWithGoogle().then(success => {
-        if (success) {
-          this.reroutUser.reroutedUser('/')
-        }
-			})
-    } catch (error: any) {
-      console.error('Google Sign-In error:', error);
-    }
-  }
+	async loginWithGoogle() {
+		this.authService.loginWithGoogle();
+	}
 
-  sendUserToAvatarSelector() {
-    this.reroutUser.reroutedUser('logon/profile-img')
-  }
+	sendUserToAvatarSelector() {
+		this.signUp()
+		this.reroutUser.reroutedUser('logon/profile-img')
+	}
 }

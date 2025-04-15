@@ -7,42 +7,33 @@ import { LogonFooterComponent } from '../logon-footer/logon-footer.component';
 import { ReroutedUserService } from "../../../../../shared/services/reroutUser/rerouted-user.service";
 
 @Component({
-  selector: 'app-sign-in',
-  imports: [FormsModule, RouterLink, RouterLinkActive, LogonHeaderComponent, LogonFooterComponent],
-  templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.scss'
+	selector: 'app-sign-in',
+	standalone: true,
+	imports: [FormsModule, RouterLink, RouterLinkActive, LogonHeaderComponent, LogonFooterComponent],
+	templateUrl: './sign-in.component.html',
+	styleUrl: './sign-in.component.scss'
 })
 export class SignInComponent {
-  private authService = inject(AuthenticationService);
-  private reroutUser = inject(ReroutedUserService);
-  email = '';
-  password = '';
+	private authService = inject(AuthenticationService);
+	private reroutUser = inject(ReroutedUserService)
+	
+	loginFormModel = {
+		email: '',
+		password: '',
+	}
 
-  constructor() {}
+	constructor() {}
 
-  async signIn() {
-    try {
-      await this.authService.signIn(this.email, this.password).then(success => {
-        if (success) {
-          this.reroutUser.reroutedUser('/')
-        }
-      })
-    } catch (error: any) {
-      console.error('Sign-In error:', error);
-    }    
-  }
+	async signIn() {
+		await this.authService.loginWithEmail(this.loginFormModel.email, this.loginFormModel.password);
+		this.reroutUser.reroutedUser('/')
+	}
 
-  async signInAnonymous() {
-    await this.authService.signInAnonymously()
-    this.reroutUser.reroutedUser('/')
-  }
+	async signInAnonymous() {
+		this.authService.loginWithEmail(this.loginFormModel.email, this.loginFormModel.password);
+	}
 
-  async loginWithGoogle() {
-    try {
-      await this.authService.signInWithGoogle();
-      this.reroutUser.reroutedUser('/')
-    } catch (error: any) {
-      console.error('Google Sign-In error:', error);
-    }
-  }
+	async loginWithGoogle() {
+		this.authService.loginWithGoogle();
+	}
 }

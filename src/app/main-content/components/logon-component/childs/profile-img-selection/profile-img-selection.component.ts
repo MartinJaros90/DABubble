@@ -26,10 +26,7 @@ export class ProfileImgSelectionComponent {
   }
 
   choosePic() {
-    let uId = getAuth().currentUser?.uid
-    const docRef = doc(this.firestore, 'users', `${uId}`);
-    let photoURL = this.currentUser.path
-    updateDoc(docRef, { photoURL })
+
   }
 
 }

@@ -9,22 +9,31 @@
 			
 			<div class="sign-in-area">
 				<input
-					[(ngModel)]="email"
-					name="email"
+					[(ngModel)]="loginFormModel.email"
+					#email="ngModel"
 					required
-					pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+					pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
 					id="mail-input"
+					name="email"
 					type="email"
 					placeholder="example@example.com"
+					autocomplete="off"
 				/>
+				@if (email.pristine && email.invalid && email.touched) {
+					<h6 class="">*Diese E-Mail-Adresse ist leider ungültig.</h6>
+				  }
 				<input
-					[(ngModel)]="password"
+					[(ngModel)]="loginFormModel.password"
+					#password="ngModel"
 					name="password"
 					required
 					id="password-input"
 					type="password"
 					placeholder="Passwort"
 				/>
+				@if (password.pristine && password.invalid && password.touched) {
+					<p class="error">Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.</p>
+				  }
 				<span [routerLink]="['password-back']" routerLinkActive="router-link-active">Passwort vergessen?</span>
 			</div>
 		

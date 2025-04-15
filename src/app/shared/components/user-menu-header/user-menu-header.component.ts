@@ -24,7 +24,6 @@ export class UserMenuHeaderComponent implements OnInit {
   }
 
   profileClick() {
-
     this.dialogsService.showMyProfileCardForUserMenuHeaderWorkspace = true;    
   }
 

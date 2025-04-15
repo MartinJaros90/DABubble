@@ -3,8 +3,9 @@ import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DialogsService } from '../../../shared/services/dialogs-service/dialogs.service';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
-import { getAuth } from '@angular/fire/auth';
 import { doc, DocumentData, Firestore, getDoc } from '@angular/fire/firestore';
+import { FirestoreService } from "../../services/firestore/firestore.service";
+import { getAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-my-profile-card',
@@ -24,6 +25,7 @@ export class MyProfileCardComponent implements OnInit {
   public dialogsService = inject(DialogsService);
   private auth = inject(AuthenticationService);  
   private firestore = inject(Firestore);
+  private firestoreService = inject(FirestoreService)
 
 
   avatarUrl = 'assets/lukas-icons/profile-card/avatar-' + this.profileData.avatar + '.svg';
@@ -36,13 +38,7 @@ export class MyProfileCardComponent implements OnInit {
   
 
   ngOnInit() {
-    this.auth.user$.subscribe(user => {
-      if (user?.displayName && user.email) {
-        this.profileData.name = user.displayName;
-        this.profileData.email = user.email;
-        console.log(user)
-      }
-    });
+
   }
 
   editCancel() {
@@ -65,15 +61,9 @@ export class MyProfileCardComponent implements OnInit {
 
   }
 
-    async setUserPhotoURL() {
-      let ref = getAuth().currentUser?.uid
-      const userProfileCollection = doc(this.firestore, `users/${ref}`)
-      const docSnap = await getDoc(userProfileCollection);
-      if (docSnap.exists()) {
-        this.tempData = docSnap.data()  
-        this.profileData.avatar = this.tempData['photoURL']
-      }  
-    }
+  setUserPhotoURL() {
+ 
+  }
   
 }
 
