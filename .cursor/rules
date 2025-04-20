@@ -1,0 +1,98 @@
+# DABubble Projektregeln
+
+## Sicherheit
+1. KEINE Firebase-Konfigurationsdaten (API-Keys, etc.) in Git committen
+2. Sensible Daten immer in .gitignore aufnehmen
+3. Regelmäßige Überprüfung der Firebase Security Rules
+4. API-Keys bei Verdacht auf Kompromittierung sofort ändern
+
+## Git Workflow
+1. Feature Branches für neue Funktionen
+2. Pull Requests vor dem Merge
+3. Klare Commit Messages
+4. Regelmäßige Updates vom main Branch
+5. Mindestens ein Commit pro Arbeitssitzung
+6. Repository muss public sein
+7. Nach Abschluss der Gruppenarbeit sollte jedes Mitglied das Projekt forken
+
+## Code Qualität
+1. Angular Style Guide befolgen
+2. TypeScript strikt verwenden (Strict mode aktiviert)
+3. Unit Tests für neue Funktionen
+4. Code Reviews durchführen
+5. Eine Funktion hat nur eine Aufgabe
+6. Funktionen maximal 14 Zeilen lang
+7. Beschreibende Funktionsnamen kurz und prägnant
+8. Vermeidung von Namenskonflikten
+9. camelCase für Variablen und Funktionen
+10. Max 400 LOCs pro Datei
+11. 1-2 Leerzeilen Abstand zwischen Funktionen
+
+## Firebase
+1. Realtime Database für Echtzeit-Updates
+2. Security Rules regelmäßig überprüfen
+3. Monitoring aktivieren
+4. Alerts für ungewöhnliche Aktivitäten einrichten
+
+## Dokumentation
+1. README.md aktuell halten
+2. Wichtige Änderungen dokumentieren
+3. API-Dokumentation pflegen
+4. Setup-Anleitung für neue Entwickler
+5. Optional: Verwendung von compodoc.app zur Dokumentation
+
+## Deployment
+1. Staging-Umgebung vor Produktion
+2. Automatisierte Tests
+3. Backup-Strategie
+4. Monitoring einrichten
+
+## Team
+1. Regelmäßige Code Reviews
+2. Wissen teilen
+3. Probleme früh kommunizieren
+4. Sicherheitsprobleme sofort melden
+
+## Design & UX
+1. 1:1 Umsetzung des Figma-Designs
+2. Konsistente Abstände und Farben
+3. Responsive bis 320px
+4. Keine Scrollbalken bei kleinen Auflösungen
+5. Buttons mit cursor: pointer
+6. Keine Standard-Borders bei Inputs/Buttons
+7. Favicon implementieren
+
+## Formulare & Validierung
+1. Spezifische Fehlermeldungen (keine Alerts)
+2. Validierung bei leeren Inputs
+3. Korrekte Button-States (enabled/disabled/hover)
+4. Form-Validation für alle Eingabefelder
+
+## Ordnerstruktur
+1. Ordner für Komponenten
+2. Ordner für Bilder (img)
+3. Shared Ordner
+4. Optional: pipes Ordner
+
+## User Stories
+1. Benutzeraccount & Administration
+   - Registrierung mit E-Mail, Name, Passwort
+   - Anmeldung mit Validierung
+   - Passwort vergessen Funktion
+   - Profilbearbeitung (Name, Avatar)
+   - Menü-Minimierung
+   - Optional: Online-Status
+
+2. Channels & Direktnachrichten
+   - Direktnachrichten-Funktionalität
+   - Emoticon-Reaktionen
+   - Emoticon-Eingabe
+   - Channel/Mitglieder-Tagging (#/@)
+   - Thread-Funktionalität
+   - Nachrichtensuche
+
+3. Channel Management
+   - Channel-Erstellung
+   - Mitglieder hinzufügen
+   - Channel verlassen
+   - Channel-Editierung 
